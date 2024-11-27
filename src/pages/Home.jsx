@@ -10,8 +10,7 @@ const Home = () => {
   return (
     <>
     <div className=''> 
-      <div className='h-screen text-black mt-10'>
-        <h1 className='text-center'>Collections</h1>
+      <div className='h-screen text-black'>
         <HomeContent />
 
       </div>
