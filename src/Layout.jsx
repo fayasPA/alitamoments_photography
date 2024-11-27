@@ -8,7 +8,7 @@ const Layout = () => {
 
   return (
     <div
-      className="your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col"
+      className="your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col bg-white"
     >
         <div className=" flex-grow md:pb-0">
           <Navbar />
