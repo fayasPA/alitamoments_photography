@@ -1,7 +1,7 @@
 import React from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./Testimonials.css"; // Add this CSS file for additional styles if needed
+import "../assets/css/Testimonials.css"; // Add this CSS file for additional styles if needed
 
 gsap.registerPlugin(ScrollTrigger);
 
