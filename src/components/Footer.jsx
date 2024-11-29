@@ -31,8 +31,8 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
         {/* Contact Section */}
         <div className="text-center md:text-left space-y-2">
-          <p className="font-medium">NANCY@BOTTEGA53.COM</p>
-          <p className="font-medium">+41 (0) 764 530 053</p>
+          <p className="font-medium">alitamoments@gmail.com</p>
+          <p className="font-medium">813-507-8559</p>
         </div>
 
         {/* Social Icons */}
