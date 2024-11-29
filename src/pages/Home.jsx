@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
     <div className=''> 
-      <div className='h-screen text-black'>
+      <div className='h-full text-black'>
         <HomeContent />
 
       </div>
