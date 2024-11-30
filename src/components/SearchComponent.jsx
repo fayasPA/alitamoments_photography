@@ -31,7 +31,7 @@ const SearchComponent = () => {
             {/* Image Container */}
             <div className="relative w-full h-0 overflow-hidden" style={{ paddingBottom: '150%' }}>
               <img
-                src={collection.image_url}
+                src={collection.image_url[0]}
                 alt={collection.name}
                 className="absolute inset-0 w-full h-full object-cover rounded-md shadow-lg hover:scale-125 duration-[2000ms] transition-all"
               />
