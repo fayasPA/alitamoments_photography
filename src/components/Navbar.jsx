@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className="" >
               <img
                 src={companyLogo}
-                alt="Premier Steels Logo"
+                alt="Alita Moments Logo"
                 className="w-32 h-12 lg:w-52 lg:h-16 transition-all duration-700 ease-in-out"
                 role="img" // Added role for clarity
               />
@@ -73,6 +73,7 @@ const Navbar = () => {
                 </div>
               </div>
 
+              {/* social links */}
               <div className="mt-10 md:text-end md:mr-14">
                 <NavLink
                   to="/contact"
@@ -120,27 +121,6 @@ const Navbar = () => {
                     INSTAGRAM
                   </NavLink>
 
-                  <NavLink
-                    to="https://www.pinterest.com/yourCompany" // Replace with actual Pinterest link
-                    className="menu-item transition-opacity duration-500 ease-in-out"
-                    target="_blank" // Opens in a new tab
-                    onMouseEnter={(e) => {
-                      const items = document.querySelectorAll(".menu-item");
-                      items.forEach((item) => {
-                        if (item !== e.target) {
-                          item.style.opacity = "0.4"; // Dull effect for non-hovered items
-                        }
-                      });
-                    }}
-                    onMouseLeave={() => {
-                      const items = document.querySelectorAll(".menu-item");
-                      items.forEach((item) => {
-                        item.style.opacity = "1"; // Reset opacity on hover out
-                      });
-                    }}
-                  >
-                    PINTEREST
-                  </NavLink>
 
                   <NavLink
                     to="https://www.facebook.com/yourCompany" // Replace with actual Facebook link
@@ -231,7 +211,7 @@ const Navbar = () => {
                     )
                   )}
                 </div>
-                <div className="flex flex-col mr-14 md:text-right">
+                <div className="flex flex-col md:mr-14 md:text-right">
                   {navLists.map((data, index) =>
                     data.pos === 'last' && (
                       <NavLink

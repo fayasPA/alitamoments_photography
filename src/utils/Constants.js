@@ -7,6 +7,7 @@ export const companyPhoneNo = '8135078559'
 export const companyEmail = "alitamoments@gmail.com"
 export const companyAddress = "11707 Summer Springs Dr, Riverview Fl, 33579"
 export const companyInsta = "https://www.instagram.com/alita_moments/"
+export const companyFb = "https://www.instagram.com/alita_moments/"
 // export const companyWhatsApp = "https://www.instagram.com/__fayas_muthaleef__/"
 
 
