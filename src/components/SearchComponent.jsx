@@ -26,7 +26,7 @@ const SearchComponent = () => {
         {filteredCollections.map((collection, index) => (
           <div
             key={index}
-            className="w-full sm:w-1/2 lg:w-1/4 xl:w-1/6 px-2 mb-4 group"
+            className="w-1/2 lg:w-1/4 xl:w-1/6 px-2 mb-4 group"
           >
             {/* Image Container */}
             <div className="relative w-full h-0 overflow-hidden" style={{ paddingBottom: '150%' }}>
