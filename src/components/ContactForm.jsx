@@ -30,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-50 p-10 rounded-lg shadow-lg w-screen mx-auto space-y-8">
+    <form onSubmit={handleSubmit} className="bg-formColor p-10 rounded-lg shadow-lg w-screen space-y-8 mx-5">
       {/* Form Header */}
       <h2 className="text-2xl font-bold text-gray-700 text-center">Contact Us</h2>
 

@@ -38,7 +38,7 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div className="text-base md:text-3xl fix-btn-wrapper fixed top-3 md:top-5 right-2 md:right-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
+        <div className="text-xl md:text-3xl fix-btn-wrapper fixed top-3 md:top-5 right-2 md:right-5 font-bold" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
 
           <button onClick={toggleMenu} className="writing-mode-vertical-rl">
             {menuOpen ? "CLOSE " : "MENU"}
@@ -66,7 +66,7 @@ const Navbar = () => {
                     />
                   </div>
                 </NavLink>
-                <div className="text-base md:text-3xl ">
+                <div className="text-xl md:text-3xl font-bold">
                   <button onClick={toggleMenu} className="writing-mode-vertical-rl">
                     CLOSE
                   </button>

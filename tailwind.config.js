@@ -34,6 +34,8 @@ export default {
         // gray: "#555555",
         lineGray: "#656565",
         selWhite: "#F2F1EF",
+        selWhite: "#F2F1EF",
+        formColor: "#f2f2f2"
       },
     },
   },
