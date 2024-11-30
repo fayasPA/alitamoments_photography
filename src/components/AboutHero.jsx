@@ -27,7 +27,7 @@ const AboutHero = () => {
       {/* Hero Image Section */}
       <div className="hero-section relative md:h-[250vh]  h-[100vh]">
         <img
-          src="https://api.bottega53.com/uploads/Bottega53_Lake_Como_Villa_Balbiano_019b_f708af3e29.jpg"
+          src="https://images.pixieset.com/69137547/3758e982f7e3659d513bcf1c516daadf-xxlarge.jpg"
           alt="Hero"
           className="absolute inset-0 object-cover w-full h-full"
         />

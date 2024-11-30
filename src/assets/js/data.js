@@ -1,7 +1,7 @@
 export const collections = [
     {
         "name": "Priyanka Grad Pics",
-        "image_url": "//images.pixieset.com/69137547/126a920aaeb324e1feb0e7a0f36ee131-large.jpg"
+        "image_url": "https://images.pixieset.com/69137547/3758e982f7e3659d513bcf1c516daadf-xxlarge.jpg"
     },
     {
         "name": "Baptism Initial Preview",
@@ -9,20 +9,20 @@ export const collections = [
     },
     {
         "name": "Shania Grad Pics",
-        "image_url": "//images.pixieset.com/95643847/bd4b81d3390f7cb00a1503e305868621-large.jpg"
+        "image_url": "https://images.pixieset.com/95643847/d00a857cb7a83f0d8e612f5164e8ca19-xxlarge.jpg"
     },
     {
         "name": "Nila Boutique",
-        "image_url": "//images.pixieset.com/97527697/76d32d0ef5199952fef05f87a0f7cdab-large.jpg"
+        "image_url": "https://images.pixieset.com/97527697/e675e00a32a9ef94eb057d8c270a7cd6-xxlarge.jpg"
     },
     {
         "name": "Bhanu & Yasaswi Grad Pics",
-        "image_url": "//images.pixieset.com/46657647/f43d8682d21eefdbebd8b8e78ce0c453-large.jpg"
+        "image_url": "https://images.pixieset.com/46657647/143b5d8393f2c37358d4ada7505c9a66-xxlarge.jpg"
     },
 
     {
         "name": "Ishwarya Grad Pics",
-        "image_url": "//images.pixieset.com/13137547/43bccea51ea168b8975d15dbcaa2c5b8-large.jpg"
+        "image_url": "https://images.pixieset.com/13137547/f03f403b04bf66088303dc304f2f6efc-xxlarge.jpg"
     },
     {
         "name": "Jestin & Juffy Sneak Peak",
@@ -30,7 +30,7 @@ export const collections = [
     },
     {
         "name": "Diwali Gathering",
-        "image_url": "//images.pixieset.com/96376348/890af2181a0fc29bfd0e6c78900b34ce-large.jpeg"
+        "image_url": "https://images.pixieset.com/96376348/b0e40c442e80592a1fbfe8d5af4f6319-xxlarge.jpeg"
     },
 
     {
