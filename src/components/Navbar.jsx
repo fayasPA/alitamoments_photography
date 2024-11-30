@@ -68,96 +68,26 @@ const Navbar = () => {
   };
 
   return (
-    // ${isNavbarVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}
-    <nav
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-1000 ease-in-out 
-                ${!isMobileMenuOpen && isScrolled ? "backdrop-blur-sm bg-selBlack/30" : ""}
-                ${!isMobileMenuOpen && !isScrolled ? "bg-transparent" : ""}
-                ${isMobileMenuOpen && !isScrolled ? " backdrop-blur-sm bg-black/60" : ""}
-                ${isMobileMenuOpen && isScrolled ? "backdrop-blur-sm bg-black" : ""}
-            `}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className={`flex h-fit items-center justify-between transition-all duration-1000 md:py-1`}>
-        {/* <div className={`flex ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-16"} items-center justify-between transition-all duration-1000`}> */}
-          {/* Logo */}
-          <NavLink to={'/'} className=''>
-            <img src={companyLogo} alt="Company Logo" className={`${isScrolled ? 'w-24 h-10 md:w-52 md:h-20' : 'w-28 h-12 md:w-64 md:h-24'} transition-all duration-700 ease-in-out`} />
-          </NavLink>
 
-          {/* Hamburger Menu (Hidden on larger screens) */}
-          <div
-            className="text-white cursor-pointer lg:hidden" // Hidden on `lg` screens
-            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <IoClose size={35} />
-            ) : (
-              <RxHamburgerMenu size={35} />
-            )}
-          </div>
-
-          {/* Horizontal Nav Items (Visible only on larger screens) */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-6">
-            {navLists.map((item) => (
-              <NavLink
-                key={item.order}
-                to={item.path}
-                className={({ isActive }) =>
-                  `text-white text-lg uppercase transition-colors duration-300 hover:text-borderColor2
-              ${isActive ? "font-semibold" : "font-extralight"}`
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </div>
+    <div className="bg-white page-wrapper ">
+      {/* <div class="h-screen w-full fixed top-0 left-0 bg-white page-alpfa white-cover" style={{zIndex: 98}} ></div> */}
+      {/* <div class="backdrop-blur" data-v-b065d66b=""></div> */}
+      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{zIndex: 3}}>
+        <div className="text-4xl fix-btn-wrapper" style={{ fontSize: 100, zIndex:3, transform: "translate(0px, 0px)", scale: 'none', rotate:'none', translate:'none' }}>
+          <a style={{ color: 'inherit', textDecoration: 'none' }} href="">
+            <span>company Logo</span>
+          </a>
         </div>
       </div>
-
-      {/* Mobile Menu (Hidden on larger screens) */}
-      <div
-        ref={menuRef}
-        className={`rounded-b-lg absolute top-full left-0 w-full overflow-hidden lg:hidden
-                    ${isScrolled ? "bg-black" : "bg-selBlack/90 backdrop-blur-3xl"}`}
-        style={{ height: "0" }} // Initial height for GSAP animation
-        id="mobile-menu"
-      >
-        {/* Main container */}
-        <div className="h-full w-full flex flex-col md:flex-row">
-
-          <div className="w-full md:w-2/3 text-white px-4 md:px-10 flex items-center justify-end">
-            <div className="grid grid-cols-1 gap-6 w-full p-4 md:p-10 h-full mt-10 md:mt-0 uppercase">
-              {navLists.map((item, index) => (
-                <NavLink
-                  key={item.order}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `block ${isActive ? "font-semibold" : "font-extralight"} text-xl sm:text-2xl md:text-4xl lg:text-6xl transition duration-300
-          ${index % 2 === 0 ? "text-left" : "text-right "} 
-          ${index === navLists.length - 1 && navLists.length % 2 !== 0 ? " " : ""}`
-                  }
-                  onClick={handleNavLinkClick}
-                >
-                  <span className="hover:text-green">{item.name}</span>
-
-                </NavLink>
-              ))}
-            </div>
-          </div>
-
-          <div className='mt-10 animate-pulse flex md:hidden justify-center md:justify-start'>
-            <a
-              href={`mailto:${companyEmail}`}
-              className="px-2 md:px-6 py-1 md:py-3 rounded-md md:rounded-xl text-green
-      hover:bg-white hover:text-black transition-colors duration-300 text-sm md:text-base uppercase border border-dashed border-selGray"
-            >
-              {companyEmail}
-            </a>
+      {/* <div className="fixed inset-0 z-50 flex flex-col opacity-50 overflow-hidden  w-fit h-fit  bg-selRedDark">
+        <div className="fixed top-10 left-[30px] z-30 text-white cursor-pointer text-[35px] uppercase leading-none mix-blend-difference overflow-hidden transition ease-linear">
+          <div className="fix-btn__wrapper" style={{ translate: 'none', scale: '0', rotate: 'none', transform: "none" }}>
+            <span>Company Logo</span>
           </div>
         </div>
-      </div>
-    </nav>
+      </div> */}
+    </div>
+
 
   );
 };
