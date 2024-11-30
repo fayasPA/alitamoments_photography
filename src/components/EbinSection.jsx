@@ -79,14 +79,14 @@ const EbinSection = () => {
         <div className="relative">
           {/* Main Image */}
           <img
-            src="https://api.bottega53.com/uploads/Piermarco_Rinaldi_Bottega53_1_d5179ab946.jpg"
+            src="https://images.pixieset.com/85319848/060d37c5521fe0192ce54dfbd30bcd43-xxlarge.jpeg"
             alt="Founder"
             className="main-image w-full h-auto rounded-md object-cover"
           />
           {/* Inset Image */}
           <div className="absolute top-4 left-4 bg-black p-2 rounded-md inset-image shadow-lg">
             <img
-              src="https://api.bottega53.com/uploads/Piermarco_Rinaldi_Bottega53_1_d5179ab946.jpg"
+              src="https://images.pixieset.com/85319848/5133670e80eae2ffdd563582157ed154-xxlarge.jpeg"
               alt="Inset"
               className="w-32 h-40 object-cover rounded-sm"
             />
@@ -95,7 +95,7 @@ const EbinSection = () => {
             </p>
           </div>
           {/* Title */}
-          <div className="piermarco-title absolute bottom-4 left-4 text-6xl font-bold text-black">
+          <div className="piermarco-title absolute bottom-4 left-4 text-6xl font-bold text-white">
             Ebin
           </div>
         </div>
