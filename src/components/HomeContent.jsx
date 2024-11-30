@@ -9,7 +9,7 @@ const HomeContent = () => {
             <div key={index} className="relative">
               {/* Image */}
               <img 
-                src={collection.image_url} 
+                src={collection.image_url[0]} 
                 alt={collection.name} 
                 className="w-full h-[35vh] sm:h-[50vh] md:h-[80vh] object-cover" 
               />
