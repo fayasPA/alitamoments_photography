@@ -27,7 +27,7 @@ export default {
         selBlack: "#101010",
         oldBorderColor: "#ffffff59",
         borderColor: "#908f8f",
-        
+
         borderColor2: "#ffffffce",
         borderColor3: "#d6d6d6",
         zinc: "#232222",
@@ -37,6 +37,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.writing-mode-vertical-rl': {
+          'writing-mode': 'vertical-rl',
+        },
+        '.text-orientation-upright': {
+          'text-orientation': 'upright',
+        },
+      });
+    },
+  ],
 }
 

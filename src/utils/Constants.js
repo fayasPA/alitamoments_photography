@@ -1,4 +1,4 @@
-import Logo from '/assets/images/logogold.png'
+import Logo from '/assets/images/logowhite.png'
 
 
 export const companyLogo = Logo;

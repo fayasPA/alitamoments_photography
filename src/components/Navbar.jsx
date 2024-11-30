@@ -1,94 +1,110 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
-import { companyEmail, companyLogo, companyName, navLists } from "../utils/Constants";
 import { gsap } from "gsap";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { companyLogo, navLists } from "../utils/Constants";
 import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const scrollThreshold = 50;
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const menuRef = useRef(null); // Ref for the menu container
-  const menuAnimation = useRef(null); // Ref for the GSAP animation instance
-
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
-      setIsNavbarVisible(currentScrollY < lastScrollY); // Show on scroll up
-    }
-    setLastScrollY(currentScrollY);
-    setIsScrolled(currentScrollY > 50); // Change navbar background on scroll
-  };
-
-  const debounce = (func, delay) => {
-    let timeoutId;
-    return (...args) => {
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => func(...args), delay);
-    };
-  };
-
+  // GSAP animation for Y-axis when menu opens
   useEffect(() => {
-    const handleScrollDebounced = debounce(handleScroll, 100);
-    window.addEventListener("scroll", handleScrollDebounced);
-
-    return () => {
-      window.removeEventListener("scroll", handleScrollDebounced);
-    };
-  }, [lastScrollY]);
-
-  // GSAP Animation for menu open/close
-  useEffect(() => {
-    if (menuRef.current) {
-      if (isMobileMenuOpen) {
-        menuAnimation.current = gsap.to(menuRef.current, {
-          height: "100vh",
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-      } else {
-        menuAnimation.current = gsap.to(menuRef.current, {
-          height: "0",
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-      }
+    if (menuOpen) {
+      gsap.fromTo(
+        ".menu-item",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.2, duration: 0.6, ease: "power3.out" }
+      );
     }
-  }, [isMobileMenuOpen]);
+  }, [menuOpen]);
 
-  // Close menu when a NavLink is clicked
-  const handleNavLinkClick = () => {
-    setMobileMenuOpen(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
+    <div className="relative">
+      {/* Navbar Logo and Menu Button */}
+      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{ zIndex: 3 }}>
+        <div className="fix-btn-wrapper fixed top-3 md:top-5 left-1 md:left-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
+          <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <div className="" >
+              <img
+                src={companyLogo}
+                alt="Premier Steels Logo"
+                className="w-32 h-12 lg:w-52 lg:h-16 transition-all duration-700 ease-in-out"
+                role="img" // Added role for clarity
+              />
+            </div>
+          </NavLink>
+        </div>
 
-    <div className="bg-white page-wrapper ">
-      {/* <div class="h-screen w-full fixed top-0 left-0 bg-white page-alpfa white-cover" style={{zIndex: 98}} ></div> */}
-      {/* <div class="backdrop-blur" data-v-b065d66b=""></div> */}
-      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{zIndex: 3}}>
-        <div className="text-4xl fix-btn-wrapper" style={{ fontSize: 100, zIndex:3, transform: "translate(0px, 0px)", scale: 'none', rotate:'none', translate:'none' }}>
-          <a style={{ color: 'inherit', textDecoration: 'none' }} href="">
-            <span>company Logo</span>
-          </a>
+        <div className="text-base md:text-3xl fix-btn-wrapper fixed top-3 md:top-5 right-2 md:right-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
+
+          <button onClick={toggleMenu} className="writing-mode-vertical-rl">
+          {menuOpen ? "CLOSE " : "MENU"}
+        </button>
         </div>
       </div>
-      {/* <div className="fixed inset-0 z-50 flex flex-col opacity-50 overflow-hidden  w-fit h-fit  bg-selRedDark">
-        <div className="fixed top-10 left-[30px] z-30 text-white cursor-pointer text-[35px] uppercase leading-none mix-blend-difference overflow-hidden transition ease-linear">
-          <div className="fix-btn__wrapper" style={{ translate: 'none', scale: '0', rotate: 'none', transform: "none" }}>
-            <span>Company Logo</span>
+      
+
+      {/* Menu Overlay */}
+      {menuOpen && (
+        <div className="menu-overlay fixed inset-0 bg-black text-white z-40">
+          <div className="flex flex-col justify-between h-full p-8">
+            {/* Header */}
+            <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <div className="" >
+              <img
+                src={companyLogo}
+                alt="Premier Steels Logo"
+                className="w-32 h-12 lg:w-52 lg:h-16 transition-all duration-700 ease-in-out"
+                role="img" // Added role for clarity
+              />
+            </div>
+          </NavLink>
+            <div className="text-base md:text-3xl fixed top-3 md:top-5 right-2 md:right-5">
+              <button onClick={toggleMenu} className="writing-mode-vertical-rl">
+                CLOSE
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-col gap-8 mt-10">
+              {navLists.map((data, index) => (
+                <NavLink
+                  key={index}
+                  to={data.path}
+                  className="menu-item text-3xl lg:text-6xl transition-opacity duration-500 ease-in-out"
+                  onMouseEnter={(e) => {
+                    const items = document.querySelectorAll(".menu-item");
+                    items.forEach((item) => {
+                      if (item !== e.target) {
+                        item.style.opacity = "0.4"; // Dull effect for non-hovered items
+                      }
+                    });
+                  }}
+                  onMouseLeave={() => {
+                    const items = document.querySelectorAll(".menu-item");
+                    items.forEach((item) => {
+                      item.style.opacity = "1"; // Reset opacity on hover out
+                    });
+                  }}
+                >
+                  {data.name}
+                </NavLink>
+              ))}
+            </div>
+
+            {/* Footer Links */}
+            <div className="text-sm lg:text-base">
+              <p>PRIVACY POLICY</p>
+              <p>COMMERCIAL COPYRIGHT</p>
+            </div>
           </div>
         </div>
-      </div> */}
+      )}
     </div>
-
-
   );
 };
 
