@@ -1,8 +1,9 @@
 import React from 'react'
+import FaqSection from '../components/FaqSection'
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <div><FaqSection  /></div>
   )
 }
 
