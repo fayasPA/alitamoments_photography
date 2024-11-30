@@ -1,5 +1,30 @@
 export const collections = [
     {
+        "name": "Priyanka Grad Pics",
+        "image_url": "//images.pixieset.com/69137547/126a920aaeb324e1feb0e7a0f36ee131-large.jpg"
+    },
+    {
+        "name": "Baptism Initial Preview",
+        "image_url": "//images.pixieset.com/68866048/adc92942da5985181d9562c69b6d2b2b-large.jpeg"
+    },
+    {
+        "name": "Shania Grad Pics",
+        "image_url": "//images.pixieset.com/95643847/bd4b81d3390f7cb00a1503e305868621-large.jpg"
+    },
+    {
+        "name": "Nila Boutique",
+        "image_url": "//images.pixieset.com/97527697/76d32d0ef5199952fef05f87a0f7cdab-large.jpg"
+    },
+    {
+        "name": "Bhanu & Yasaswi Grad Pics",
+        "image_url": "//images.pixieset.com/46657647/f43d8682d21eefdbebd8b8e78ce0c453-large.jpg"
+    },
+
+    {
+        "name": "Ishwarya Grad Pics",
+        "image_url": "//images.pixieset.com/13137547/43bccea51ea168b8975d15dbcaa2c5b8-large.jpg"
+    },
+    {
         "name": "Jestin & Juffy Sneak Peak",
         "image_url": "//images.pixieset.com/49241448/514ba40d9ce3c86a1645c092cd2a0031-large.jpg"
     },
@@ -7,10 +32,7 @@ export const collections = [
         "name": "Diwali Gathering",
         "image_url": "//images.pixieset.com/96376348/890af2181a0fc29bfd0e6c78900b34ce-large.jpeg"
     },
-    {
-        "name": "Baptism Initial Preview",
-        "image_url": "//images.pixieset.com/68866048/adc92942da5985181d9562c69b6d2b2b-large.jpeg"
-    },
+
     {
         "name": "Kishore Birthday Final Edit",
         "image_url": "//images.pixieset.com/29589928/8864c8b5c3673ce5b709d996bd591b4e-large.jpeg"
@@ -43,30 +65,12 @@ export const collections = [
         "name": "MACF ONAM PHOTO-BOOTH",
         "image_url": "//images.pixieset.com/91795008/19b5fb1100d54da25c4b21ba4d14a3f7-large.jpeg"
     },
-    {
-        "name": "Nila Boutique",
-        "image_url": "//images.pixieset.com/97527697/76d32d0ef5199952fef05f87a0f7cdab-large.jpg"
-    },
+
     {
         "name": "Cake Smash",
         "image_url": "//images.pixieset.com/22103367/bf3d4c2d12a40b5a5fda0fa7c5170a84-large.jpg"
     },
-    {
-        "name": "Shania Grad Pics",
-        "image_url": "//images.pixieset.com/95643847/bd4b81d3390f7cb00a1503e305868621-large.jpg"
-    },
-    {
-        "name": "Bhanu & Yasaswi Grad Pics",
-        "image_url": "//images.pixieset.com/46657647/f43d8682d21eefdbebd8b8e78ce0c453-large.jpg"
-    },
-    {
-        "name": "Priyanka Grad Pics",
-        "image_url": "//images.pixieset.com/69137547/126a920aaeb324e1feb0e7a0f36ee131-large.jpg"
-    },
-    {
-        "name": "Ishwarya Grad Pics",
-        "image_url": "//images.pixieset.com/13137547/43bccea51ea168b8975d15dbcaa2c5b8-large.jpg"
-    },
+
     {
         "name": "Izza Portraits",
         "image_url": "//images.pixieset.com/51344227/1b69bcb78afa2370aa7ca0340b11fb27-large.jpg"
