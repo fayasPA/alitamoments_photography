@@ -1,193 +1,211 @@
-import React, { useState } from 'react'
-import { companyEmail, companyPhoneNo } from '../utils/Constants';
-
-import { MdEmail, MdLocationOn } from 'react-icons/md';
-import { IoCall } from 'react-icons/io5';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { ImFacebook2 } from 'react-icons/im';
-import { IoLogoYoutube } from 'react-icons/io';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import { POST_ENQUIRY_FORM } from '../utils/urls';
+import React, { useState } from 'react';
 
 const ContactForm = () => {
-    const [formValues, setFormValues] = useState({
-        name: '',
-        email: '',
-        phone_number: '',
-        message: ''
-    });
-    const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    where: '',
+    eventType: '',
+    role: '',
+    date: '',
+    eventLocation: '',
+    budget: '',
+    hearAboutUs: '',
+    brideInstagram: '',
+    message: '',
+    consent: false,
+  });
 
-    const validateForm = () => {
-        const newErrors = {};
-        if (!formValues.name) newErrors.name = 'Name is required';
-        if (!formValues.phone_number || !/^\d{10,12}$/.test(formValues.phone_number)) {
-            newErrors.phone_number = 'A valid phone number with 10 to 12 digits is required';
-        }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
+  const handleCheckboxChange = (e) => {
+    setFormData({ ...formData, consent: e.target.checked });
+  };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues({
-            ...formValues,
-            [name]: value,
-        });
-        if (errors[name]) {
-            const newErrors = { ...errors };
-            delete newErrors[name];
-            setErrors(newErrors);
-        }
-    };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (validateForm()) {
-            try {
-                const countryCode = '91'; // Default country code
-                const fullPhoneNumber = `${countryCode}${formValues.phone_number}`;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData); // Handle form submission
+  };
 
-                await toast.promise(
-                    axios.post(POST_ENQUIRY_FORM, new URLSearchParams({
-                        ...formValues
-                    }).toString()),
-                    {
-                        pending: 'Submitting...',
-                        success: 'Form submitted successfully!',
-                        error: 'Error submitting form',
-                    }
-                );
+  return (
+    <form onSubmit={handleSubmit} className="bg-gray-50 p-10 rounded-lg shadow-lg w-screen mx-auto space-y-8">
+      {/* Form Header */}
+      <h2 className="text-2xl font-bold text-gray-700 text-center">Contact Us</h2>
 
-                setFormValues({ name: '', email: '', phone_number: '', message: '' }); // Reset form fields
-            } catch (error) {
-                console.error("Form submission error:", error);
-            }
-        } else {
-            toast.error("Please fill out all required fields.");
-        }
-    };
+      {/* Input Fields */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative group">
+          <label htmlFor="fullName" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Full Name
+          </label>
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            value={formData.fullName}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="email" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="where" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Where do you live?
+          </label>
+          <input
+            id="where"
+            name="where"
+            type="text"
+            value={formData.where}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="eventType" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Event Type
+          </label>
+          <input
+            id="eventType"
+            name="eventType"
+            type="text"
+            value={formData.eventType}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="role" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Your Role
+          </label>
+          <input
+            id="role"
+            name="role"
+            type="text"
+            value={formData.role}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="date" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Date
+          </label>
+          <input
+            id="date"
+            name="date"
+            type="text"
+            value={formData.date}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+            placeholder=""
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="eventLocation" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Event Location
+          </label>
+          <input
+            id="eventLocation"
+            name="eventLocation"
+            type="text"
+            value={formData.eventLocation}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="budget" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            Budget
+          </label>
+          <input
+            id="budget"
+            name="budget"
+            type="text"
+            value={formData.budget}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+        <div className="relative group">
+          <label htmlFor="hearAboutUs" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+            How did you hear about us?
+          </label>
+          <input
+            id="hearAboutUs"
+            name="hearAboutUs"
+            type="text"
+            value={formData.hearAboutUs}
+            onChange={handleChange}
+            className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+          />
+        </div>
+      </div>
 
-    return (
-        <>
-            <div className="bg-gray-100 p-8 min-h-screen flex flex-col items-center">
-                {/* Header Section */}
-                <div className="max-w-2xl text-start mb-8">
-                    <h1 className="text-3xl font-light text-gray-800">LET'S CONNECT!</h1>
-                    <p className="text-gray-600 mt-4">
-                        Our journey towards capturing unforgettable moments begins here. Whether you're ready to book your session or simply want to discuss ideas, I'm thrilled to hear from you. Share your vision, ask questions, or inquire about availability. Every story is unique, and I'm excited to be a part of yours. Drop a message below, and let's start crafting your cherished memories together.
-                    </p>
-                </div>
+      {/* Bride's Instagram */}
+      <div className="relative group">
+        <label htmlFor="brideInstagram" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+          Bride's Instagram Name
+        </label>
+        <input
+          id="brideInstagram"
+          name="brideInstagram"
+          type="text"
+          value={formData.brideInstagram}
+          onChange={handleChange}
+          className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3"
+        />
+      </div>
 
-                {/* Form Section */}
-                <form className=" rounded-lg max-w-2xl w-full">
-                    <div className="mb-1 md:mb-4">
-                        <label className="block text-gray-700 text-sm font-extralight " htmlFor="name">
-                            NAME *
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-                        />
-                    </div>
+      {/* Message */}
+      <div className="relative group">
+        <label htmlFor="message" className="absolute top-2 left-3 text-sm text-gray-500 transition-all duration-200 group-focus-within:scale-75 group-focus-within:-translate-y-4 group-focus-within:text-gray-800">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          className="w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 text-lg py-2 px-3 h-32 resize-none"
+          placeholder=""
+        />
+      </div>
 
-                    <div className="mb-1 md:mb-4">
-                        <label className="block text-gray-700 text-sm font-extralight " htmlFor="email">
-                            EMAIL ADDRESS *
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-                        />
-                    </div>
+      {/* Consent and Submit */}
+      <div className="flex flex-col md:flex-row items-center justify-between mt-8 space-y-4 md:space-y-0">
+        <label className="flex items-center text-sm text-gray-600">
+          <input
+            type="checkbox"
+            checked={formData.consent}
+            onChange={handleCheckboxChange}
+            className="mr-2"
+          />
+          I consent to have my data stored for service purposes.
+        </label>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-600 transition"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  );
+};
 
-                    <div className="mb-1 md:mb-4">
-                        <label className="block text-gray-700 text-sm font-extralight " htmlFor="session">
-                            WHAT TYPE OF SESSION ARE YOU LOOKING FOR? *
-                        </label>
-                        <select
-                            id="session"
-                            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-                        >
-                            <option value="">Select option</option>
-                            <option value="wedding">Wedding</option>
-                            <option value="portrait">Portrait</option>
-                            <option value="event">Event</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div className="mb-1 md:mb-4">
-                        <label className="block text-gray-700 text-sm font-extralight " htmlFor="date">
-                            EVENT DATE
-                        </label>
-                        <input
-                            type="date"
-                            id="date"
-                            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-                        />
-                    </div>
-
-                    <div className="mb-1 md:mb-4">
-                    <label className="block text-gray-700 text-sm font-extralight " htmlFor="message">
-                            MESSAGE *
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formValues.message}
-                            onChange={handleInputChange}
-                            className="p-3 text-black focus:outline-none w-full rounded-md placeholder:text-xs md:placeholder:text-base"
-                            rows="4"
-                            aria-label="Your Message"
-                        />
-                    </div>
-
-                    <div className="mb-1 md:mb-4">
-                        <label className="block text-gray-700 text-sm font-extralight " htmlFor="session">
-                        How did you hear about me? *
-                        </label>
-                        <select
-                            id="session"
-                            className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-gray-300"
-                        >
-                            <option value="">Select option</option>
-                            <option value="Friends/Family">Friends/Family</option>
-                            <option value="Social Media">Social Media</option>
-                            <option value="Another Vendor">Another Vendor</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div className='flex items-center justify-center'>
-                    <button
-                        type="submit"
-                        className="bg-gray-800 text-white font-extralight py-2 md:py-4 px-14 md:px-20 w-fit hover:bg-gray-700 transition"
-                    >
-                        SUBMIT
-                    </button>
-                    </div>
-                </form>
-            </div>
-
-            <section aria-labelledby="map-title" className='h-96 md:h-96'>
-                <h2 id="map-title" className="sr-only">Our Location on Map</h2>
-
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3529.1639641805045!2d-82.29279880204943!3d27.80472347584152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2d3f869cd9823%3A0xef5c2d61e7851ed9!2s11707%20Summer%20Springs%20Dr%2C%20Riverview%2C%20FL%2033579%2C%20USA!5e0!3m2!1sen!2sin!4v1732608621480!5m2!1sen!2sin"
-                    width="100%"
-                    className="h-full"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    title="Google Map Location"
-                ></iframe>
-            </section>
-        </>
-    )
-}
-
-export default ContactForm
+export default ContactForm;
