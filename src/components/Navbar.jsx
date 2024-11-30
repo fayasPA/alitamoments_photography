@@ -7,15 +7,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // GSAP animation for Y-axis when menu opens
-  useEffect(() => {
-    if (menuOpen) {
-      gsap.fromTo(
-        ".menu-item",
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.2, duration: 0.6, ease: "power3.out" }
-      );
-    }
-  }, [menuOpen]);
+  // useEffect(() => {
+  //   if (menuOpen) {
+  //     gsap.fromTo(
+  //       ".menu-item",
+  //       { y: 40, opacity: 0 },
+  //       { y: 0, opacity: 1, stagger: 0.2, duration: 0.6, ease: "power3.out" }
+  //     );
+  //   }
+  // }, [menuOpen]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -171,6 +171,7 @@ const Navbar = () => {
                         item.style.opacity = "1"; // Reset opacity on hover out
                       });
                     }}
+                    onClick={() => setMenuOpen(false)}
                   >
                     {data.name}
                   </NavLink>
@@ -205,6 +206,7 @@ const Navbar = () => {
                             item.style.opacity = "1"; // Reset opacity on hover out
                           });
                         }}
+                        onClick={() => setMenuOpen(false)}
                       >
                         {data.name}
                       </NavLink>
@@ -232,6 +234,7 @@ const Navbar = () => {
                             item.style.opacity = "1"; // Reset opacity on hover out
                           });
                         }}
+                        onClick={() => setMenuOpen(false)}
                       >
                         {data.name}
                       </NavLink>
