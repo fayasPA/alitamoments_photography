@@ -13,7 +13,8 @@ export const companyWhatsApp = "https://www.instagram.com/__fayas_muthaleef__/"
 export const navLists = [
     { name: 'Home', path: '/', order: 1 },
     { name: 'Portfolio', path: '/portfolio', order: 2 },
-    { name: 'Blog', path: '/blog', order: 3 },
+    { name: 'FAQ', path: '/faq', order: 3 },
     { name: 'About', path: '/about', order: 4 },
     { name: 'Contact', path: '/contact', order: 5 },
+    { name: 'Search', path: '/search', order: 5 },
 ];

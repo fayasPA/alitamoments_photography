@@ -1,10 +1,10 @@
 import React from 'react'
 import FaqSection from '../components/FaqSection'
 
-const Blog = () => {
+const Faq = () => {
   return (
     <div><FaqSection  /></div>
   )
 }
 
-export default Blog
+export default Faq

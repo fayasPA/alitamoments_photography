@@ -4,8 +4,8 @@ import Layout from './Layout';
 import Home from './pages/Home';
 import Contacts from './pages/Contacts';
 import Portfolio from './pages/Portfolio';
-import Blog from './pages/Blog';
 import About from './pages/About';
+import Faq from './pages/Faq';
 
 function App() {
   const router = createBrowserRouter(
@@ -14,7 +14,7 @@ function App() {
          <Route path="" element={<Home />} />
          <Route path="/contact" element={<Contacts />} />
          <Route path="/portfolio" element={<Portfolio />} />
-         <Route path="/blog" element={<Blog />} />
+         <Route path="/faq" element={<Faq />} />
          <Route path="/about" element={<About />} />
       </Route>
     )
