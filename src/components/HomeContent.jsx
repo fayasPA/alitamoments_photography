@@ -33,7 +33,7 @@ const HomeContent = () => {
       // Start a new idle timer
       idleTimeout = setTimeout(() => {
         setIsIdle(true); // Set to idle after 5 seconds
-      }, 5000); // 5 seconds idle time
+      }, 8000); // 8 seconds idle time
     };
 
     const stopScrolling = () => {
