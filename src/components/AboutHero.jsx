@@ -8,19 +8,28 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const AboutHero = () => {
   useEffect(() => {
-    // GSAP Animation: Fade out the sticky text
-    gsap.to(".sticky-text", {
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".hero-section", // Hero section
-        start: "bottom bottom", // Start fading out when the section ends
-        end: "bottom+=250 bottom", // Completely fade out after a slight delay
-        scrub: true, // Smooth transition
+    gsap.fromTo(".sticky-text", 
+      {
+        y: 0, // Starting position of the text (no movement at the beginning)
       },
-    });
+      {
+        y: -100, // Moves the sticky text up by 100px at the end
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero-section", // Hero section
+          start: "top bottom", // Start when the top of the section reaches the bottom of the viewport
+          end: "bottom top", // End 200px earlier than when the section reaches the top
+          scrub: true, // Smooth transition with the scroll position
+        },
+      }
+    );
   }, []);
+  
+  
+  
+  
+  
 
   return (
     <div className="relative md:h-[250vh] h-[100vh]">
