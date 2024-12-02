@@ -63,7 +63,7 @@ const Loader = () => {
       >
         {/* Large Screen Text */}
         <div className="hidden sm:block">
-          <div className="text-9xl font-bold">ALITA MOMENTS</div>
+          <div className="text-[150px] font-bold">ALITA MOMENTS</div>
           <h1 className="text-2xl mt-2">CAPTURE MOMENTS, TELL STORIES</h1>
         </div>
 
