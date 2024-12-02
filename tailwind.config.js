@@ -35,7 +35,10 @@ export default {
         lineGray: "#656565",
         selWhite: "#F2F1EF",
         selWhite: "#F2F1EF",
-        formColor: "#f2f2f2"
+        formColor: "#f2f2f2",
+        formTextColor: "#0003",
+        formDropdownColor: "#0006",
+
       },
     },
   },

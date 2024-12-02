@@ -2,7 +2,7 @@ import React from "react";
 
 const ConnectUs = () => {
   return (
-    <section className="w-screen px-6 md:px-16 py-10  pt-20 flex flex-col md:flex-row items-start md:items-center justify-between">
+    <section className="w-full md:pr-3 py-10  pt-20 flex flex-col md:flex-row items-start md:items-center justify-between">
       {/* Left Section: Large Text */}
       <div className="text-left flex-1">
         <h1 className="text-6xl md:text-9xl font-bold leading-tight">
