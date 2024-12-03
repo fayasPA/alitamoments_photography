@@ -1,6 +1,7 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { TransitionWrapper } from "../App";
 
 const Example = () => {
   const location = useLocation();
@@ -20,12 +21,25 @@ const Example = () => {
   }, [location.state]);
 
   return (
-    <div className="bg-neutral-800">
-      <HorizontalScrollCarousel cards={cards} />
-    </div>
+    <>
+      <TransitionWrapper>
+        <div className="bg-neutral-800">
+          {/* Large Screen Layout */}
+          <div className="hidden lg:block">
+            <HorizontalScrollCarousel cards={cards} />
+          </div>
+
+          {/* Small Screen Layout */}
+          <div className="lg:hidden">
+            <VerticalImageDisplay cards={cards} />
+          </div>
+        </div>
+      </TransitionWrapper>
+    </>
   );
 };
 
+// Horizontal Scroll Carousel for Large Screens
 const HorizontalScrollCarousel = ({ cards }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -45,13 +59,23 @@ const HorizontalScrollCarousel = ({ cards }) => {
                 <p className="text-4xl font-serif uppercase text-black">
                   {cards[0].title}
                 </p>
+                {/* Clickable text link with hover animation */}
+                <a
+                  href="https://galleries.pixieset.com/collections?page=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 text-3xl font-serif text-slate-300 hover:text-black group"
+                >
+                  Browse collection
+                  <span className="absolute inset-0 w-full h-[1px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                </a>
               </div>
 
               {/* Subsequent cards with images */}
               {cards.slice(0).map((card) => (
                 <div
                   key={card.id}
-                  className="group relative h-[80vh] w-[50vw] overflow-hidden bg-neutral-200"
+                  className="group relative h-[100vh] w-[50vw] overflow-hidden bg-neutral-200"
                 >
                   <div
                     style={{
@@ -67,6 +91,48 @@ const HorizontalScrollCarousel = ({ cards }) => {
           )}
         </motion.div>
       </div>
+    </section>
+  );
+};
+
+// Vertical Image Display for Small Screens
+const VerticalImageDisplay = ({ cards }) => {
+  return (
+    <section className="bg-white">
+      {cards.length > 0 && (
+        <>
+          {/* First card with title */}
+          <div className="relative w-full h-[80vh] flex justify-center items-center bg-white">
+            <p className="text-4xl font-serif uppercase text-black">{cards[0].title}</p>
+            {/* Clickable text link */}
+            <a
+              href="https://galleries.pixieset.com/collections?page=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 text-3xl font-serif text-slate-300 hover:text-black"
+            >
+              Browse collection
+            </a>
+          </div>
+
+          {/* Cards displayed vertically */}
+          {cards.slice(0).map((card) => (
+            <div
+              key={card.id}
+              className="relative w-full h-[60vh] overflow-hidden bg-neutral-200"
+            >
+              <div
+                style={{
+                  backgroundImage: `url(${card.url})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                className="absolute inset-0 z-0 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </>
+      )}
     </section>
   );
 };
