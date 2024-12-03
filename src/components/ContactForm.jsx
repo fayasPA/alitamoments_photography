@@ -78,11 +78,11 @@ const ContactForm = () => {
     };
   }, []);
   return (
-    <div className="w-full bg-formColor space-y-8 animate-slideInFromLeft mx-auto  pt-14 md:py-20      mt-32">
+    <div className="w-full bg-formColor animate-slideInFromLeft mx-auto  pt-14 py-10 md:py-20">
       <form method="POST" action="#" className="text-black">
-        <div className="w-full space-y-7 md:space-y-12 grid grid-cols-1 lg:grid-cols-2 uppercase font-bold">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 uppercase font-bold">
           {/* Full Name */}
-          <div className="px-4 md:px-7 pb-2 border-b border-gray-300">
+          <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300">
             <div className="relative">
               <input
                 placeholder="John Doe"
@@ -94,7 +94,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="fullName"
-                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-2xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
+                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-3xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
               >
                 Full Name
               </label>
@@ -102,7 +102,7 @@ const ContactForm = () => {
           </div>
 
           {/* Email */}
-          <div className="px-4 md:px-7 pb-2 border-b border-gray-300">
+          <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300">
             <div className="relative">
               <input
                 placeholder="email@example.com"
@@ -114,7 +114,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="email"
-                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-2xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
+                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-3xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
               >
                 Email
               </label>
@@ -123,7 +123,7 @@ const ContactForm = () => {
 
           {/* Where Do You Live */}
           <div
-            className="px-4 md:px-7 pb-2 border-b border-gray-300"
+            className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300"
           >
             <div className="relative">
               <input
@@ -136,7 +136,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="location"
-                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-2xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
+                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-3xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
               >
                 Where Do You Live
               </label>
@@ -146,11 +146,11 @@ const ContactForm = () => {
           {/* Event Type */}
           <div
             ref={eventTypeDropdownRef}
-            className="px-4 md:px-7 pb-2 border-b border-gray-300 relative"
+            className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
               className={`${selectedEventType !== "Event Type" ? "text-black" : "text-formTextColor"
-                } text-xl md:text-2xl cursor-pointer flex items-center gap-2`}
+                } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleEventTypeDropdown}
             >
               {selectedEventType}
@@ -184,11 +184,11 @@ const ContactForm = () => {
 
           <div
             ref={roleTypeDropdownRef}
-            className="px-4 md:px-7 pb-2 border-b border-gray-300 relative"
+            className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
               className={`${selectedRoleType !== "What is your role ?" ? "text-black" : "text-formTextColor"
-                } text-xl md:text-2xl cursor-pointer flex items-center gap-2`}
+                } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleRoleTypeDropdown}
             >
               {selectedRoleType}
@@ -220,10 +220,10 @@ const ContactForm = () => {
           </div>
 
           {/* Event Date */}
-          <div ref={datePickerDropdownRef} className="px-4 md:px-7 pb-2 border-b border-gray-300 relative">
+          <div ref={datePickerDropdownRef} className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative">
             <label
               className={`${selectedDate !== "Date" ? "text-black" : "text-formTextColor"
-                } text-xl md:text-2xl cursor-pointer flex items-center gap-2`}
+                } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleDatePickerDropdown}
             >
               {selectedDate}
@@ -244,7 +244,7 @@ const ContactForm = () => {
           </div>
 
           {/* Event Location */}
-          <div className="px-4 md:px-7 pb-2 border-b border-gray-300">
+          <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300">
             <div className="relative">
               <input
                 placeholder="Venue"
@@ -256,7 +256,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="eventLocation"
-                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-2xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
+                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-3xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
               >
                 Event Location
               </label>
@@ -266,11 +266,11 @@ const ContactForm = () => {
           {/* Budget */}
           <div
             ref={budgetDropdownRef}
-            className="px-4 md:px-7 pb-2 border-b border-gray-300 relative"
+            className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
               className={`${selectedBudget !== "Budget" ? "text-black" : "text-formTextColor"
-                } text-xl md:text-2xl cursor-pointer flex items-center gap-2`}
+                } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleBudgetTypeDropdown}
             >
               {selectedBudget}
@@ -304,11 +304,11 @@ const ContactForm = () => {
           {/* How Did You Hear About Us */}
           <div
             ref={connectedThroughDropdownRef}
-            className="px-4 md:px-7 pb-2 border-b border-gray-300 relative"
+            className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
               className={`${selectedConnectedThrough !== "How Did You Hear About Us" ? "text-black" : "text-formTextColor"
-                } text-xl md:text-2xl cursor-pointer flex items-center gap-2`}
+                } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleConnectedThroughDropdown}
             >
               {selectedConnectedThrough}
@@ -340,7 +340,7 @@ const ContactForm = () => {
           </div>
 
           {/* Bride's Insta Name */}
-          <div className="px-4 md:px-7 pb-2 border-b border-gray-300">
+          <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300">
             <div className="relative">
               <input
                 placeholder="@bridesinsta"
@@ -352,7 +352,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="brideInsta"
-                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-2xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
+                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-3xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
               >
                 Bride's Insta Name
               </label>
@@ -360,7 +360,7 @@ const ContactForm = () => {
           </div>
 
           {/* Message */}
-          <div className="px-4 md:px-7 pb-2 border-b border-gray-300 md:col-span-2">
+          <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 md:col-span-2">
             <div className="relative">
               <textarea
                 placeholder="Write your message here..."
@@ -371,7 +371,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="message"
-                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-2xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
+                className="absolute left-0 transition-all peer-placeholder-shown:text-formTextColor peer-placeholder-shown:text-xl md:peer-placeholder-shown:text-3xl peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-black peer-focus:font-normal peer-placeholder-shown:top-2 peer-focus:-top-3 peer-valid:-top-3 peer-valid:font-normal"
               >
                 Message
               </label>
@@ -379,35 +379,35 @@ const ContactForm = () => {
           </div>
 
 
-          {/* Consent */}
-          {/* Email */}
-          
 
-          
+
+
         </div>
 
-        <div className="px-4 md:px-7 flex justify-between pt-5 md:pt-10">
-            <div className="flex items-start  space-x-4 md:w-1/2">
-              <input
-                placeholder="email@example.com"
-                className="peer mt-1 md:mt-2 text-xl md:text-2xl w-fit bg-transparent placeholder-transparent focus:outline-none"
-                required
-                id="consent"
-                name="consent"
-                type="checkbox"
-              />
-              <label
-                htmlFor="consent"
-                className="transition-all text-[#0007] text-[.6rem] md:text-base font-normal peer-valid:text-black"
-              >
+        {/* Consent */}
+        {/* Email */}
+        <div className=" my-2 md:my-3 px-4 md:px-7 flex justify-between pt-5 md:pt-10">
+          <div className="flex items-start  space-x-4 md:w-1/2">
+            <input
+              placeholder="email@example.com"
+              className="peer mt-1 md:mt-2 text-xl md:text-2xl w-fit bg-transparent placeholder-transparent focus:outline-none"
+              required
+              id="consent"
+              name="consent"
+              type="checkbox"
+            />
+            <label
+              htmlFor="consent"
+              className="transition-all text-[#0007] text-[.6rem] md:text-base font-normal peer-valid:text-black"
+            >
               I consent for the information submitted above to be recorded and
               stored for the purposes of providing services relating to my inquiry.
               I agree that registration on or use of the Bottega 53 site
               constitutes agreement to its User Agreement &amp; Privacy Policy.
-              </label>
-            </div>
+            </label>
+          </div>
 
-            <div className="hidden md:flex pr-10">
+          <div className="hidden md:flex pr-10">
             <button
               type="submit"
               className="w-full text-black uppercase text-xl font-medium transition-all flex items-center gap-2"
@@ -416,17 +416,17 @@ const ContactForm = () => {
             </button>
           </div>
 
-          </div>
+        </div>
 
-          {/* Submit Button mobile */}
-          <div className="pt-5 px-7 block md:hidden md:col-span-2">
-            <button
-              type="submit"
-              className="w-full bg-black text-white uppercase py-3 text-xl font-bold hover:bg-gray-800 transition-all"
-            >
-              Send
-            </button>
-          </div>
+        {/* Submit Button mobile */}
+        <div className="pt-5 px-7 block md:hidden md:col-span-2">
+          <button
+            type="submit"
+            className="w-full bg-black text-white uppercase py-3 text-xl font-bold hover:bg-gray-800 transition-all"
+          >
+            Send
+          </button>
+        </div>
       </form>
     </div>
   );

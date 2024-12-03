@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaInstagram, FaPinterest, FaFacebook, FaPlus } from "react-icons/fa";
 import { NavLink, useLocation } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { companyEmail, companyLogo, companyPhoneNo } from "../utils/Constants";
+import { companyLogo } from "../utils/Constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,14 +84,10 @@ const Footer = () => {
       {/* Top Section */}
       <div className="md:flex justify-between items-center">
         {/* Left: Contact Info */}
-        <div className="flex md:gap-24 justify-between">
-          <div className="uppercase">
-            <a
-              onClick={() => window.location.href = `mailto:${companyEmail}`}
-              className="font-medium underline cursor-pointer">
-              {companyEmail}
-            </a>
-            <p className="font-medium underline">{companyPhoneNo}123</p>
+        <div className="flex gap-24">
+          <div>
+            <p className="font-medium underline">    alitamoments@gmail.com</p>
+            <p className="font-medium">813-507-8559</p>
 
             <div className="flex space-x-4 mt-4">
               <FaInstagram className="text-xl cursor-pointer hover:text-gray-600 transition-all duration-300" />
@@ -101,21 +97,7 @@ const Footer = () => {
           </div>
 
           {/* Right: Menu */}
-          <div className="hidden md:flex font-medium cursor-pointer hover:underline">MENU</div>
-
-          <div className="font-bold flex md:hidden flex-col items-end justify-end text-borderColor text-xs md:text-sm">
-            <p>WEBSITE BY</p>
-
-            <a
-              href="https://cyfletech.com"
-              className="cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Cyfletech website"
-            >
-              <strong className="text-black underline text-sm md:text-base uppercase">Cyfletech</strong>
-            </a>
-          </div>
+          <div className="font-medium cursor-pointer hover:underline">MENU</div>
 
           {/* Middle Section: Social Icons */}
 
@@ -124,24 +106,14 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex justify-between items-end mt-10 gap-4">
           {/* Bottom Left: Website By */}
-          <div className="hidden md:flex  flex-col items-end justify-end text-borderColor text-xs md:text-sm">
-            <p className="font-semibold">WEBSITE BY</p>
-            <a
-              href="https://cyfletech.com"
-              className="cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Cyfletech website"
-            >
-              <strong className="text-black underline text-sm md:text-base uppercase">Cyfletech</strong>
-            </a>
+          <div className="text-gray-500 text-sm">
+            <p>WEBSITE BY</p>
+            <p className="font-medium underline">CYFLETECH</p>
           </div>
 
-          <div className="flex md:hidden font-medium cursor-pointer hover:underline">MENU</div>
-
           {/* Bottom Right: Copyright */}
-          <div className="text-right  font-bold text-sm md:text-base">
-            <p>©2024 <br /> ALITA MOMENTS</p>
+          <div className="text-right text-sm">
+            <p>©2024 CYFLETECH</p>
             <p> ALL RIGHTS RESERVED</p>
           </div>
         </div>
@@ -158,6 +130,7 @@ const Footer = () => {
         >
           ALITA-MOMENTS
         </h1> */}
+        {/* <h1 className="md:text-[155px]  text-[40px] font-extrabold  text-black"> */}
         <img
           src={companyLogo}
           alt="Company Logo"

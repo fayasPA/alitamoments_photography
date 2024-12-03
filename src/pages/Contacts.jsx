@@ -4,7 +4,7 @@ import ConnectUs from '../components/ConnectUs'
 
 const Contacts = () => {
   return (
-    <div className='px-3 md:px-5 py-5'>
+    <div className='px-3 md:px-5 py-5 mt-10 md:mt-20'>
       {/* <header
         className="aboutus h-64 md:h-96 bg-gray-300 text-2xl font-bold flex flex-col justify-center items-center bg-cover bg-center"
         style={{
@@ -16,7 +16,7 @@ const Contacts = () => {
           <p className="text-xs md:text-sm font-light text-white">House of used cars</p>
         </div>
       </header> */}
-      {/* <ConnectUs /> */}
+      <ConnectUs />
 
 
       <ContactForm />
