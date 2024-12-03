@@ -96,7 +96,7 @@ const EbinSection = () => {
           </div>
           {/* Title */}
           <div className="piermarco-title absolute bottom-4 left-4 text-6xl font-bold text-white">
-            Ebin
+            Ebin Abraham
           </div>
         </div>
 

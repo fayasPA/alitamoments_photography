@@ -36,7 +36,7 @@ const LoveExchangeComponent = () => {
     <div className="love-exchange-container bg-white text-center py-52 md:py-32 h-screen mb-16">
       <div className="text-black max-w-screen-md mx-auto">
         <div className="text-6xl md:text-9xl font-extrabold leading-[.8]">
-          <div className="animated-text">
+          <div className="animated-text ">
             LOVE IS A <div><span className="inline-block">PURPOSEFUL,</span></div>
           </div>
           <div className="animated-text flex ml-20 sm:ml-48 md:ml-10  ">
