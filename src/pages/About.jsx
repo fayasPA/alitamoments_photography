@@ -7,10 +7,10 @@ import SocialFollow from '../components/SocialFollow'
 const About = () => {
   return (
     <>
-    <div> <AboutHero /> </div>
-    <div> <AboutSecond /> </div>
-    <div><EbinSection /></div>
-    <div><SocialFollow/></div>
+    <div > <AboutHero /> </div>
+      <div> <AboutSecond /> </div>
+      <div><EbinSection /></div>
+      <div><SocialFollow/></div>
 
     </>
   )

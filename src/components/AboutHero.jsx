@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -6,45 +6,77 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutHero = () => {
-  const aboutUsRef = useRef(null);
+  const [isSticky, setIsSticky] = useState(true);
+  const imageRef = useRef(null);
 
+  // Handle scroll event to check if the bottom of the image is in view
   useEffect(() => {
-    const aboutUsEl = aboutUsRef.current;
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const imageBottom = imageRef.current.getBoundingClientRect().bottom;
+        // Check if the bottom of the image has reached the bottom of the viewport
+        if (imageBottom <= window.innerHeight) {
+          setIsSticky(false); // Change to absolute when the image bottom is in view
+        } else {
+          setIsSticky(true); // Keep it sticky when the image bottom is not in view
+        }
+      }
+    };
 
-    gsap.to(aboutUsEl, {
-      y: -50,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: aboutUsEl,
-        start: "bottom center",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    gsap.fromTo('.header-text', {
+      y: "0", // Moves upward
+    },
+      {
+        y: "-120%", // Moves upward
+        scrollTrigger: {
+          trigger: imageRef?.current, // Use the image as the trigger
+          start: "bottom 70%", // When the image's bottom reaches the center of the viewport
+          end: "bottom 40%", // When the image's bottom leaves the viewport
+          scrub: true, // Smoothly sync with the scroll
+        },
+      });
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <div className="h-screen md:h-[150vh]">
-      {/* Hero Image Section */}
-      <div className="hero-section h-full">
+    <div className="w-full uppercase ">
+      {/* Background Image */}
+      <div className="relative w-full h-[90vh] md:h-[250vh]" ref={imageRef}>
         <img
           src="https://images.pixieset.com/69137547/00cc3efcd7fb9d14b79c4a01b89df4b1-xxlarge.jpg"
-          alt="Hero"
-          className="object-cover w-full h-full"
+          alt="About Hero"
+          className="w-full h-full object-cover"
         />
-        {/* Scroll to Explore and About Us */}
-        <div className="sticky bottom-5 left-5 text-white"
-          >
-          <div className="flex items-center gap-2">
-            <span className="text-lg">Scroll to Explore</span>
+
+        {/* "AboutUs" Text */}
+        <div
+          className={`${isSticky ? "absolute md:sticky bottom-0 left-0" : "absolute bottom-0 left-0"
+            } mix-blend-difference text-white text-4xl md:text-5xl font-bold pl-4 md:pl-8 py-2 w-fit flex flex-col gap-6`}
+        >
+          <div className="hidden md:block text-xl">
+            <span className="">Scroll to</span>
+            <h1 className="">Explore</h1>
             <MdKeyboardDoubleArrowDown className="text-lg md:text-xl" />
           </div>
-        <div
-          ref={aboutUsRef}
-          className="text-white text-6xl md:text-9xl font-bold"
-        >
-          About Us
-        </div>
+          <div className="overflow-hidden -mb-8 md:-mb-14">
+            <div
+              className="header-text text-white text-6xl md:text-[10rem] font-bold"
+            >
+              About
+            </div>
+          </div>
+          <div className="overflow-hidden">
+            <div
+              className="header-text text-white text-6xl md:text-[10rem] font-bold"
+            >
+              Us
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
