@@ -3,11 +3,13 @@ import { companyEmail, companyPhoneNo } from "../utils/Constants";
 
 const ConnectUs = () => {
   return (
-    <section className="w-full md:pr-3 pt-10 pb-5 flex flex-col md:flex-row justify-between uppercase overflow-hidden">
+    <section className="w-full pl-2 md:pl-4 md:pr-3 pt-10 pb-5 flex flex-col md:flex-row justify-between uppercase overflow-hidden">
       {/* Left Section: Large Text */}
       <div className="text-left flex-1">
         <h1 className="text-6xl sm:text-8xl md:text-9xl font-bold leading-tight">
-          CONNECT <br />
+          CONNECT
+        </h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-bold leading-tight">
           US
         </h1>
       </div>

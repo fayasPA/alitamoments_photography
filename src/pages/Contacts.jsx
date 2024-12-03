@@ -7,7 +7,7 @@ const Contacts = () => {
   return (
     <TransitionWrapper>
 
-    <div>
+    <div className='mt-10'>
       {/* <header
         className="aboutus h-64 md:h-96 bg-gray-300 text-2xl font-bold flex flex-col justify-center items-center bg-cover bg-center"
         style={{
