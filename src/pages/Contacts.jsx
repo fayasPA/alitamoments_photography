@@ -1,10 +1,13 @@
 import React from 'react'
 import ContactForm from '../components/ContactForm'
 import ConnectUs from '../components/ConnectUs'
+import { TransitionWrapper } from '../App'
 
 const Contacts = () => {
   return (
-    <div className='px-3 md:px-5 py-5 mt-10 md:mt-20'>
+    <TransitionWrapper>
+
+    <div>
       {/* <header
         className="aboutus h-64 md:h-96 bg-gray-300 text-2xl font-bold flex flex-col justify-center items-center bg-cover bg-center"
         style={{
@@ -21,6 +24,8 @@ const Contacts = () => {
 
       <ContactForm />
     </div>
+    </TransitionWrapper>
+
   )
 }
 
