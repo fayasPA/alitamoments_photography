@@ -9,6 +9,7 @@ import About from './pages/About';
 import Faq from './pages/Faq';
 import Search from './pages/Search';
 import HorizontalScroll from './components/HorizontalScroll';
+import LocomotiveScroll from "locomotive-scroll";
 
 export const TransitionWrapper = ({ children }) => {
   const location = useLocation(); // Get current route
@@ -37,6 +38,9 @@ export const TransitionWrapper = ({ children }) => {
 };
 
 function App() {
+
+
+  const locomotiveScroll = new LocomotiveScroll();
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
