@@ -8,6 +8,7 @@ import Portfolio from './pages/Portfolio';
 import About from './pages/About';
 import Faq from './pages/Faq';
 import Search from './pages/Search';
+import HorizontalScroll from './components/HorizontalScroll';
 
 export const TransitionWrapper = ({ children }) => {
   const location = useLocation(); // Get current route
@@ -40,6 +41,7 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/search" element={<Search />} />
         <Route path="/about" element={<About />} />
+        <Route path="/horizontal-scroll" element={<HorizontalScroll />} />
       </Route>
     )
   );

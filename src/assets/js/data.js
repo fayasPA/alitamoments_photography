@@ -7,7 +7,8 @@ export const collections = [
     {
         "name": "Baptism Initial Preview",
         "image_url": ["//images.pixieset.com/68866048/adc92942da5985181d9562c69b6d2b2b-large.jpeg",
-            "https://images.pixieset.com/68866048/c0803d23e4e83941379b5598652d3fa3-xxlarge.jpeg"
+            "https://images.pixieset.com/68866048/c0803d23e4e83941379b5598652d3fa3-xxlarge.jpeg",
+            "https://images.pixieset.com/68866048/94ef6e849e555858a4ce44c150f6bc5d-xxlarge.jpeg"
     ]},
 
     {  

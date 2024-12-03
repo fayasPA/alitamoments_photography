@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { collections } from '../assets/js/data';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const HomeContent = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeImage, setActiveImage] = useState({});
   const [isIdle, setIsIdle] = useState(false); // Track idle state
   const [scrollIntervalId, setScrollIntervalId] = useState(null); // Store the interval ID for scrolling
+  const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
     let idleTimeout;
@@ -92,6 +94,12 @@ const HomeContent = () => {
     setHoveredIndex(null);
   };
 
+  const handleImageClick = (collection) => {
+    // Navigate to the Horizontal Scroll component and pass data
+    navigate('/horizontal-scroll', { state: collection });
+  };
+
+
   return (
     <div className="mx-auto">
       <div className="grid grid-cols-2 lg:grid-cols-3">
@@ -105,6 +113,7 @@ const HomeContent = () => {
               className="relative group overflow-hidden"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
+              onClick={() => handleImageClick(collection)} // Handle click
             >
               {/* Image */}
               <img
