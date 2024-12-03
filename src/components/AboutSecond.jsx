@@ -24,35 +24,55 @@ const LoveExchangeComponent = () => {
       ".animated-text",
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: isDesktop ? 1.5 : 1, stagger: 0.3 }
-    ).fromTo(
-      ".animated-image",
-      { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, duration: 1.5 },
-      "-=1" // Overlap animation slightly with previous timeline
-    );
+    )
   }, [isDesktop]);
 
   return (
     <div className="love-exchange-container bg-white text-center py-52 md:py-32 h-screen mb-16">
-      <div className="text-black max-w-screen-md mx-auto">
-        <div className="text-6xl md:text-9xl font-extrabold leading-[.8]">
-          <div className="animated-text ">
-            LOVE IS A <div><span className="inline-block">PURPOSEFUL,</span></div>
-          </div>
-          <div className="animated-text flex ml-20 sm:ml-48 md:ml-10  ">
-            SHARED
-            {/* Image Section */}
-            <div className="animated-image mt-1 ml-5">
+      <div className="text-black mx-auto flex flex-col justify-center items-center  gap-5 md:gap-16">
+        <div className="text-5xl md:text-[9rem] font-bold ">
+          <div className="animated-text flex items-baseline justify-center">
+            LOVE
+            {/* Image after LOVE */}
+            <div className=" block mx-1 md:mx-2">
               <img
                 src="https://images.pixieset.com/22217127/e0c283f00b5f92d1c23d62b79dd2ce11-xxlarge.jpg"
-                alt="Love Exchange"
-                className="mx-auto rounded-md shadow-lg w-0 md:w-44 md:h-36 object-cover hover:rotate-12 transition-all duration-500"
+                alt="Love"
+                className="mx-auto  shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
+              />
+            </div>
+          <div className="animated-text flex items-center justify-center">
+            IS A
+          </div>
+          </div>
+          <div className="animated-text flex items-baseline justify-center">
+            PURPOSEFUL,
+            {/* Image after LOVE */}
+            <div className=" block mx-1 md:mx-2">
+              <img
+                src="https://images.pixieset.com/22217127/e0c283f00b5f92d1c23d62b79dd2ce11-xxlarge.jpg"
+                alt="Love"
+                className="mx-auto  shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
               />
             </div>
           </div>
-          <div className="animated-text">EXCHANGE</div>
+          <div className="animated-text flex items-center justify-center">
+            SHARED
+          </div>
+
+          <div className="animated-text flex items-baseline justify-center">
+            {/* Image after LOVE */}
+            <div className=" block mx-1 md:mx-2">
+              <img
+                src="https://images.pixieset.com/22217127/e0c283f00b5f92d1c23d62b79dd2ce11-xxlarge.jpg"
+                alt="Love"
+                className="mx-auto  shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
+              />
+            </div>
+            EXCHANGE
+            </div>
         </div>
-        <div className="mt-4 text-lg md:text-2xl font-semibold animated-text mx-4 md:mx-0">
+        <div className="text-sm md:text-xl font-bold animated-text mx-4 md:mx-0 max-w-screen-md text-center leading-[.9rem] md:leading-[1.3rem]">
           <p>
             THE ALITA MOMENTS STUDIO IS BASED ON SOMETHING ELSE, SOMETHING
             PROFOUND IN WHAT AS WEDDING PHOTOGRAPHERS WE RECEIVE FROM PEOPLE IN

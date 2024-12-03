@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer.jsx';
 import Loader from './components/Loader.jsx';
+import ScrollToTop from './utils/ScrollToTop.js';
 
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,8 +33,10 @@ const Layout = () => {
             <Outlet />
           </main>
 
-          {/* <Footer /> */}
+          <Footer />
         </div>
+      {!isLoading && <ScrollToTop />}
+
     </div>
   );
 };
