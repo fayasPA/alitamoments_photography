@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Footer = () => {
   const location = useLocation();
   const isContactPage = location.pathname === '/contact';
+  const isAboutPage = location.pathname === '/about';
 
   const [isRotated, setIsRotated] = useState(false);
 
@@ -42,11 +43,11 @@ const Footer = () => {
     };
   }, []);
   return (
-    <footer ref={footerRef} className="footer-container w-full bg-white text-black px-6 md:px-16 py-6 flex flex-col justify-between">
+    <footer ref={footerRef} className="footer-container w-full bg-white text-black px-6 md:px-16 pt-6 flex flex-col justify-between">
 
       {/* bottom fixed buttons */}
       <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{ zIndex: 3 }}>
-        <div
+        {!isAboutPage && <div
           ref={plusRef}
           className="fix-btn-wrapper fixed bottom-3 md:bottom-5 left-1 md:left-5 z-30"
           onClick={toggleRotation} // Toggle rotation on click
@@ -69,7 +70,7 @@ const Footer = () => {
               </svg>
             </div>
           </div>
-        </div>
+        </div>}
 
         {!isContactPage && <div className="text-xl md:text-3xl fix-btn-wrapper fixed bottom-3 md:bottom-5 right-2 md:right-5 font-bold" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
 
@@ -91,8 +92,9 @@ const Footer = () => {
               className="font-medium underline cursor-pointer">
               {companyEmail}
             </a>
-            <p className="font-medium underline">{companyPhoneNo}123</p>
+            <p className="font-medium underline">{companyPhoneNo}</p>
 
+          {/* Middle Section: Social Icons */}
             <div className="flex space-x-4 mt-4">
               <FaInstagram className="text-xl cursor-pointer hover:text-gray-600 transition-all duration-300" />
               <FaPinterest className="text-xl cursor-pointer hover:text-gray-600 transition-all duration-300" />
@@ -103,7 +105,7 @@ const Footer = () => {
           {/* Right: Menu */}
           <div className="hidden md:flex font-medium cursor-pointer hover:underline">MENU</div>
 
-          <div className="font-bold flex md:hidden flex-col items-end justify-end text-borderColor text-xs md:text-sm">
+          <div className="font-bold flex md:hidden flex-col items-end justify-end text-borderColor text-xs md:text-sm pr-3 md:pr-0">
             <p>WEBSITE BY</p>
 
             <a
@@ -117,12 +119,11 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Middle Section: Social Icons */}
 
         </div>
 
         {/* Bottom Section */}
-        <div className="flex justify-between items-end mt-10 gap-4">
+        <div className="flex justify-between items-end mt-10 gap-4 pr-3 md:pr-0">
           {/* Bottom Left: Website By */}
           <div className="hidden md:flex  flex-col items-end justify-end text-borderColor text-xs md:text-sm">
             <p className="font-semibold">WEBSITE BY</p>
