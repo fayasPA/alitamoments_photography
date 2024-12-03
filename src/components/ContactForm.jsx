@@ -410,7 +410,7 @@ const ContactForm = () => {
           <div className="hidden md:flex pr-10">
             <button
               type="submit"
-              className="w-full text-black uppercase text-xl font-medium transition-all flex items-center gap-2"
+              className="w-full text-black uppercase text-xl font-medium transition-all flex items-center gap-2 hover:opacity-50 duration-1000"
             >
               Send <FaArrowRight className="font-bold text-8xl" />
             </button>

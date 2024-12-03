@@ -7,15 +7,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // GSAP animation for Y-axis when menu opens
-  // useEffect(() => {
-  //   if (menuOpen) {
-  //     gsap.fromTo(
-  //       ".menu-item",
-  //       { y: 40, opacity: 0 },
-  //       { y: 0, opacity: 1, stagger: 0.2, duration: 0.6, ease: "power3.out" }
-  //     );
-  //   }
-  // }, [menuOpen]);
+  useEffect(() => {
+    if (menuOpen) {
+      gsap.fromTo(
+        ".menu-item",
+        { y: "200%" },
+        { y: 0, stagger: 0.1, duration: 0.5, ease: "power3.out" }
+      );
+    }
+  }, [menuOpen]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -75,9 +75,10 @@ const Navbar = () => {
 
               {/* social links */}
               <div className="mt-10 md:text-end md:mr-14">
+                <div className="overflow-hidden">
                 <NavLink
                   to="/contact"
-                  className="text-right overflow-hidden menu-item text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out"
+                  className="text-right flex md:justify-end text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out"
                   onMouseEnter={(e) => {
                     const items = document.querySelectorAll(".menu-item");
                     items.forEach((item) => {
@@ -94,11 +95,14 @@ const Navbar = () => {
                   }}
                   onClick={() => setMenuOpen(false)}
                 >
+                  <div className="menu-item w-fit">
                   CONTACT
+                  </div>
                 </NavLink>
+                </div>
 
                 {/* Social Media Links */}
-                <div className="flex gap-4 mt-2 text-sm md:text-lg md:justify-end">
+                <div className="flex gap-4 mt-2 text-sm md:text-lg md:justify-end overflow-hidden">
                   <NavLink
                     to={companyInsta}
                     className="menu-item transition-opacity duration-500 ease-in-out"
@@ -156,7 +160,7 @@ const Navbar = () => {
                   <NavLink
                     key={index}
                     to={data.path}
-                    className="text-right overflow-hidden menu-item text-5xl lg:text-6xl transition-opacity duration-500 ease-in-out"
+                    className="text-right overflow-hidden text-5xl lg:text-6xl transition-opacity duration-500 ease-in-out"
                     onMouseEnter={(e) => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
@@ -173,7 +177,9 @@ const Navbar = () => {
                     }}
                     onClick={() => setMenuOpen(false)}
                   >
+                    <div className="menu-item w-fit">
                     {data.name}
+                  </div>
                   </NavLink>
                 )
               )}
@@ -191,7 +197,7 @@ const Navbar = () => {
                       <NavLink
                         key={index}
                         to={data.path}
-                        className=" overflow-hidden menu-item text-5xl md:text-8xl transition-opacity duration-500 ease-in-out"
+                        className=" overflow-hidden text-5xl md:text-8xl transition-opacity duration-500 ease-in-out"
                         onMouseEnter={(e) => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
@@ -208,7 +214,9 @@ const Navbar = () => {
                         }}
                         onClick={() => setMenuOpen(false)}
                       >
-                        {data.name}
+                        <div className="menu-item w-fit">
+                    {data.name}
+                  </div>
                       </NavLink>
                     )
                   )}
@@ -219,7 +227,7 @@ const Navbar = () => {
                       <NavLink
                         key={index}
                         to={data.path}
-                        className=" overflow-hidden menu-item text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out"
+                        className=" overflow-hidden text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out"
                         onMouseEnter={(e) => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
@@ -236,7 +244,9 @@ const Navbar = () => {
                         }}
                         onClick={() => setMenuOpen(false)}
                       >
-                        {data.name}
+                         <div className="menu-item w-fit">
+                    {data.name}
+                  </div>
                       </NavLink>
                     )
                   )}

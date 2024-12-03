@@ -7,14 +7,13 @@ import { TransitionWrapper } from '../App'
 const Home = () => {
   return (
     <>
-    <TransitionWrapper >
-    <div className=''> 
+    {/* <TransitionWrapper > */}
+    <div className=''>
       <div className='h-full text-black'>
         <HomeContent />
-
       </div>
     </div>
-    </TransitionWrapper>
+    {/* </TransitionWrapper> */}
     </>
   )
 }

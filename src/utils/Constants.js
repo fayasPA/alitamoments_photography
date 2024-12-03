@@ -12,8 +12,7 @@ export const companyFb = "https://www.instagram.com/alita_moments/"
 
 
 export const navLists = [
-    { name: 'Home', path: '/', order: 1, pos: 'middle' },
-    { name: 'Portfolio', path: '/portfolio', order: 2, pos:'middle' },
+    { name: 'Portfolio', path: '/', order: 1, pos: 'middle' },
     { name: 'FAQ', path: '/faq', order: 3, pos: 'last' },
     { name: 'About Us', path: '/about', order: 4,pos: 'middle' },
     { name: 'Contact', path: '/contact', order: 5, pos: 'first' },

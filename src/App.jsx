@@ -20,7 +20,7 @@ export const TransitionWrapper = ({ children }) => {
       gsap.fromTo(
         containerRef.current,
         { x: '100%', opacity: 1 },
-        { x: '0%', opacity: 1, duration: 1.2, ease: 'power2.out' }
+        { x: '0%', opacity: 1, ease: 'power2.out' }
       );
     });
 
@@ -28,7 +28,12 @@ export const TransitionWrapper = ({ children }) => {
     return () => ctx.revert();
   }, [location]); // Re-run animation on route change
 
-  return <div ref={containerRef}>{children}</div>;
+  return (<div className='overflow-hidden'>
+    <div
+      ref={containerRef}>
+      {children}
+    </div>
+  </div>);
 };
 
 function App() {
@@ -48,14 +53,7 @@ function App() {
 
   return (
     <>
-      <RouterProvider
-        router={router}
-        fallbackElement={
-          <TransitionWrapper>
-            <div>Loading...</div>
-          </TransitionWrapper>
-        }
-      />
+      <RouterProvider router={router} />
     </>
   );
 }
