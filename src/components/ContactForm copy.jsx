@@ -1,94 +1,27 @@
-import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { BiSolidDownArrow } from "react-icons/bi";
 import { FaArrowRight } from "react-icons/fa";
-import { POST_ENQUIRY_FORM } from "../utils/urls";
-import { toast } from "react-toastify";
 
 const ContactForm = () => {
 
-  const [formValues, setFormValues] = useState({
-    fullName: "",
-    email: "",
-    location: "",
-    eventType: "Event Type",
-    roleType: "What is your role ?",
-    eventDate: "Date",
-    eventLocation: "",
-    budget: "Budget",
-    connectedThrough: "How Did You Hear About Us",
-    brideInsta: "",
-    message: "",
-    consent: false,
-  });
-
-  const handleChange = (e) => {
-
-    const { name, value, type, checked } = e.target;
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("formValues===", formValues)
-
-    if (!formValues.consent) {
-      toast.error("You must agree to the consent checkbox.");
-      return;
-    }
-
-    try {
-      await toast.promise(
-        axios.post(
-          POST_ENQUIRY_FORM,
-          new URLSearchParams({
-            ...formValues,
-          }).toString()
-        ),
-        {
-          pending: "Submitting...",
-          success: "Enquiry submitted successfully!",
-          error: "Error submitting form",
-        }
-      );
-
-      // Reset form values after successful submission
-      setFormValues({
-        fullName: "",
-        email: "",
-        location: "",
-        eventType: "Event Type",
-        roleType: "What is your role ?",
-        eventDate: "Date",
-        eventLocation: "",
-        budget: "Budget",
-        connectedThrough: "How Did You Hear About Us",
-        brideInsta: "",
-        message: "",
-        consent: false,
-      });
-    } catch (error) {
-      console.error("Form submission error:", error);
-      toast.error("Submission error.");
-    }
-  };
-
+  const [selectedEventType, setSelectedEventType] = useState("Event Type");
   const [isopenEventTypes, setIsOpenEventTypes] = useState(false);
   const eventTypeDropdownRef = useRef(null);
 
+  const [selectedRoleType, setSelectedRoleType] = useState("What is your role ?");
   const [isOpenRoleTypes, setIsOpenRoleTypes] = useState(false);
   const roleTypeDropdownRef = useRef(null);
 
+  const [selectedBudget, setSelectedBudget] = useState("Budget");
   const [isOpenBudgets, setIsOpenBudgets] = useState(false);
   const budgetDropdownRef = useRef(null);
 
+  const [selectedConnectedThrough, setSelectedConnectedThrough] = useState("How Did You Hear About Us");
   const [IsOpenConnectedThrough, setIsOpenConnectedThrough] = useState(false);
   const connectedThroughDropdownRef = useRef(null);
 
   const [isOpenDatePicker, setIsOpenDatePicker] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("Date");
   const datePickerDropdownRef = useRef(null);
 
 
@@ -117,6 +50,11 @@ const ContactForm = () => {
     setIsOpenDatePicker(!isOpenDatePicker);
   };
 
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+    setIsOpenDatePicker(false);
+  };
+
   const toggleEventTypeDropdown = () => {
     setIsOpenEventTypes(!isopenEventTypes);
   };
@@ -141,7 +79,7 @@ const ContactForm = () => {
   }, []);
   return (
     <div className="w-full bg-formColor animate-slideInFromLeft mx-auto  pt-14 py-10 md:py-20">
-      <form onSubmit={handleSubmit} className="text-black" aria-label="Contact form">
+      <form method="POST" action="#" className="text-black">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 uppercase font-bold">
           {/* Full Name */}
           <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300">
@@ -153,8 +91,6 @@ const ContactForm = () => {
                 id="fullName"
                 name="fullName"
                 type="text"
-                value={formValues.fullName}
-                onChange={handleChange}
               />
               <label
                 htmlFor="fullName"
@@ -175,8 +111,6 @@ const ContactForm = () => {
                 id="email"
                 name="email"
                 type="email"
-                value={formValues.email}
-                onChange={handleChange}
               />
               <label
                 htmlFor="email"
@@ -199,8 +133,6 @@ const ContactForm = () => {
                 id="location"
                 name="location"
                 type="text"
-                value={formValues.location}
-                onChange={handleChange}
               />
               <label
                 htmlFor="location"
@@ -217,11 +149,11 @@ const ContactForm = () => {
             className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
-              className={`${formValues.eventType !== "Event Type" ? "text-black" : "text-formTextColor"
+              className={`${selectedEventType !== "Event Type" ? "text-black" : "text-formTextColor"
                 } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleEventTypeDropdown}
             >
-              {formValues.eventType}
+              {selectedEventType}
               <BiSolidDownArrow
                 className={`transition-transform duration-300 text-sm ${isopenEventTypes ? "rotate-180" : "rotate-0"
                   }`}
@@ -231,19 +163,16 @@ const ContactForm = () => {
               <div className="absolute left-5 md:left-7 rounded-2xl top-full w-fit pr-3 z-20 bg-white shadow-lg">
                 <ul className="text-formDropdownColor space-y-2 pl-3 pr-5 py-4 text-xs md:text-base">
                   {["Wedding", "Elopement", "Engagement", "Commercial"].map(
-                    (et) => (
+                    (eventType) => (
                       <li
-                        key={et}
+                        key={eventType}
                         className="hover:bg-gray-200 cursor-pointer"
                         onClick={() => {
-                          setFormValues((prevValues) => ({
-                            ...prevValues,
-                            eventType: et,
-                          }));
+                          setSelectedEventType(eventType);
                           setIsOpenEventTypes(false);
                         }}
                       >
-                        {et}
+                        {eventType}
                       </li>
                     )
                   )}
@@ -252,17 +181,17 @@ const ContactForm = () => {
             )}
           </div>
 
-          {/* Role Type */}
+
           <div
             ref={roleTypeDropdownRef}
             className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
-              className={`${formValues.roleType !== "What is your role ?" ? "text-black" : "text-formTextColor"
+              className={`${selectedRoleType !== "What is your role ?" ? "text-black" : "text-formTextColor"
                 } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleRoleTypeDropdown}
             >
-              {formValues.roleType}
+              {selectedRoleType}
               <BiSolidDownArrow
                 className={`transition-transform duration-300 text-sm ${isOpenRoleTypes ? "rotate-180" : "rotate-0"
                   }`}
@@ -277,10 +206,7 @@ const ContactForm = () => {
                         key={eventType}
                         className="hover:bg-gray-200 cursor-pointer"
                         onClick={() => {
-                          setFormValues((prevValues) => ({
-                            ...prevValues,
-                            roleType: eventType,
-                          }));
+                          setSelectedRoleType(eventType);
                           setIsOpenRoleTypes(false);
                         }}
                       >
@@ -296,11 +222,11 @@ const ContactForm = () => {
           {/* Event Date */}
           <div ref={datePickerDropdownRef} className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative">
             <label
-              className={`${formValues.eventDate !== "Date" ? "text-black" : "text-formTextColor"
+              className={`${selectedDate !== "Date" ? "text-black" : "text-formTextColor"
                 } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleDatePickerDropdown}
             >
-              {formValues.eventDate}
+              {selectedDate}
               <BiSolidDownArrow
                 className={`transition-transform duration-300 text-sm ${isOpenDatePicker ? "rotate-180" : "rotate-0"}`}
               />
@@ -309,14 +235,9 @@ const ContactForm = () => {
             {isOpenDatePicker && (
               <div className="absolute left-5 md:left-7 rounded-2xl top-full w-[50%] z-20 bg-white shadow-lg overflow-hidden">
                 <input
-                  name="eventDate"
                   type="date"
                   className="text-formDropdownColor w-full px-4 py-2 bg-gray-300 border-none focus:outline-none"
-                  // onChange={handleChange}
-                  onChange={(e) => {
-                    handleChange(e);
-                    setIsOpenDatePicker(false)
-                  }}
+                  onChange={handleDateChange}
                 />
               </div>
             )}
@@ -332,8 +253,6 @@ const ContactForm = () => {
                 id="eventLocation"
                 name="eventLocation"
                 type="text"
-                value={formValues.eventLocation}
-                onChange={handleChange}
               />
               <label
                 htmlFor="eventLocation"
@@ -350,11 +269,11 @@ const ContactForm = () => {
             className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
-              className={`${formValues.budget !== "Budget" ? "text-black" : "text-formTextColor"
+              className={`${selectedBudget !== "Budget" ? "text-black" : "text-formTextColor"
                 } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleBudgetTypeDropdown}
             >
-              {formValues.budget}
+              {selectedBudget}
               <BiSolidDownArrow
                 className={`transition-transform duration-300 text-sm ${isOpenBudgets ? "rotate-180" : "rotate-0"
                   }`}
@@ -369,10 +288,7 @@ const ContactForm = () => {
                         key={eventType}
                         className="hover:bg-gray-200 cursor-pointer"
                         onClick={() => {
-                          setFormValues((prevValues) => ({
-                            ...prevValues,
-                            budget: eventType,
-                          }));
+                          setSelectedBudget(eventType);
                           setIsOpenBudgets(false);
                         }}
                       >
@@ -391,11 +307,11 @@ const ContactForm = () => {
             className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 relative"
           >
             <label
-              className={`${formValues.connectedThrough !== "How Did You Hear About Us" ? "text-black" : "text-formTextColor"
+              className={`${selectedConnectedThrough !== "How Did You Hear About Us" ? "text-black" : "text-formTextColor"
                 } text-xl md:text-3xl cursor-pointer flex items-center gap-2`}
               onClick={toggleConnectedThroughDropdown}
             >
-              {formValues.connectedThrough}
+              {selectedConnectedThrough}
               <BiSolidDownArrow
                 className={`transition-transform duration-300 text-sm ${IsOpenConnectedThrough ? "rotate-180" : "rotate-0"
                   }`}
@@ -410,11 +326,8 @@ const ContactForm = () => {
                         key={eventType}
                         className="hover:bg-gray-200 cursor-pointer"
                         onClick={() => {
-                          setFormValues((prevValues) => ({
-                            ...prevValues,
-                            connectedThrough: eventType,
-                          }));
-                          setIsOpenConnectedThrough(false);
+                          setSelectedBudget(eventType);
+                          setIsOpenBudgets(false);
                         }}
                       >
                         {eventType}
@@ -436,8 +349,6 @@ const ContactForm = () => {
                 id="brideInsta"
                 name="brideInsta"
                 type="text"
-                value={formValues.brideInsta}
-                onChange={handleChange}
               />
               <label
                 htmlFor="brideInsta"
@@ -448,16 +359,15 @@ const ContactForm = () => {
             </div>
           </div>
 
-
           {/* Message */}
           <div className=" my-2 md:my-3 px-4 md:px-7 pb-2 border-b border-gray-300 md:col-span-2">
             <div className="relative">
               <textarea
                 placeholder="Write your message here..."
                 className="peer text-xl md:text-2xl pt-2 md:pt-3 w-full bg-transparent placeholder-transparent focus:outline-none"
+                required
                 id="message"
                 name="message"
-                onChange={handleChange}
               />
               <label
                 htmlFor="message"
@@ -468,18 +378,23 @@ const ContactForm = () => {
             </div>
           </div>
 
+
+
+
+
         </div>
 
         {/* Consent */}
+        {/* Email */}
         <div className=" my-2 md:my-3 px-4 md:px-7 flex justify-between pt-5 md:pt-10">
           <div className="flex items-start  space-x-4 md:w-1/2">
             <input
               placeholder="email@example.com"
               className="peer mt-1 md:mt-2 text-xl md:text-2xl w-fit bg-transparent placeholder-transparent focus:outline-none"
+              required
               id="consent"
               name="consent"
               type="checkbox"
-              onChange={handleChange}
             />
             <label
               htmlFor="consent"

@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer.jsx';
 import Loader from './components/Loader.jsx';
 import ScrollToTop from './utils/ScrollToTop.js';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +29,8 @@ const Layout = () => {
       className="your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col bg-white"
     >
         <div className="flex-grow md:pb-0">
+        <ToastContainer toastClassName="custom-toast" />
+
           <Navbar />
 
           <main className="flex-grow">
