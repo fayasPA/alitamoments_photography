@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { gsap } from "gsap";
-import { companyInsta, companyLogo, companyLogoGold, navLists } from "../utils/Constants";
+import { companyInsta, companyLogo, navLists } from "../utils/Constants";
 
 const Navbar = () => {
-  const location = useLocation();
-  const isHomepage = location.pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
 
   // GSAP animation for Y-axis when menu opens
@@ -29,11 +27,11 @@ const Navbar = () => {
       <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{ zIndex: 3 }}>
         <div className="fix-btn-wrapper fixed top-3 md:top-5 left-1 md:left-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
           <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-            <div className="ml-4 md:ml-0" >
+            <div className="" >
               <img
-                src={isHomepage ? companyLogo : companyLogoGold}
+                src={companyLogo}
                 alt="Alita Moments Logo"
-                className="w-32 h-14 lg:w-32 lg:h-16 transition-all duration-700 ease-in-out"
+                className="w-32 h-12 lg:w-52 lg:h-16 transition-all duration-700 ease-in-out"
                 role="img" // Added role for clarity
               />
             </div>
@@ -51,7 +49,7 @@ const Navbar = () => {
 
       {/* Menu Overlay */}
       {menuOpen && (
-        <div className="menu-overlay fixed inset-0 bg-black text-white z-40 uppercase overflow-hidden">
+        <div className="menu-overlay fixed inset-0 bg-black text-white z-40 uppercase">
           <div className="flex flex-col justify-between h-full p-3 md:p-8 font-bold">
 
             <div>
@@ -61,15 +59,15 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}>
                   <div className="" >
                     <img
-                      src={companyLogoGold}
+                      src={companyLogo}
                       alt="Premier Steels Logo"
-                      className="w-32 h-12 lg:w-52 lg:h-28 transition-all duration-700 ease-in-out"
+                      className="w-32 h-12 lg:w-52 lg:h-16 transition-all duration-700 ease-in-out"
                       role="img" // Added role for clarity
                     />
                   </div>
                 </NavLink>
                 <div className="text-xl md:text-3xl font-bold">
-                  <button onClick={toggleMenu} className="writing-mode-vertical-rl hover:opacity-20 transition-opacity duration-1000">
+                  <button onClick={toggleMenu} className="writing-mode-vertical-rl">
                     CLOSE
                   </button>
                 </div>
@@ -77,15 +75,15 @@ const Navbar = () => {
 
               {/* social links */}
               <div className="mt-10 md:text-end md:mr-14">
-                <div className="overflow-hidden text-right flex md:justify-end">
+                <div className="overflow-hidden">
                 <NavLink
                   to="/contact"
-                  className="text-right flex md:justify-end text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out w-fit"
+                  className="text-right flex md:justify-end text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out"
                   onMouseEnter={(e) => {
                     const items = document.querySelectorAll(".menu-item");
                     items.forEach((item) => {
                       if (item !== e.target) {
-                        item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                        item.style.opacity = "0.4"; // Dull effect for non-hovered items
                       }
                     });
                   }}
@@ -97,8 +95,7 @@ const Navbar = () => {
                   }}
                   onClick={() => setMenuOpen(false)}
                 >
-                  <div className="menu-item w-fit"
-                  >
+                  <div className="menu-item w-fit">
                   CONTACT
                   </div>
                 </NavLink>
@@ -114,7 +111,7 @@ const Navbar = () => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
                         if (item !== e.target) {
-                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                          item.style.opacity = "0.4"; // Dull effect for non-hovered items
                         }
                       });
                     }}
@@ -137,7 +134,7 @@ const Navbar = () => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
                         if (item !== e.target) {
-                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                          item.style.opacity = "0.4"; // Dull effect for non-hovered items
                         }
                       });
                     }}
@@ -168,7 +165,7 @@ const Navbar = () => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
                         if (item !== e.target) {
-                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                          item.style.opacity = "0.4"; // Dull effect for non-hovered items
                         }
                       });
                     }}
@@ -205,7 +202,7 @@ const Navbar = () => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
                             if (item !== e.target) {
-                              item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                              item.style.opacity = "0.4"; // Dull effect for non-hovered items
                             }
                           });
                         }}
@@ -235,7 +232,7 @@ const Navbar = () => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
                             if (item !== e.target) {
-                              item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                              item.style.opacity = "0.4"; // Dull effect for non-hovered items
                             }
                           });
                         }}

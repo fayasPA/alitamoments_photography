@@ -1,7 +1,14 @@
-import Logo from '/assets/images/logowhite.png'
+import Logo from '/assets/images/2-png-white.png'
+import singleLineLogo from '/assets/images/logogold.png'
+import singleLineLogoblack from '/assets/images/logoblack.png'
+import LogoGold from '/assets/images/2-png-gold.png'
+// import LogoGold from '/assets/images/logogold.png'
 
 
 export const companyLogo = Logo;
+export const companyLogoGold = LogoGold;
+export const companyLogoStraightLineGold = singleLineLogo;
+export const companyLogoStraightLineBlack = singleLineLogoblack;
 export const companyName = "Alita Moments";
 export const companyPhoneNo = '8135078559'
 export const companyEmail = "alitamoments@gmail.com"

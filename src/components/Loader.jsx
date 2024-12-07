@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold } from '../utils/Constants';
 
 const Loader = () => {
   const [percentage, setPercentage] = useState(0);
@@ -13,16 +14,16 @@ const Loader = () => {
     const tl = gsap.timeline();
 
     // Initial setup
-    if (window.innerWidth <= 768){
+    if (window.innerWidth <= 768) {
       gsap.set(textContainerRef.current, {
-        x: '-300', // Start completely below the screen
+        y: '300', // Start completely below the screen
         opacity: 1,
       });
-  
+
       // Animation sequence
       tl.to(textContainerRef.current, {
         duration: 1.5,
-        x: '0', // Move to center
+        y: '0', // Move to center
         opacity: 1,
         ease: 'power2.inOut',
       }).to(
@@ -38,27 +39,28 @@ const Loader = () => {
       );
     } else {
       gsap.set(textContainerRef.current, {
-      y: '300', // Start completely below the screen
-      opacity: 1,
-    });
+        y: '300', // Start completely below the screen
+        opacity: 1,
+      });
 
-    // Animation sequence
-    tl.to(textContainerRef.current, {
-      duration: 1.5,
-      y: '0', // Move to center
-      opacity: 1,
-      ease: 'power2.inOut',
-    }).to(
-      {},
-      {
+      // Animation sequence
+      tl.to(textContainerRef.current, {
         duration: 1.5,
-        onUpdate: function () {
-          // Update percentage based on timeline progress
-          setPercentage(Math.round(this.progress() * 100));
+        y: '0', // Move to center
+        opacity: 1,
+        ease: 'power2.inOut',
+      }).to(
+        {},
+        {
+          duration: 1.5,
+          onUpdate: function () {
+            // Update percentage based on timeline progress
+            setPercentage(Math.round(this.progress() * 100));
+          },
         },
-      },
-      0 // Start at the same time as text animation
-    );}
+        0 // Start at the same time as text animation
+      );
+    }
   }, []);
 
   return (
@@ -81,10 +83,13 @@ const Loader = () => {
         {/* Large Screen Text */}
         <div className='overflow-hidden'>
           <div className="writing-mode-vertical-rl md:writing-mode-normal"
-        ref={textContainerRef}
-        >
-            <div className="text-4xl md:text-8xl font-bold">ALITA MOMENTS</div>
-            <h1 className="text-sm md:text-2xl mt-2">CAPTURE MOMENTS, TELL STORIES</h1>
+            ref={textContainerRef}
+          >
+            <img
+              src={companyLogoStraightLineBlack}
+              alt="Company Logo"
+              className="w-64 h-auto lg:w-[40rem] lg:max-h-96"
+            />
           </div>
         </div>
 

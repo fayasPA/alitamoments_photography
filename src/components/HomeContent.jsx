@@ -119,12 +119,12 @@ const HomeContent = () => {
               <img
                 src={collection.image_url[currentImage]}
                 alt={collection.name}
-                className={`w-full h-[35vh] sm:h-[50vh] md:h-[80vh] object-cover transition-transform duration-[1000ms] ${
-                  isHovered ? 'scale-100' : 'scale-105'
+                className={`w-full h-[35vh] sm:h-[50vh] md:h-[80vh] object-cover transition-transform duration-[2000ms] ${
+                  isHovered ? 'scale-105' : 'scale-100'
                 }`}
               />
               {/* Name */}
-              <div className="absolute bottom-0 left-0 right-0 text-transparent transition-all duration-300 group-hover:bg-gradient-to-t from-black to-transparent group-hover:text-white p-4 text-center ease-in-out">
+              <div className="font-bold text-xs md:text-xl uppercase absolute bottom-0 left-0 right-0 text-transparent transition-all duration-300 group-hover:text-white pl-2 text-start ease-in-out">
                 {collection.name}
               </div>
             </div>

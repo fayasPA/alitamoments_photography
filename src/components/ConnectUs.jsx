@@ -9,7 +9,7 @@ const ConnectUs = () => {
         <h1 className="text-6xl sm:text-8xl md:text-9xl font-bold leading-tight">
           CONNECT
         </h1>
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-bold leading-tight">
+        <h1 className="-mt-5 text-6xl sm:text-8xl md:text-9xl font-bold leading-tight">
           US
         </h1>
       </div>
@@ -18,14 +18,14 @@ const ConnectUs = () => {
       <div className="flex-1 flex flex-col md:items-end md:text-right space-y-14 md:space-y-20 lg:pr-10">
         {/* Contact Information */}
         <div className="flex flex-col">
-          <p className="font-bold text-lg md:text-xl underline">
+          <p className="font-bold text-sm md:text-xl underline">
           {companyEmail}
           </p>
-          <p className="font-bold text-lg md:text-xl underline">{companyPhoneNo}</p>
+          <p className="font-bold text-sm md:text-xl underline">{companyPhoneNo}</p>
         </div>
 
         {/* Description */}
-        <p className="text-gray-500 text-[.9rem] md:text-sm leading-tight max-w-xs md:max-w-md">
+        <p className="text-gray-500 text-[.8rem] md:text-sm leading-tight max-w-xs md:max-w-md">
           TO REACH ALITA MOMENTS STUDIO OR TO REQUEST A DETAILED COLLECTION OF OUR
           WEDDING PHOTOGRAPHY SERVICES, PLEASE FEEL FREE TO FILL OUT YOUR
           INFORMATION AND WE WILL CONTACT YOU WITHIN 24 HOURS.

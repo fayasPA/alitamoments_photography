@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-  font-family: 'Constantia';
-  src: url('/fonts/constan.ttf') format('truetype');
-} */
 
 .company-font-only {
   /* font-family: 'Constantia', sans-serif; */
@@ -17,13 +13,8 @@
 }
 
 body {
-  /* font-family: 'Roboto Flex', sans-serif; */
-  /* font-family: 'Coda', sans-serif; */
-  /* font-family: 'Gowun Dodum', sans-serif; */
-  /* font-family: 'Poiret One', cursive; */
-  /* font-family: 'Mohave', sans-serif; */
-  /* font-family: 'Pavanam', sans-serif; */
-  /* font-family: 'Manrope', sans-serif; */
+  /* font-family: 'DM Sans', sans-serif; */
+  font-family: 'Righteous', sans-serif;
 
 }
 
