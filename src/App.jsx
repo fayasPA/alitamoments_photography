@@ -7,6 +7,7 @@ import About from './pages/About';
 import Faq from './pages/Faq';
 import Search from './pages/Search';
 import PageTransition from './utils/PageTransition';
+import HorizontalScroll from './components/HorizontalScroll';
 
 export const TransitionWrapper = ({ children }) => {
   const location = useLocation(); // Get current route
@@ -79,6 +80,15 @@ function App() {
             </PageTransition>
           }
         />
+        <Route
+          path="/horizontal-scroll"
+          element={
+            <PageTransition>
+              <HorizontalScroll />
+            </PageTransition>
+          }
+        />
+
       </Route>
     )
   );

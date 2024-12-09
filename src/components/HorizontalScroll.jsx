@@ -1,140 +1,90 @@
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { TransitionWrapper } from "../App";
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { projectsData } from '../assets/js/data';
+import TiltEffect from './TiltCard';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
-const Example = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+const HorizontalScroll = () => {
   const location = useLocation();
-  const [cards, setCards] = useState([]);
+
+  // Check if the current path is "/work"
+  const isWorkPage = location.pathname === '/work';
+  const projectsToDisplay = isWorkPage ? projectsData : projectsData.slice(0, 4);
+
+  const scrollContainerRef = useRef(null);
 
   useEffect(() => {
-    // Fetch or get your data from location or any dynamic source
-    if (location.state && location.state.image_url && location.state.name) {
-      // Ensure at least three images are present
-      const dynamicCards = location.state.image_url.slice(0, 3).map((url, index) => ({
-        url: url,
-        title: location.state.name,
-        id: index + 1,
-      }));
-      setCards(dynamicCards);
+    const container = scrollContainerRef.current;
+
+    // GSAP horizontal scroll animation for below md
+    if (window.innerWidth < 768) {
+      gsap.to(container, {
+        x: () => -(container.scrollWidth - document.documentElement.clientWidth) + 'px',
+        xPercent: -2,  // Scroll horizontally
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.work-container',
+          start: 'top top',
+          end: 'bottom top', // Set the end of the scroll animation
+          scrub: 1, // Sync the animation with the scroll
+          pin: '.work-container', // Pin the container while scrolling
+          markers: false, // Disable markers for debugging
+        },
+      });
     }
-  }, [location.state]);
+
+    // Cleanup ScrollTrigger
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
-    <>
-      <TransitionWrapper>
-        <div className="bg-neutral-800">
-          {/* Large Screen Layout */}
-          <div className="hidden lg:block">
-            <HorizontalScrollCarousel cards={cards} />
-          </div>
+    <section className="w-full min-h-screen md:pb-10 work-container overflow-x-hidden">
+      <div className=" mx-auto px-4 py-20 flex flex-col justify-start items-center">
+        {/* Heading */}
+        <h1
+          // ref={headingRef}
+          className="section-heading text-center mb-12 text-white"
+        >
+          Works
+        </h1>
 
-          {/* Small Screen Layout */}
-          <div className="lg:hidden">
-            <VerticalImageDisplay cards={cards} />
+        {/* Projects Grid */}
+
+        <div className="md:max-w-6xl mx-auto ">
+          <div className="flex w-full md:w-auto md:grid md:grid-cols-2 gap-6 md:items-center md:justify-center "
+            ref={scrollContainerRef}
+          >
+            {projectsToDisplay.map((project, index) => (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="md:inline-block mx-2 md:mx-0 w-full"
+                key={index}
+              >
+                <TiltEffect project={project} />
+              </a>
+            ))}
+
           </div>
         </div>
-      </TransitionWrapper>
-    </>
-  );
-};
 
-// Horizontal Scroll Carousel for Large Screens
-const HorizontalScrollCarousel = ({ cards }) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
+        {!isWorkPage &&
+          <div className='text-white text-center mt-16 uppercase text-base md:text-xl'>
+            <NavLink to='/work' className='border border-borderColor px-3 py-2 rounded-lg bg-selGray-200 hover:bg-selGray transition-colors duration-500' >see more work</NavLink>
+          </div>
+        }
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", `-${(cards.length - 1) * 50}vw`]);
 
-  return (
-    <section ref={targetRef} className="relative h-[200vh] bg-white">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
-          {cards.length > 0 && (
-            <>
-              {/* First card with title */}
-              <div className="relative w-[50vw] h-[80vh] flex justify-center items-center bg-white">
-                <p className="text-4xl font-serif uppercase text-black">
-                  {cards[0].title}
-                </p>
-                {/* Clickable text link with hover animation */}
-                <a
-                  href="https://galleries.pixieset.com/collections?page=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-4 text-3xl font-serif text-slate-300 hover:text-black group"
-                >
-                  Browse collection
-                  <span className="absolute inset-0 w-full h-[1px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
-                </a>
-              </div>
 
-              {/* Subsequent cards with images */}
-              {cards.slice(0).map((card) => (
-                <div
-                  key={card.id}
-                  className="group relative h-[100vh] w-[50vw] overflow-hidden bg-neutral-200"
-                >
-                  <div
-                    style={{
-                      backgroundImage: `url(${card.url})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                    className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-              ))}
-            </>
-          )}
-        </motion.div>
       </div>
     </section>
   );
 };
 
-// Vertical Image Display for Small Screens
-const VerticalImageDisplay = ({ cards }) => {
-  return (
-    <section className="bg-white">
-      {cards.length > 0 && (
-        <>
-          {/* First card with title */}
-          <div className="relative w-full h-[80vh] flex justify-center items-center bg-white">
-            <p className="text-4xl font-serif uppercase text-black">{cards[0].title}</p>
-            {/* Clickable text link */}
-            <a
-              href="https://galleries.pixieset.com/collections?page=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-4 text-3xl font-serif text-slate-300 hover:text-black"
-            >
-              Browse collection
-            </a>
-          </div>
-
-          {/* Cards displayed vertically */}
-          {cards.slice(0).map((card) => (
-            <div
-              key={card.id}
-              className="relative w-full h-[60vh] overflow-hidden bg-neutral-200"
-            >
-              <div
-                style={{
-                  backgroundImage: `url(${card.url})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-                className="absolute inset-0 z-0 transition-transform duration-300"
-              />
-            </div>
-          ))}
-        </>
-      )}
-    </section>
-  );
-};
-
-export default Example;
+export default HorizontalScroll;
