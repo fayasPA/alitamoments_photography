@@ -24,22 +24,6 @@ const EbinSection = () => {
       }
     );
 
-    // Parallax effect for the inset image
-    gsap.fromTo(
-      ".inset-image",
-      { y: 50 },
-      {
-        y: -50,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: ".main-image",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      }
-    );
-
     // Parallax effect for the description text
     gsap.fromTo(
       ".description-text",
