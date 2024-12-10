@@ -64,15 +64,14 @@ const Loader = () => {
   }, []);
 
   return (
-    <div>
     <div
       ref={containerRef}
-      className="flex items-center justify-center h-[95vh] md:h-screen w-full overflow-hidden"
+      className="relative flex items-center justify-center h-[95vh] md:h-screen w-full overflow-hidden"
     >
       {/* Percentage counter */}
       <div
         ref={percentageRef}
-        className="absolute  bottom-3 md:bottom-5 left-2 md:left-5 text-black text-xl md:text-3xl font-medium z-50 font-sans"
+        className="absolute bottom-5 left-5 text-black text-xl md:text-5xl font-bold z-50"
       >
         {percentage}%
       </div>
@@ -95,7 +94,6 @@ const Loader = () => {
         </div>
 
       </div>
-    </div>
     </div>
   );
 };
