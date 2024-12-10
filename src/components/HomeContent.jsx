@@ -9,78 +9,78 @@ const HomeContent = () => {
   const [scrollIntervalId, setScrollIntervalId] = useState(null); // Store the interval ID for scrolling
   const navigate = useNavigate(); // Initialize navigate
 
-  useEffect(() => {
-    let idleTimeout;
-    let lastScrollPosition = window.scrollY; // Track the last scroll position
+  // useEffect(() => {
+  //   let idleTimeout;
+  //   let lastScrollPosition = window.scrollY; // Track the last scroll position
 
-    const handleMouseMove = () => {
-      stopScrolling();
-      resetIdleTimer();
-    };
+  //   const handleMouseMove = () => {
+  //     stopScrolling();
+  //     resetIdleTimer();
+  //   };
 
-    const handleScroll = () => {
-      const currentScrollPosition = window.scrollY;
-      if (currentScrollPosition < lastScrollPosition) {
-        // User scrolled up
-        stopScrolling();
-      }
-      lastScrollPosition = currentScrollPosition; // Update the last scroll position
-      resetIdleTimer();
-    };
+  //   const handleScroll = () => {
+  //     const currentScrollPosition = window.scrollY;
+  //     if (currentScrollPosition < lastScrollPosition) {
+  //       // User scrolled up
+  //       stopScrolling();
+  //     }
+  //     lastScrollPosition = currentScrollPosition; // Update the last scroll position
+  //     resetIdleTimer();
+  //   };
 
-    const resetIdleTimer = () => {
-      setIsIdle(false); // Reset idle state
-      clearTimeout(idleTimeout); // Clear the existing timer
+  //   const resetIdleTimer = () => {
+  //     setIsIdle(false); // Reset idle state
+  //     clearTimeout(idleTimeout); // Clear the existing timer
 
-      // Start a new idle timer
-      idleTimeout = setTimeout(() => {
-        setIsIdle(true); // Set to idle after 5 seconds
-      }, 8000); // 8 seconds idle time
-    };
+  //     // Start a new idle timer
+  //     idleTimeout = setTimeout(() => {
+  //       setIsIdle(true); // Set to idle after 5 seconds
+  //     }, 8000); // 8 seconds idle time
+  //   };
 
-    const stopScrolling = () => {
-      if (scrollIntervalId) {
-        clearInterval(scrollIntervalId); // Stop scrolling
-        setScrollIntervalId(null);
-      }
-    };
+  //   const stopScrolling = () => {
+  //     if (scrollIntervalId) {
+  //       clearInterval(scrollIntervalId); // Stop scrolling
+  //       setScrollIntervalId(null);
+  //     }
+  //   };
 
-    // Event listeners for mouse movement and scrolling
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+  //   // Event listeners for mouse movement and scrolling
+  //   window.addEventListener('mousemove', handleMouseMove);
+  //   window.addEventListener('scroll', handleScroll);
 
-    // Cleanup
-    return () => {
-      clearTimeout(idleTimeout); // Clear timer on component unmount
-      window.removeEventListener('mousemove', handleMouseMove); // Remove mousemove listener
-      window.removeEventListener('scroll', handleScroll); // Remove scroll listener
-    };
-  }, [scrollIntervalId]);
+  //   // Cleanup
+  //   return () => {
+  //     clearTimeout(idleTimeout); // Clear timer on component unmount
+  //     window.removeEventListener('mousemove', handleMouseMove); // Remove mousemove listener
+  //     window.removeEventListener('scroll', handleScroll); // Remove scroll listener
+  //   };
+  // }, [scrollIntervalId]);
 
-  useEffect(() => {
-    if (isIdle) {
-      const scrollDuration = 25000; // 25 seconds
-      const intervalTime = 25; // 25ms interval
-      const totalSteps = scrollDuration / intervalTime;
-      const targetScroll = document.body.scrollHeight - window.innerHeight; // Total scrollable distance
-      const stepDistance = targetScroll / totalSteps; // Distance to scroll per step
+  // useEffect(() => {
+  //   if (isIdle) {
+  //     const scrollDuration = 25000; // 25 seconds
+  //     const intervalTime = 25; // 25ms interval
+  //     const totalSteps = scrollDuration / intervalTime;
+  //     const targetScroll = document.body.scrollHeight - window.innerHeight; // Total scrollable distance
+  //     const stepDistance = targetScroll / totalSteps; // Distance to scroll per step
 
-      let currentStep = 0;
+  //     let currentStep = 0;
 
-      const intervalId = setInterval(() => {
-        if (currentStep < totalSteps) {
-          window.scrollBy(0, stepDistance);
-          currentStep++;
-        } else {
-          clearInterval(intervalId); // Stop scrolling after reaching the target
-          setScrollIntervalId(null);
-        }
-      }, intervalTime);
+  //     const intervalId = setInterval(() => {
+  //       if (currentStep < totalSteps) {
+  //         window.scrollBy(0, stepDistance);
+  //         currentStep++;
+  //       } else {
+  //         clearInterval(intervalId); // Stop scrolling after reaching the target
+  //         setScrollIntervalId(null);
+  //       }
+  //     }, intervalTime);
 
-      // Save the interval ID so we can clear it later
-      setScrollIntervalId(intervalId);
-    }
-  }, [isIdle]);
+  //     // Save the interval ID so we can clear it later
+  //     setScrollIntervalId(intervalId);
+  //   }
+  // }, [isIdle]);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
