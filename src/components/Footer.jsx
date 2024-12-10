@@ -136,7 +136,6 @@ const Footer = () => {
           </div>
 
           {/* Right: Menu */}
-          <div className="hidden md:flex font-medium cursor-pointer hover:underline">Menu</div>
 
           <div className="font-bold flex md:hidden flex-col items-end justify-end text-borderColor text-xs md:text-sm pr-3 md:pr-0">
             <p>WEBSITE BY</p>
@@ -156,7 +155,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex justify-between items-end mt-10 gap-4 pr-3 md:pr-0">
+        <div className="flex justify-between items-end mt-10 gap-4 pr-3 md:pr-0 pb-5 md:pb-0">
           {/* Bottom Left: Website By */}
           <div className="hidden md:flex  flex-col items-end justify-end text-borderColor text-xs md:text-sm">
             <p className="font-semibold">WEBSITE BY</p>
