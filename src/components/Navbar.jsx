@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="fixed top-3 md:top-5 right-2 md:right-5 h-fit w-fit text-white fix-btn mix-blend-difference" style={{ zIndex: 3 }}>
         <div className="">
           <div
-            className="fix-btn-wrapper z-30 writing-mode-vertical-rl font-bold text-xl md:text-3xl uppercase"
+            className="fix-btn-wrapper z-30 writing-mode-vertical-rl font-bold text-xl md:text-3xl uppercase cursor-pointer"
             onClick={toggleMenu} // Toggle rotation on click
           >
             menu

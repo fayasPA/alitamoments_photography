@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useParams } from 'react-router-dom';
 import { collections } from '../assets/js/data';
 import RightCard from '../components/RightCard';
+import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,11 +18,11 @@ const SpecificImage = () => {
     if (collectionId) {
       const selectedCollection = collections.find(collection => collection.id === Number(collectionId));
       if (selectedCollection) {
-          setCards(selectedCollection);
+        setCards(selectedCollection);
       } else {
-          console.error(`Collection with id ${collectionId} not found`);
+        console.error(`Collection with id ${collectionId} not found`);
       }
-  }
+    }
   }, []);
 
 
@@ -74,11 +75,25 @@ const SpecificImage = () => {
               }}
             />
 
-            <div className="relative z-10 text-center">
+            {/* <div className="relative z-10 text-center">
               <p className="text-xl md:text-4xl uppercase text-white md:text-black">
                 {cards.name}
               </p>
+            </div> */}
+
+            <div className="block text-xl relative z-10 text-white md:text-black">
+              <div>
+              <p className="text-xl md:text-4xl uppercase">
+                {cards.name}
+              </p>
+              </div>
+              <div className='text-center flex flex-col items-center md:hidden uppercase font-extralight mt-10'>
+              <span className="text-[.6rem] font-extralight font-sans">Scroll for more</span>
+              <MdKeyboardDoubleArrowDown className="text-xs md:text-xl animate-ping" />
+              </div>
             </div>
+
+
           </div>
 
           {/* Right side with images */}
@@ -94,13 +109,13 @@ const SpecificImage = () => {
                 className="w-full h-full object-cover shadow-lg"
               />
 
-              
+
             </div>
 
-            
+
           ))}
           <RightCard />
-       </div>
+        </div>
       </div>
     </section>
   );
