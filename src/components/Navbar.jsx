@@ -227,7 +227,7 @@ const Navbar = () => {
                       <NavLink
                         key={index}
                         to={data.path}
-                        className="overflow-hidden text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out w-fit"
+                        className="overflow-hidden text-xl md:text-4xl font-medium transition-opacity duration-500 ease-in-out w-fit"
                         onMouseEnter={(e) => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
