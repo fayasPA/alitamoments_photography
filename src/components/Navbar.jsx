@@ -24,26 +24,35 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
-      {/* Navbar Logo and Menu Button */}
-      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference" style={{ zIndex: 3 }}>
-  <div className="fix-btn-wrapper fixed top-2 left-1 right-1 flex justify-between items-center" style={{ zIndex: 3 }}>
-    <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-      <img
-        src={isHomepage ? companyLogo : companyLogoGold}
-        alt="Alita Moments Logo"
-        className="w-32 h-14 lg:w-32 lg:h-16 transition-all duration-700 ease-in-out"
-        role="img" // Added role for clarity
-      />
-    </NavLink>
-    <button onClick={toggleMenu} className="text-xl md:text-3xl writing-mode-vertical-rl font-bold">
-      {menuOpen ? "CLOSE" : "MENU"}
-    </button>
-  </div>
-</div>
+    <div className="w-full px-6 md:px-16">
+
+      <div className="fixed top-3 md:top-5 left-2 md:left-5 h-fit w-fit text-white fix-btn mix-blend-difference" style={{ zIndex: 3 }}>
 
 
+        <div className="text-xl md:text-3xl fix-btn-wrapper font-bold" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
 
+          <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <img
+              src={isHomepage ? companyLogo : companyLogoGold}
+              alt="Alita Moments Logo"
+              className="w-32 h-14 lg:w-32 lg:h-16 transition-all duration-700 ease-in-out"
+              role="img" // Added role for clarity
+            />
+          </NavLink>
+        </div>
+      </div>
+
+
+      <div className="fixed top-3 md:top-5 right-2 md:right-5 h-fit w-fit text-white fix-btn mix-blend-difference" style={{ zIndex: 3 }}>
+        <div className="">
+          <div
+            className="fix-btn-wrapper z-30 writing-mode-vertical-rl font-bold text-xl md:text-3xl uppercase"
+            onClick={toggleMenu} // Toggle rotation on click
+          >
+            menu
+          </div>
+        </div>
+      </div>
       {/* Menu Overlay */}
       {menuOpen && (
         <div className="menu-overlay fixed inset-0 bg-black text-white z-50 uppercase overflow-hidden">
