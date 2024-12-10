@@ -45,6 +45,10 @@ body::-webkit-scrollbar-thumb {
   font-size: .8rem;
 }
 
+.main-container-transition-opacity {
+  transition: opacity 0.5s ease-in-out;
+}
+
 .navitem-opacity-low{
   opacity: 0.2;
 }
