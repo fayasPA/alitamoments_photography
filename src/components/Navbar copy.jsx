@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
+    <div className="relative">
       {/* Navbar Logo and Menu Button */}
       <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{ zIndex: 3 }}>
         <div className="fix-btn-wrapper fixed top-3 md:top-5 left-1 md:left-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>

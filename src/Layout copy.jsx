@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import LocomotiveScroll from 'locomotive-scroll';
 
+
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +21,6 @@ const Layout = () => {
     // Cleanup timeout if component unmounts
     return () => clearTimeout(timer);
   }, []);
-
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll();
     return () => {
@@ -33,21 +33,25 @@ const Layout = () => {
   }
 
   return (
-    <div className="your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col bg-white">
-      <div className="flex-grow md:pb-0">
+    <div
+      className="your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col bg-white"
+    >
+        <div className="flex-grow md:pb-0">
         <ToastContainer toastClassName="custom-toast" />
 
-        <Navbar />
+          <Navbar />
 
-        <main className={`main-container-transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-          <Outlet />
-        </main>
+          <main className="flex-grow">
+            <Outlet />
+          </main>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
       {!isLoading && <ScrollToTop />}
+
     </div>
   );
 };
 
 export default Layout;
+

@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useParams } from 'react-router-dom';
 import { collections } from '../assets/js/data';
+import RightCard from '../components/RightCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,8 +15,13 @@ const SpecificImage = () => {
   useEffect(() => {
     // Fetch or get your data from location or any dynamic source
     if (collectionId) {
-      setCards(collections[collectionId])
-    }
+      const selectedCollection = collections.find(collection => collection.id === Number(collectionId));
+      if (selectedCollection) {
+          setCards(selectedCollection);
+      } else {
+          console.error(`Collection with id ${collectionId} not found`);
+      }
+  }
   }, []);
 
 
@@ -87,9 +93,14 @@ const SpecificImage = () => {
                 alt={`Card ${index}`}
                 className="w-full h-full object-cover shadow-lg"
               />
+
+              
             </div>
+
+            
           ))}
-        </div>
+          <RightCard />
+       </div>
       </div>
     </section>
   );

@@ -73,14 +73,14 @@ const Footer = () => {
             {/* <button type='button' name='phone-btn' className=" p-2 rounded-full border border-white" onClick={() => window.location.href = `tel:+918590081819`}>
               <FiPhone className="text-xl md:text-2xl" />
             </button> */}
-            <button type='button' name='whatsapp-btn' className=" p-2 rounded-full border border-white" onClick={() => window.open(`https://wa.me/91${companyPhoneNo}`, "_blank")}>
-              <FaWhatsapp className="text-xl md:text-2xl" />
+            <button type='button' name='whatsapp-btn' className=" p-2 rounded-full  border border-white" onClick={() => window.open(`https://wa.me/91${companyPhoneNo}`, "_blank")}>
+              <FaWhatsapp className=" text-xl md:text-2xl" />
             </button>
-            <button type='button' name='instagram-btn' className=" p-2 rounded-full border border-white"       onClick={() => window.open(companyInsta, "_blank")}>
+            <button type='button' name='instagram-btn' className=" p-3 rounded-full border border-white"       onClick={() => window.open(companyInsta, "_blank")}>
               <FaInstagram className="text-xl md:text-2xl" />
             </button>
-            <button type='button' name='mail-btn' className=" p-2 rounded-full border border-white" onClick={() => window.open(`mailto:${companyEmail}`, "_blank")}>
-              <FiMail className="text-xl md:text-2xl" />
+            <button type='button' name='mail-btn' className=" p-4 rounded-full border border-white" onClick={() => window.open(`mailto:${companyEmail}`, "_blank")}>
+              <FiMail className="text-2xl md:text-3xl" />
             </button>
           </div>
           </div>
@@ -136,7 +136,6 @@ const Footer = () => {
           </div>
 
           {/* Right: Menu */}
-          <div className="hidden md:flex font-medium cursor-pointer hover:underline">Menu</div>
 
           <div className="font-bold flex md:hidden flex-col items-end justify-end text-borderColor text-xs md:text-sm pr-3 md:pr-0">
             <p>WEBSITE BY</p>
@@ -156,7 +155,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex justify-between items-end mt-10 gap-4 pr-3 md:pr-0">
+        <div className="flex justify-between items-end mt-10 gap-4 pr-3 md:pr-0 pb-5 md:pb-0">
           {/* Bottom Left: Website By */}
           <div className="hidden md:flex  flex-col items-end justify-end text-borderColor text-xs md:text-sm">
             <p className="font-semibold">WEBSITE BY</p>
