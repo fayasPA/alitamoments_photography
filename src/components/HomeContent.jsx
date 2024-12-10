@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { collections } from '../assets/js/data';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import gsap from 'gsap';
 
 const HomeContent = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -8,79 +9,7 @@ const HomeContent = () => {
   const [isIdle, setIsIdle] = useState(false); // Track idle state
   const [scrollIntervalId, setScrollIntervalId] = useState(null); // Store the interval ID for scrolling
   const navigate = useNavigate(); // Initialize navigate
-
-  // useEffect(() => {
-  //   let idleTimeout;
-  //   let lastScrollPosition = window.scrollY; // Track the last scroll position
-
-  //   const handleMouseMove = () => {
-  //     stopScrolling();
-  //     resetIdleTimer();
-  //   };
-
-  //   const handleScroll = () => {
-  //     const currentScrollPosition = window.scrollY;
-  //     if (currentScrollPosition < lastScrollPosition) {
-  //       // User scrolled up
-  //       stopScrolling();
-  //     }
-  //     lastScrollPosition = currentScrollPosition; // Update the last scroll position
-  //     resetIdleTimer();
-  //   };
-
-  //   const resetIdleTimer = () => {
-  //     setIsIdle(false); // Reset idle state
-  //     clearTimeout(idleTimeout); // Clear the existing timer
-
-  //     // Start a new idle timer
-  //     idleTimeout = setTimeout(() => {
-  //       setIsIdle(true); // Set to idle after 5 seconds
-  //     }, 8000); // 8 seconds idle time
-  //   };
-
-  //   const stopScrolling = () => {
-  //     if (scrollIntervalId) {
-  //       clearInterval(scrollIntervalId); // Stop scrolling
-  //       setScrollIntervalId(null);
-  //     }
-  //   };
-
-  //   // Event listeners for mouse movement and scrolling
-  //   window.addEventListener('mousemove', handleMouseMove);
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   // Cleanup
-  //   return () => {
-  //     clearTimeout(idleTimeout); // Clear timer on component unmount
-  //     window.removeEventListener('mousemove', handleMouseMove); // Remove mousemove listener
-  //     window.removeEventListener('scroll', handleScroll); // Remove scroll listener
-  //   };
-  // }, [scrollIntervalId]);
-
-  // useEffect(() => {
-  //   if (isIdle) {
-  //     const scrollDuration = 25000; // 25 seconds
-  //     const intervalTime = 25; // 25ms interval
-  //     const totalSteps = scrollDuration / intervalTime;
-  //     const targetScroll = document.body.scrollHeight - window.innerHeight; // Total scrollable distance
-  //     const stepDistance = targetScroll / totalSteps; // Distance to scroll per step
-
-  //     let currentStep = 0;
-
-  //     const intervalId = setInterval(() => {
-  //       if (currentStep < totalSteps) {
-  //         window.scrollBy(0, stepDistance);
-  //         currentStep++;
-  //       } else {
-  //         clearInterval(intervalId); // Stop scrolling after reaching the target
-  //         setScrollIntervalId(null);
-  //       }
-  //     }, intervalTime);
-
-  //     // Save the interval ID so we can clear it later
-  //     setScrollIntervalId(intervalId);
-  //   }
-  // }, [isIdle]);
+  const containerRef = useRef(null); // Ref for the grid container
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
@@ -98,10 +27,25 @@ const HomeContent = () => {
     navigate(`/specific-image/${id}`);
   };
 
+  useEffect(() => {
+    const gridItems = containerRef.current.querySelectorAll('.grid-item'); // Select all grid items
+    gsap.fromTo(
+      gridItems,
+      { opacity: 0, y: 50, scale: 0.95 }, // Initial state
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.1, // Stagger animations for sequential effect
+        duration: 2.3,
+        ease: 'power3.out',
+      }
+    );
+  }, []);
 
   return (
     <div className="mx-auto">
-      <div className="grid grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 lg:grid-cols-3" ref={containerRef}>
         {collections.map((collection, index) => {
           const isHovered = hoveredIndex === index;
           const currentImage = activeImage[index] ?? 0;
@@ -109,7 +53,7 @@ const HomeContent = () => {
           return (
             <div
               key={index}
-              className="relative group overflow-hidden"
+              className="relative group overflow-hidden grid-item" // Add class for GSAP animation
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
               onClick={() => handleImageClick(collection.id)} // Handle click
