@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Menu Overlay */}
       {menuOpen && (
-        <div className="menu-overlay fixed inset-0 bg-black text-white z-40 uppercase overflow-hidden">
+        <div className="menu-overlay fixed inset-0 bg-black text-white z-50 uppercase overflow-hidden">
           <div className="flex flex-col justify-between h-full p-3 md:p-8 font-bold">
 
             <div>

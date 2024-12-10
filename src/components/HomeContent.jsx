@@ -112,7 +112,7 @@ const HomeContent = () => {
               className="relative group overflow-hidden"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
-              onClick={() => handleImageClick(index)} // Handle click
+              onClick={() => handleImageClick(collection.id)} // Handle click
             >
               {/* Image */}
               <img
