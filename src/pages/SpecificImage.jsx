@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useParams } from 'react-router-dom';
 import { collections } from '../assets/js/data';
+import RightCard from '../components/RightCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,9 +88,14 @@ const SpecificImage = () => {
                 alt={`Card ${index}`}
                 className="w-full h-full object-cover shadow-lg"
               />
+
+              
             </div>
+
+            
           ))}
-        </div>
+          <RightCard />
+       </div>
       </div>
     </section>
   );
