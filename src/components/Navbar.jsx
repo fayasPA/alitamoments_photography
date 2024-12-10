@@ -78,30 +78,27 @@ const Navbar = () => {
               {/* social links */}
               <div className="mt-10 md:text-end md:mr-14">
                 <div className="overflow-hidden text-right flex md:justify-end">
-                <NavLink
-                  to="/contact"
-                  className="text-right flex md:justify-end text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out w-fit"
-                  onMouseEnter={(e) => {
-                    const items = document.querySelectorAll(".menu-item");
-                    items.forEach((item) => {
-                      if (item !== e.target) {
-                        item.style.opacity = "0.2"; // Dull effect for non-hovered items
-                      }
-                    });
-                  }}
-                  onMouseLeave={() => {
-                    const items = document.querySelectorAll(".menu-item");
-                    items.forEach((item) => {
-                      item.style.opacity = "1"; // Reset opacity on hover out
-                    });
-                  }}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <div className="menu-item w-fit"
+                  <NavLink
+                    to="/contact"
+                    className="text-right flex md:justify-end text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out w-fit"
+                    onMouseEnter={(e) => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        if (item !== e.target) {
+                          item.classList.add("navitem-opacity-low"); // Add a class for non-hovered items
+                        }
+                      });
+                    }}
+                    onMouseLeave={() => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        item.classList.remove("navitem-opacity-low"); // Remove the class on hover out
+                      });
+                    }}
+                    onClick={() => setMenuOpen(false)}
                   >
-                  CONTACT
-                  </div>
-                </NavLink>
+                    <div className="menu-item w-fit">CONTACT</div>
+                  </NavLink>
                 </div>
 
                 {/* Social Media Links */}
@@ -109,42 +106,41 @@ const Navbar = () => {
                   <NavLink
                     to={companyInsta}
                     className="menu-item transition-opacity duration-500 ease-in-out"
-                    target="_blank" // Opens in a new tab
+                    target="_blank"
                     onMouseEnter={(e) => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
                         if (item !== e.target) {
-                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                          item.classList.add("navitem-opacity-low");
                         }
                       });
                     }}
                     onMouseLeave={() => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
-                        item.style.opacity = "1"; // Reset opacity on hover out
+                        item.classList.remove("navitem-opacity-low");
                       });
                     }}
                   >
                     INSTAGRAM
                   </NavLink>
 
-
                   <NavLink
-                    to="https://www.facebook.com/yourCompany" // Replace with actual Facebook link
+                    to="https://www.facebook.com/yourCompany"
                     className="menu-item transition-opacity duration-500 ease-in-out"
-                    target="_blank" // Opens in a new tab
+                    target="_blank"
                     onMouseEnter={(e) => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
                         if (item !== e.target) {
-                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                          item.classList.add("navitem-opacity-low");
                         }
                       });
                     }}
                     onMouseLeave={() => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
-                        item.style.opacity = "1"; // Reset opacity on hover out
+                        item.classList.remove("navitem-opacity-low");
                       });
                     }}
                   >
@@ -152,6 +148,7 @@ const Navbar = () => {
                   </NavLink>
                 </div>
               </div>
+
 
             </div>
 
@@ -168,30 +165,30 @@ const Navbar = () => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
                         if (item !== e.target) {
-                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                          item.classList.add("navitem-opacity-low"); // Add class for non-hovered items
                         }
                       });
                     }}
                     onMouseLeave={() => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
-                        item.style.opacity = "1"; // Reset opacity on hover out
+                        item.classList.remove("navitem-opacity-low"); // Remove class on hover out
                       });
                     }}
                     onClick={() => setMenuOpen(false)}
                   >
                     <div className="menu-item w-fit">
-                    {data.name}
-                  </div>
+                      {data.name}
+                    </div>
                   </NavLink>
                 )
               )}
             </div>
 
 
+
             {/* Footer Links */}
             <div>
-
               {/* desktop bottom alignment */}
               <div className="flex md:justify-between items-end">
                 <div className="hidden md:flex flex-col">
@@ -200,26 +197,26 @@ const Navbar = () => {
                       <NavLink
                         key={index}
                         to={data.path}
-                        className=" overflow-hidden text-5xl md:text-8xl transition-opacity duration-500 ease-in-out"
+                        className="overflow-hidden text-5xl md:text-8xl transition-opacity duration-500 ease-in-out w-fit"
                         onMouseEnter={(e) => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
                             if (item !== e.target) {
-                              item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                              item.classList.add("navitem-opacity-low"); // Add class for non-hovered items
                             }
                           });
                         }}
                         onMouseLeave={() => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
-                            item.style.opacity = "1"; // Reset opacity on hover out
+                            item.classList.remove("navitem-opacity-low"); // Remove class on hover out
                           });
                         }}
                         onClick={() => setMenuOpen(false)}
                       >
                         <div className="menu-item w-fit">
-                    {data.name}
-                  </div>
+                          {data.name}
+                        </div>
                       </NavLink>
                     )
                   )}
@@ -230,26 +227,26 @@ const Navbar = () => {
                       <NavLink
                         key={index}
                         to={data.path}
-                        className=" overflow-hidden text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out"
+                        className="overflow-hidden text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out w-fit"
                         onMouseEnter={(e) => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
                             if (item !== e.target) {
-                              item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                              item.classList.add("navitem-opacity-low"); // Add class for non-hovered items
                             }
                           });
                         }}
                         onMouseLeave={() => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
-                            item.style.opacity = "1"; // Reset opacity on hover out
+                            item.classList.remove("navitem-opacity-low"); // Remove class on hover out
                           });
                         }}
                         onClick={() => setMenuOpen(false)}
                       >
-                         <div className="menu-item w-fit">
-                    {data.name}
-                  </div>
+                        <div className="menu-item w-fit">
+                          {data.name}
+                        </div>
                       </NavLink>
                     )
                   )}
@@ -261,6 +258,7 @@ const Navbar = () => {
                 <p>COMMERCIAL COPYRIGHT</p>
               </div>
             </div>
+
           </div>
         </div>
       )}

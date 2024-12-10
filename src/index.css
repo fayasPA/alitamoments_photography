@@ -45,6 +45,15 @@ body::-webkit-scrollbar-thumb {
   font-size: .8rem;
 }
 
+.navitem-opacity-low{
+  opacity: 0.2;
+}
+
+.menu-item {
+  transition: opacity 0.5s ease-in-out;
+}
+
+
 
 /* FOOTER end */
 .my-masonry-grid {
