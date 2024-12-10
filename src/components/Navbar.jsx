@@ -26,27 +26,22 @@ const Navbar = () => {
   return (
     <div className="">
       {/* Navbar Logo and Menu Button */}
-      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{ zIndex: 3 }}>
-        <div className="fix-btn-wrapper fixed top-3 md:top-5 left-1 md:left-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
-          <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-            <div className="ml-4 md:ml-0" >
-              <img
-                src={isHomepage ? companyLogo : companyLogoGold}
-                alt="Alita Moments Logo"
-                className="w-32 h-14 lg:w-32 lg:h-16 transition-all duration-700 ease-in-out"
-                role="img" // Added role for clarity
-              />
-            </div>
-          </NavLink>
-        </div>
+      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference" style={{ zIndex: 3 }}>
+  <div className="fix-btn-wrapper fixed top-2 left-1 right-1 flex justify-between items-center" style={{ zIndex: 3 }}>
+    <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+      <img
+        src={isHomepage ? companyLogo : companyLogoGold}
+        alt="Alita Moments Logo"
+        className="w-32 h-14 lg:w-32 lg:h-16 transition-all duration-700 ease-in-out"
+        role="img" // Added role for clarity
+      />
+    </NavLink>
+    <button onClick={toggleMenu} className="text-xl md:text-3xl writing-mode-vertical-rl font-bold">
+      {menuOpen ? "CLOSE" : "MENU"}
+    </button>
+  </div>
+</div>
 
-        <div className="text-xl md:text-3xl fix-btn-wrapper fixed top-3 md:top-5 right-2 md:right-5 font-bold" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
-
-          <button onClick={toggleMenu} className="writing-mode-vertical-rl">
-            {menuOpen ? "CLOSE " : "MENU"}
-          </button>
-        </div>
-      </div>
 
 
       {/* Menu Overlay */}
