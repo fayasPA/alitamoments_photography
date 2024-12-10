@@ -92,10 +92,10 @@ const RightCard = ({
     >
       {/* Overlay for text */}
       <div
-        className="absolute md:hidden inset-0 bg-black bg-opacity-40"
-        style={{
-          boxShadow: 'inset 1vw 1vw 10rem rgba(0, 0, 0, 1)',
-        }}
+        className="absolute md:hidden inset-0 "
+        // style={{
+        //   boxShadow: 'inset 1vw 1vw 10rem rgba(0, 0, 0, 1)',
+        // }}
       />
       <div className="relative z-10 text-center group">
         <div className="inline-block relative ">
