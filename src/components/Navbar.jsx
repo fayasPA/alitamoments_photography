@@ -51,7 +51,7 @@ const Navbar = () => {
 
       {/* Menu Overlay */}
       {menuOpen && (
-        <div className="menu-overlay fixed inset-0 bg-black text-white z-40 uppercase overflow-hidden">
+        <div className="menu-overlay fixed inset-0 bg-black text-white z-50 uppercase overflow-hidden">
           <div className="flex flex-col justify-between h-full p-3 md:p-8 font-bold">
 
             <div>
@@ -227,7 +227,7 @@ const Navbar = () => {
                       <NavLink
                         key={index}
                         to={data.path}
-                        className="overflow-hidden text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out w-fit"
+                        className="overflow-hidden text-xl md:text-4xl font-medium transition-opacity duration-500 ease-in-out w-fit"
                         onMouseEnter={(e) => {
                           const items = document.querySelectorAll(".menu-item");
                           items.forEach((item) => {
