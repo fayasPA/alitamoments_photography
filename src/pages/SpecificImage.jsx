@@ -23,7 +23,6 @@ const SpecificImage = () => {
     const container = scrollContainerRef.current;
 
     // GSAP horizontal scroll animation for below md
-    let animation;
     if (window.innerWidth > 768 && cards.length != 0) {
       gsap.to(container, {
         x: () => -(container.scrollWidth - document.documentElement.clientWidth) + 'px',
@@ -41,9 +40,6 @@ const SpecificImage = () => {
     }
     // Cleanup ScrollTrigger
     return () => {
-      // if (animation){
-      //   animation.kill()
-      // }
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
 

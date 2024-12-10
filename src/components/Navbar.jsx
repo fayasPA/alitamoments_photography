@@ -163,7 +163,7 @@ const Navbar = () => {
                   <NavLink
                     key={index}
                     to={data.path}
-                    className="text-right overflow-hidden text-5xl lg:text-6xl transition-opacity duration-500 ease-in-out"
+                    className="flex justify-end text-right overflow-hidden text-5xl lg:text-6xl transition-opacity duration-500 ease-in-out"
                     onMouseEnter={(e) => {
                       const items = document.querySelectorAll(".menu-item");
                       items.forEach((item) => {
