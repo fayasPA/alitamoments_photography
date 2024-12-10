@@ -73,14 +73,14 @@ const Footer = () => {
             {/* <button type='button' name='phone-btn' className=" p-2 rounded-full border border-white" onClick={() => window.location.href = `tel:+918590081819`}>
               <FiPhone className="text-xl md:text-2xl" />
             </button> */}
-            <button type='button' name='whatsapp-btn' className=" p-2 rounded-full border border-white" onClick={() => window.open(`https://wa.me/91${companyPhoneNo}`, "_blank")}>
-              <FaWhatsapp className="text-xl md:text-2xl" />
+            <button type='button' name='whatsapp-btn' className=" p-2 rounded-full  border border-white" onClick={() => window.open(`https://wa.me/91${companyPhoneNo}`, "_blank")}>
+              <FaWhatsapp className=" text-xl md:text-2xl" />
             </button>
-            <button type='button' name='instagram-btn' className=" p-2 rounded-full border border-white"       onClick={() => window.open(companyInsta, "_blank")}>
+            <button type='button' name='instagram-btn' className=" p-3 rounded-full border border-white"       onClick={() => window.open(companyInsta, "_blank")}>
               <FaInstagram className="text-xl md:text-2xl" />
             </button>
-            <button type='button' name='mail-btn' className=" p-2 rounded-full border border-white" onClick={() => window.open(`mailto:${companyEmail}`, "_blank")}>
-              <FiMail className="text-xl md:text-2xl" />
+            <button type='button' name='mail-btn' className=" p-4 rounded-full border border-white" onClick={() => window.open(`mailto:${companyEmail}`, "_blank")}>
+              <FiMail className="text-2xl md:text-3xl" />
             </button>
           </div>
           </div>
