@@ -10,38 +10,38 @@ const AboutHero = () => {
   const imageRef = useRef(null);
 
   // Handle scroll event to check if the bottom of the image is in view
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (imageRef.current) {
-  //       const imageBottom = imageRef.current.getBoundingClientRect().bottom;
-  //       console.log('haha', imageBottom)
-  //       // Check if the bottom of the image has reached the bottom of the viewport
-  //       if (imageBottom <= window.innerHeight) {
-  //         setIsSticky(false); // Change to absolute when the image bottom is in view
-  //       } else {
-  //         setIsSticky(true); // Keep it sticky when the image bottom is not in view
-  //       }
-  //     }
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const imageBottom = imageRef.current.getBoundingClientRect().bottom;
+        // console.log('haha', imageBottom, window.innerHeight)
+        // Check if the bottom of the image has reached the bottom of the viewport
+        if (imageBottom <= window.innerHeight) {
+          setIsSticky(false); // Change to absolute when the image bottom is in view
+        } else {
+          setIsSticky(true); // Keep it sticky when the image bottom is not in view
+        }
+      }
+    };
 
-  //   gsap.fromTo('.header-text', {
-  //     y: "0", // Moves upward
-  //   },
-  //     {
-  //       y: "-120%", // Moves upward
-  //       scrollTrigger: {
-  //         trigger: imageRef?.current, // Use the image as the trigger
-  //         start: "bottom 70%", // When the image's bottom reaches the center of the viewport
-  //         end: "bottom 40%", // When the image's bottom leaves the viewport
-  //         scrub: true, // Smoothly sync with the scroll
-  //       },
-  //     });
+    gsap.fromTo('.header-text', {
+      y: "0", // Moves upward
+    },
+      {
+        y: "-120%", // Moves upward
+        scrollTrigger: {
+          trigger: imageRef?.current, // Use the image as the trigger
+          start: "bottom 70%", // When the image's bottom reaches the center of the viewport
+          end: "bottom 40%", // When the image's bottom leaves the viewport
+          scrub: true, // Smoothly sync with the scroll
+        },
+      });
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="w-full uppercase ">
@@ -53,9 +53,8 @@ const AboutHero = () => {
           className="w-full h-full object-cover"
         />
 
-        {/* "AboutUs" Text */}
         <div
-          className={`${isSticky ? "absolute md:sticky bottom-0 left-0" : "absolute bottom-0 left-0"
+          className={`${isSticky ? "absolute md:fixed bottom-0 left-0" : "absolute bottom-0 left-0"
             } mix-blend-difference text-white text-4xl md:text-5xl font-bold pl-4 md:pl-8 py-2 w-fit flex flex-col gap-6`}
         >
           <div className="hidden md:block text-xl">
