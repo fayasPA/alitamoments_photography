@@ -7,34 +7,7 @@ import About from './pages/About';
 import Faq from './pages/Faq';
 import Search from './pages/Search';
 import PageTransition from './utils/PageTransition';
-import HorizontalScroll from './components/HorizontalScroll';
-
-export const TransitionWrapper = ({ children }) => {
-  const location = useLocation(); // Get current route
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // GSAP animation: slide-in effect
-      gsap.fromTo(
-        containerRef.current,
-        { x: '100%', opacity: 1 },
-        { x: '0%', opacity: 1, ease: 'power2.out' }
-      );
-    });
-
-    // Cleanup GSAP context
-    return () => ctx.revert();
-  }, [location]); // Re-run animation on route change
-
-  return (<div className=''>
-    <div
-      ref={containerRef}>
-      {children}
-    </div>
-  </div>);
-};
-
+import SpecificImage from './pages/SpecificImage';
 
 function App() {
   const router = createBrowserRouter(
@@ -81,10 +54,10 @@ function App() {
           }
         />
         <Route
-          path="/horizontal-scroll"
+          path="/specific-image/:collectionId/*"
           element={
             <PageTransition>
-              <HorizontalScroll />
+              <SpecificImage />
             </PageTransition>
           }
         />

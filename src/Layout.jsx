@@ -6,6 +6,8 @@ import Loader from './components/Loader.jsx';
 import ScrollToTop from './utils/ScrollToTop.js';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import LocomotiveScroll from 'locomotive-scroll';
+
 
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +20,12 @@ const Layout = () => {
 
     // Cleanup timeout if component unmounts
     return () => clearTimeout(timer);
+  }, []);
+  useEffect(() => {
+    const locomotiveScroll = new LocomotiveScroll();
+    return () => {
+      if (locomotiveScroll) locomotiveScroll.destroy();
+    };
   }, []);
 
   if (isLoading) {

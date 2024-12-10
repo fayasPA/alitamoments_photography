@@ -94,9 +94,8 @@ const HomeContent = () => {
     setHoveredIndex(null);
   };
 
-  const handleImageClick = (collection) => {
-    // Navigate to the Horizontal Scroll component and pass data
-    navigate('/horizontal-scroll', { state: collection });
+  const handleImageClick = (id) => {
+    navigate(`/specific-image/${id}`);
   };
 
 
@@ -113,7 +112,7 @@ const HomeContent = () => {
               className="relative group overflow-hidden"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
-              onClick={() => handleImageClick(collection)} // Handle click
+              onClick={() => handleImageClick(index)} // Handle click
             >
               {/* Image */}
               <img
