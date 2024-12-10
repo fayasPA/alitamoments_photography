@@ -1,30 +1,73 @@
 import React from 'react';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, useLocation } from 'react-router-dom';
 import Layout from './Layout';
 import Home from './pages/Home';
 import Contacts from './pages/Contacts';
-import Portfolio from './pages/Portfolio';
-import Blog from './pages/Blog';
 import About from './pages/About';
+import Faq from './pages/Faq';
+import Search from './pages/Search';
+import PageTransition from './utils/PageTransition';
+import SpecificImage from './pages/SpecificImage';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
-         <Route path="" element={<Home />} />
-         <Route path="/contact" element={<Contacts />} />
-         <Route path="/portfolio" element={<Portfolio />} />
-         <Route path="/blog" element={<Blog />} />
-         <Route path="/about" element={<About />} />
+        <Route
+          path=""
+          element={
+            <PageTransition>
+              <Home />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              <Contacts />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <PageTransition>
+              <Faq />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <PageTransition>
+              <Search />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <PageTransition>
+              <About />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/specific-image/:collectionId/*"
+          element={
+            <PageTransition>
+              <SpecificImage />
+            </PageTransition>
+          }
+        />
+
       </Route>
     )
   );
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
+

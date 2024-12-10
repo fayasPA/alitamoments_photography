@@ -1,164 +1,270 @@
-import React, { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
-import { companyEmail, companyLogo, companyName, navLists } from "../utils/Constants";
+import React, { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { gsap } from "gsap";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { IoClose } from "react-icons/io5";
+import { companyInsta, companyLogo, companyLogoGold, navLists } from "../utils/Constants";
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const scrollThreshold = 50;
+  const location = useLocation();
+  const isHomepage = location.pathname === "/";
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const menuRef = useRef(null); // Ref for the menu container
-  const menuAnimation = useRef(null); // Ref for the GSAP animation instance
-
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
-      setIsNavbarVisible(currentScrollY < lastScrollY); // Show on scroll up
-    }
-    setLastScrollY(currentScrollY);
-    setIsScrolled(currentScrollY > 50); // Change navbar background on scroll
-  };
-
-  const debounce = (func, delay) => {
-    let timeoutId;
-    return (...args) => {
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => func(...args), delay);
-    };
-  };
-
+  // GSAP animation for Y-axis when menu opens
   useEffect(() => {
-    const handleScrollDebounced = debounce(handleScroll, 100);
-    window.addEventListener("scroll", handleScrollDebounced);
-
-    return () => {
-      window.removeEventListener("scroll", handleScrollDebounced);
-    };
-  }, [lastScrollY]);
-
-  // GSAP Animation for menu open/close
-  useEffect(() => {
-    if (menuRef.current) {
-      if (isMobileMenuOpen) {
-        menuAnimation.current = gsap.to(menuRef.current, {
-          height: "100vh",
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-      } else {
-        menuAnimation.current = gsap.to(menuRef.current, {
-          height: "0",
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-      }
+    if (menuOpen) {
+      gsap.fromTo(
+        ".menu-item",
+        { y: "200%" },
+        { y: 0, stagger: 0.1, duration: 0.5, ease: "power3.out" }
+      );
     }
-  }, [isMobileMenuOpen]);
+  }, [menuOpen]);
 
-  // Close menu when a NavLink is clicked
-  const handleNavLinkClick = () => {
-    setMobileMenuOpen(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
-    // ${isNavbarVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}
-    <nav
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-1000 ease-in-out 
-                ${!isMobileMenuOpen && isScrolled ? "backdrop-blur-sm bg-selBlack/30" : ""}
-                ${!isMobileMenuOpen && !isScrolled ? "bg-transparent" : ""}
-                ${isMobileMenuOpen && !isScrolled ? " backdrop-blur-sm bg-black/60" : ""}
-                ${isMobileMenuOpen && isScrolled ? "backdrop-blur-sm bg-black" : ""}
-            `}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className={`flex h-fit items-center justify-between transition-all duration-1000 md:py-1`}>
-        {/* <div className={`flex ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-16"} items-center justify-between transition-all duration-1000`}> */}
-          {/* Logo */}
-          <NavLink to={'/'} className=''>
-            <img src={companyLogo} alt="Company Logo" className={`${isScrolled ? 'w-24 h-10 md:w-52 md:h-20' : 'w-28 h-12 md:w-64 md:h-24'} transition-all duration-700 ease-in-out`} />
+    <div className="relative">
+      {/* Navbar Logo and Menu Button */}
+      <div className="fixed inset-0 h-fit w-fit text-white mix-blend-difference fix-btn" style={{ zIndex: 3 }}>
+        <div className="fix-btn-wrapper fixed top-3 md:top-5 left-1 md:left-5" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
+          <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <div className="ml-4 md:ml-0" >
+              <img
+                src={isHomepage ? companyLogo : companyLogoGold}
+                alt="Alita Moments Logo"
+                className="w-32 h-14 lg:w-32 lg:h-16 transition-all duration-700 ease-in-out"
+                role="img" // Added role for clarity
+              />
+            </div>
           </NavLink>
+        </div>
 
-          {/* Hamburger Menu (Hidden on larger screens) */}
-          <div
-            className="text-white cursor-pointer lg:hidden" // Hidden on `lg` screens
-            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <IoClose size={35} />
-            ) : (
-              <RxHamburgerMenu size={35} />
-            )}
-          </div>
+        <div className="text-xl md:text-3xl fix-btn-wrapper fixed top-3 md:top-5 right-2 md:right-5 font-bold" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
 
-          {/* Horizontal Nav Items (Visible only on larger screens) */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-6">
-            {navLists.map((item) => (
-              <NavLink
-                key={item.order}
-                to={item.path}
-                className={({ isActive }) =>
-                  `text-white text-lg uppercase transition-colors duration-300 hover:text-borderColor2
-              ${isActive ? "font-semibold" : "font-extralight"}`
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </div>
+          <button onClick={toggleMenu} className="writing-mode-vertical-rl">
+            {menuOpen ? "CLOSE " : "MENU"}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu (Hidden on larger screens) */}
-      <div
-        ref={menuRef}
-        className={`rounded-b-lg absolute top-full left-0 w-full overflow-hidden lg:hidden
-                    ${isScrolled ? "bg-black" : "bg-selBlack/90 backdrop-blur-3xl"}`}
-        style={{ height: "0" }} // Initial height for GSAP animation
-        id="mobile-menu"
-      >
-        {/* Main container */}
-        <div className="h-full w-full flex flex-col md:flex-row">
 
-          <div className="w-full md:w-2/3 text-white px-4 md:px-10 flex items-center justify-end">
-            <div className="grid grid-cols-1 gap-6 w-full p-4 md:p-10 h-full mt-10 md:mt-0 uppercase">
-              {navLists.map((item, index) => (
-                <NavLink
-                  key={item.order}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `block ${isActive ? "font-semibold" : "font-extralight"} text-xl sm:text-2xl md:text-4xl lg:text-6xl transition duration-300
-          ${index % 2 === 0 ? "text-left" : "text-right "} 
-          ${index === navLists.length - 1 && navLists.length % 2 !== 0 ? " " : ""}`
-                  }
-                  onClick={handleNavLinkClick}
-                >
-                  <span className="hover:text-green">{item.name}</span>
+      {/* Menu Overlay */}
+      {menuOpen && (
+        <div className="menu-overlay fixed inset-0 bg-black text-white z-40 uppercase overflow-hidden">
+          <div className="flex flex-col justify-between h-full p-3 md:p-8 font-bold">
 
+            <div>
+              <div className="flex justify-between">
+                {/* Header */}
+                <NavLink to="/" style={{ color: 'inherit', textDecoration: 'none' }}
+                  onClick={() => setMenuOpen(false)}>
+                  <div className="" >
+                    <img
+                      src={companyLogoGold}
+                      alt="Premier Steels Logo"
+                      className="w-32 h-12 lg:w-52 lg:h-28 transition-all duration-700 ease-in-out"
+                      role="img" // Added role for clarity
+                    />
+                  </div>
                 </NavLink>
-              ))}
+                <div className="text-xl md:text-3xl font-bold">
+                  <button onClick={toggleMenu} className="writing-mode-vertical-rl hover:opacity-20 transition-opacity duration-1000">
+                    CLOSE
+                  </button>
+                </div>
+              </div>
+
+              {/* social links */}
+              <div className="mt-10 md:text-end md:mr-14">
+                <div className="overflow-hidden text-right flex md:justify-end">
+                <NavLink
+                  to="/contact"
+                  className="text-right flex md:justify-end text-5xl lg:text-8xl transition-opacity duration-500 ease-in-out w-fit"
+                  onMouseEnter={(e) => {
+                    const items = document.querySelectorAll(".menu-item");
+                    items.forEach((item) => {
+                      if (item !== e.target) {
+                        item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                      }
+                    });
+                  }}
+                  onMouseLeave={() => {
+                    const items = document.querySelectorAll(".menu-item");
+                    items.forEach((item) => {
+                      item.style.opacity = "1"; // Reset opacity on hover out
+                    });
+                  }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <div className="menu-item w-fit"
+                  >
+                  CONTACT
+                  </div>
+                </NavLink>
+                </div>
+
+                {/* Social Media Links */}
+                <div className="flex gap-4 mt-2 text-sm md:text-lg md:justify-end overflow-hidden">
+                  <NavLink
+                    to={companyInsta}
+                    className="menu-item transition-opacity duration-500 ease-in-out"
+                    target="_blank" // Opens in a new tab
+                    onMouseEnter={(e) => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        if (item !== e.target) {
+                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                        }
+                      });
+                    }}
+                    onMouseLeave={() => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        item.style.opacity = "1"; // Reset opacity on hover out
+                      });
+                    }}
+                  >
+                    INSTAGRAM
+                  </NavLink>
+
+
+                  <NavLink
+                    to="https://www.facebook.com/yourCompany" // Replace with actual Facebook link
+                    className="menu-item transition-opacity duration-500 ease-in-out"
+                    target="_blank" // Opens in a new tab
+                    onMouseEnter={(e) => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        if (item !== e.target) {
+                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                        }
+                      });
+                    }}
+                    onMouseLeave={() => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        item.style.opacity = "1"; // Reset opacity on hover out
+                      });
+                    }}
+                  >
+                    FACEBOOK
+                  </NavLink>
+                </div>
+              </div>
+
+            </div>
+
+
+            {/* middle navitems */}
+            <div className="flex flex-col gap-1 md:hidden">
+              {navLists.map((data, index) =>
+                data.pos === 'middle' && (
+                  <NavLink
+                    key={index}
+                    to={data.path}
+                    className="flex justify-end text-right overflow-hidden text-5xl lg:text-6xl transition-opacity duration-500 ease-in-out"
+                    onMouseEnter={(e) => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        if (item !== e.target) {
+                          item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                        }
+                      });
+                    }}
+                    onMouseLeave={() => {
+                      const items = document.querySelectorAll(".menu-item");
+                      items.forEach((item) => {
+                        item.style.opacity = "1"; // Reset opacity on hover out
+                      });
+                    }}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <div className="menu-item w-fit">
+                    {data.name}
+                  </div>
+                  </NavLink>
+                )
+              )}
+            </div>
+
+
+            {/* Footer Links */}
+            <div>
+
+              {/* desktop bottom alignment */}
+              <div className="flex md:justify-between items-end">
+                <div className="hidden md:flex flex-col">
+                  {navLists.map((data, index) =>
+                    data.pos === 'middle' && (
+                      <NavLink
+                        key={index}
+                        to={data.path}
+                        className=" overflow-hidden text-5xl md:text-8xl transition-opacity duration-500 ease-in-out"
+                        onMouseEnter={(e) => {
+                          const items = document.querySelectorAll(".menu-item");
+                          items.forEach((item) => {
+                            if (item !== e.target) {
+                              item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                            }
+                          });
+                        }}
+                        onMouseLeave={() => {
+                          const items = document.querySelectorAll(".menu-item");
+                          items.forEach((item) => {
+                            item.style.opacity = "1"; // Reset opacity on hover out
+                          });
+                        }}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        <div className="menu-item w-fit">
+                    {data.name}
+                  </div>
+                      </NavLink>
+                    )
+                  )}
+                </div>
+                <div className="flex flex-col md:mr-14 md:text-right">
+                  {navLists.map((data, index) =>
+                    data.pos === 'last' && (
+                      <NavLink
+                        key={index}
+                        to={data.path}
+                        className=" overflow-hidden text-sm md:text-4xl font-medium transition-opacity duration-500 ease-in-out"
+                        onMouseEnter={(e) => {
+                          const items = document.querySelectorAll(".menu-item");
+                          items.forEach((item) => {
+                            if (item !== e.target) {
+                              item.style.opacity = "0.2"; // Dull effect for non-hovered items
+                            }
+                          });
+                        }}
+                        onMouseLeave={() => {
+                          const items = document.querySelectorAll(".menu-item");
+                          items.forEach((item) => {
+                            item.style.opacity = "1"; // Reset opacity on hover out
+                          });
+                        }}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                         <div className="menu-item w-fit">
+                    {data.name}
+                  </div>
+                      </NavLink>
+                    )
+                  )}
+                </div>
+              </div>
+
+              <div className="flex gap-3 text-[.6rem] md:text-xs font-normal text-selGray justify-between md:justify-normal mt-4 md:mt-7">
+                <p>PRIVACY POLICY</p>
+                <p>COMMERCIAL COPYRIGHT</p>
+              </div>
             </div>
           </div>
-
-          <div className='mt-10 animate-pulse flex md:hidden justify-center md:justify-start'>
-            <a
-              href={`mailto:${companyEmail}`}
-              className="px-2 md:px-6 py-1 md:py-3 rounded-md md:rounded-xl text-green
-      hover:bg-white hover:text-black transition-colors duration-300 text-sm md:text-base uppercase border border-dashed border-selGray"
-            >
-              {companyEmail}
-            </a>
-          </div>
         </div>
-      </div>
-    </nav>
-
+      )}
+    </div>
   );
 };
 

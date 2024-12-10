@@ -27,16 +27,35 @@ export default {
         selBlack: "#101010",
         oldBorderColor: "#ffffff59",
         borderColor: "#908f8f",
-        
+
         borderColor2: "#ffffffce",
         borderColor3: "#d6d6d6",
         zinc: "#232222",
         // gray: "#555555",
         lineGray: "#656565",
         selWhite: "#F2F1EF",
+        selWhite: "#F2F1EF",
+        formColor: "#f2f2f2",
+        formTextColor: "#0003",
+        formDropdownColor: "#0006",
+
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.writing-mode-vertical-rl': {
+          'writing-mode': 'vertical-rl',
+        },
+        '.writing-mode-normal': {
+          'writing-mode': 'horizontal-tb',
+        },
+        '.text-orientation-upright': {
+          'text-orientation': 'upright',
+        },
+      });
+    },
+  ],
 }
 
