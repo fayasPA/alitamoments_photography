@@ -59,7 +59,7 @@ const Footer = () => {
 
         {!isContactPage && <div className="text-xl md:text-3xl fix-btn-wrapper font-bold" style={{ zIndex: 3, transform: "translate(0px, 0px)", scale: 'none', rotate: 'none', translate: 'none' }}>
 
-          <NavLink to='/contact' className="writing-mode-vertical-rl uppercase rotate-180">
+          <NavLink to='/contact' className="[writing-mode:vertical-lr] uppercase rotate-180">
             CONTACT
           </NavLink>
         </div>}

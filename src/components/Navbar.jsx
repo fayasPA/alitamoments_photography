@@ -43,13 +43,16 @@ const Navbar = () => {
       </div>
 
 
-      <div className="fixed top-3 md:top-5 right-2 md:right-5 h-fit w-fit text-white fix-btn mix-blend-difference" style={{ zIndex: 3 }}>
+      <div className="fixed top-3 md:top-5 right-2 md:right-5 h-fit w-fit text-white fix-btn mix-blend-difference " style={{ zIndex: 3 }}>
         <div className="">
           <div
-            className="fix-btn-wrapper z-30 writing-mode-vertical-rl font-bold text-xl md:text-3xl uppercase cursor-pointer"
+            className="fix-btn-wrapper font-bold text-xl md:text-3xl uppercase cursor-pointer"
             onClick={toggleMenu} // Toggle rotation on click
           >
-            menu
+            <div class="flex justify-center items-center text-center w-full h-full"
+            >
+              <p class="[writing-mode:vertical-lr]">MENU</p>
+            </div>
           </div>
         </div>
       </div>
@@ -73,8 +76,11 @@ const Navbar = () => {
                   </div>
                 </NavLink>
                 <div className="text-xl md:text-3xl font-bold">
-                  <button onClick={toggleMenu} className="writing-mode-vertical-rl hover:opacity-20 transition-opacity duration-1000">
-                    CLOSE
+                  <button onClick={toggleMenu} className=" hover:opacity-20 transition-opacity duration-1000">
+                    <div class="flex justify-center items-center text-center w-full h-full"
+                    >
+                      <p class="[writing-mode:vertical-lr]">CLOSE</p>
+                    </div>
                   </button>
                 </div>
               </div>
