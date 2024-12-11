@@ -83,7 +83,7 @@ const Loader = () => {
       >
         {/* Large Screen Text */}
         <div className='overflow-hidden'>
-          <div className="writing-mode-vertical-rl md:writing-mode-normal"
+          <div className="[writing-mode:vertical-lr] md:writing-mode-normal"
             ref={textContainerRef}
           >
             <img
