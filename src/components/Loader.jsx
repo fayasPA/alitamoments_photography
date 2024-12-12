@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold } from '../utils/Constants';
+import { companyLogo, companyLogoBlack, companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold } from '../utils/Constants';
 
 const Loader = () => {
   const [percentage, setPercentage] = useState(0);
@@ -87,7 +87,7 @@ const Loader = () => {
             ref={textContainerRef}
           >
             <img
-              src={companyLogoStraightLineBlack}
+              src={companyLogoBlack}
               alt="Company Logo"
               className="w-64 h-auto lg:w-[40rem] lg:max-h-96"
             />

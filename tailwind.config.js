@@ -6,10 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   karla: ['Karla', 'sans-serif'],
-      //   roboto: ['Roboto', 'sans-serif'],
-      // },
+      fontFamily: {
+        poiret: ['Poiret One', 'sans-serif'],
+        cyfletech: ['Doto', 'sans-serif'],
+      },
       colors: {
         selGray: {
           DEFAULT: "#525252",

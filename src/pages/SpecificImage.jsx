@@ -87,7 +87,7 @@ const SpecificImage = () => {
                 {cards.name}
               </p>
               </div>
-              <div className='text-center flex flex-col items-center md:hidden uppercase font-extralight mt-10'>
+              <div className='text-center flex flex-col items-center md:hidden uppercase font-extralight mt-5'>
               <span className="text-[.6rem] font-extralight font-sans">Scroll for more</span>
               <MdKeyboardDoubleArrowDown className="text-xs md:text-xl animate-ping" />
               </div>
