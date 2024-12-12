@@ -8,7 +8,6 @@ import LogoGold from '/assets/images/2-png-gold.png'
 
 export const companyLogo = Logo;
 export const companyLogoBlack = LogoBlack;
-
 export const companyLogoGold = LogoGold;
 export const companyLogoStraightLineGold = singleLineLogo;
 export const companyLogoStraightLineBlack = singleLineLogoblack;
@@ -32,5 +31,12 @@ export const navLists = [
     { name: 'FAQ', path: '/faq', order: 3, pos: 'last' },
     { name: 'About Us', path: '/about', order: 4,pos: 'middle' },
     { name: 'Contact', path: '/contact', order: 5, pos: 'first' },
+    { name: 'Search', path: '/search', order: 5, pos: 'last' },
+];
+
+export const homeNavLists = [
+    { name: 'Portfolio', path: '/portfolio', order: 1, pos: 'middle' },
+    { name: 'FAQ', path: '/faq', order: 3, pos: 'last' },
+    { name: 'About Us', path: '/about', order: 4,pos: 'middle' },
     { name: 'Search', path: '/search', order: 5, pos: 'last' },
 ];

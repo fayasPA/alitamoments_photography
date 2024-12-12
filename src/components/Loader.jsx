@@ -16,7 +16,7 @@ const Loader = () => {
     // Initial setup
     if (window.innerWidth <= 768) {
       gsap.set(textContainerRef.current, {
-        y: '300', // Start completely below the screen
+        y: '100%', // Start completely below the screen
         opacity: 1,
       });
 
@@ -39,7 +39,7 @@ const Loader = () => {
       );
     } else {
       gsap.set(textContainerRef.current, {
-        y: '300', // Start completely below the screen
+        y: '120%', // Start completely below the screen
         opacity: 1,
       });
 
