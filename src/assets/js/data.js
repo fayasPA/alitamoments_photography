@@ -37,13 +37,13 @@ export const collections = [
         "collection_link": "https://alitamoments.pixieset.com/shaniagradpics/"
     },
     {
-        "name": "Charlie Cigars",
+        "name": "Charly Cigar Shop",
         "image_url": [
             "https://images.pixieset.com/58820027/2756cd00fd3d6e838a896a6054e5098b-xxlarge.jpg",
             "https://images.pixieset.com/58820027/6bdb74927e2897a8168bc6e071abdeaa-xxlarge.jpg"
         ],
         "id": 5,
-        "collection_link": "https://alitamoments.pixieset.com/charliecigars/"
+        "collection_link": "https://alitamoments.pixieset.com/charlycigarshop/"
     },
     {
         "name": "Ishwarya Grad Pics",
@@ -106,7 +106,7 @@ export const collections = [
             "https://images.pixieset.com/14081407/b80444ec81e17afb122adcb5071dedea-xxlarge.jpg"
         ],
         "id": 12,
-        "collection_link": "https://alitamoments.pixieset.com/piyushgraduation/"
+        "collection_link": "https://alitamoments.pixieset.com/piyushgradpicsre/"
     },
     {
         "name": "Kishore Birthday Final Edit",
@@ -151,7 +151,7 @@ export const collections = [
             "https://images.pixieset.com/59506508/c6164344976067a59b5c7a965302dcf6-xxlarge.jpg"
         ],
         "id": 17,
-        "collection_link": "https://alitamoments.pixieset.com/kishorebirthday-samedayedits/"
+        "collection_link": "https://alitamoments.pixieset.com/kishorebirthday-samedayedits-1/"
     },
     {
         "name": "MACF SAMPLES",
@@ -206,7 +206,7 @@ export const collections = [
             "https://images.pixieset.com/43783917/0613d9253e053303787886f9d39cfbe5-xxlarge.jpg"
         ],
         "id": 23,
-        "collection_link": "https://alitamoments.pixieset.com/utpotraits/"
+        "collection_link": "https://alitamoments.pixieset.com/utportraits/"
     },
     {
         "name": "Izza first Birthday",
@@ -224,7 +224,7 @@ export const collections = [
             "https://images.pixieset.com/77704017/cfa6e39df364ed7c0737bf0d81bce497-xxlarge.jpg"
         ],
         "id": 25,
-        "collection_link": "https://alitamoments.pixieset.com/elidinagraduation/"
+        "collection_link": "https://alitamoments.pixieset.com/eldinagraduation/"
     },
     {
         "name": "Lilians Birthday",
@@ -233,7 +233,7 @@ export const collections = [
             "https://images.pixieset.com/20522017/c15a92086586a7d4c96eb9c2772162e2-xxlarge.jpg"
         ],
         "id": 26,
-        "collection_link": "https://alitamoments.pixieset.com/liliansbirthday/"
+        "collection_link": "https://alitamoments.pixieset.com/lilianbirthday/"
     },
     {
         "name": "Baptism",
@@ -251,7 +251,7 @@ export const collections = [
             "https://images.pixieset.com/13594307/2bd977120e660b3c2625dceb556945c3-xxlarge.jpg"
         ],
         "id": 28,
-        "collection_link": "https://alitamoments.pixieset.com/norahbirthday/"
+        "collection_link": "https://alitamoments.pixieset.com/norahsfirstbirthday/"
     },
     {
         "name": "Raj & Kristen",
@@ -260,7 +260,7 @@ export const collections = [
             "https://images.pixieset.com/42845107/47f88f0fb4c4619f440252b6673f6e53-xxlarge.jpg"
         ],
         "id": 29,
-        "collection_link": "https://alitamoments.pixieset.com/rajandkristen/"
+        "collection_link": "https://alitamoments.pixieset.com/rajandkristenchowdhuryreception/"
     },
     {
         "name": "Bella & Aksa",
@@ -269,7 +269,7 @@ export const collections = [
             "https://images.pixieset.com/23415196/5d3373e43aae8bd771a766429c346e19-xxlarge.jpg"
         ],
         "id": 30,
-        "collection_link": "https://alitamoments.pixieset.com/bellaandaksa/"
+        "collection_link": "https://alitamoments.pixieset.com/bellaandaksagradpics/"
     },
     {
         "name": "Jerome weds janice",
@@ -278,7 +278,7 @@ export const collections = [
             "https://images.pixieset.com/41505286/e2e653604ba6084bb529720574a9b76a-xxlarge.jpg"
         ],
         "id": 31,
-        "collection_link": "https://alitamoments.pixieset.com/jeromewedsjanice/"
+        "collection_link": "https://alitamoments.pixieset.com/jeromeandjanicewedding/"
     },
     {
         "name": "Jowin Baptism",
@@ -296,7 +296,7 @@ export const collections = [
             "https://images.pixieset.com/65514917/8395d187f6756a8d75df8e00335df603-xxlarge.jpg"
         ],
         "id": 33,
-        "collection_link": "https://alitamoments.pixieset.com/utpotrait/"
+        "collection_link": "https://alitamoments.pixieset.com/utportraits/"
     }
 ]
 

@@ -114,7 +114,7 @@ const SpecificImage = () => {
 
 
           ))}
-          <RightCard />
+          <RightCard link={cards.collection_link}/>
         </div>
       </div>
     </section>
