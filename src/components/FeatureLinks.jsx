@@ -72,7 +72,7 @@ const FeatureLinks = () => {
                   {item.name}
                 </NavLink>
               </div>
-              <div className="border border-dotted relative flex items-center justify-center mt-1 md:mt-3 mx-2 md:mx-4"></div>
+              <div className="border  border-borderColor relative flex items-center justify-center mt-1 md:mt-3 mx-2 md:mx-4"></div>
             </div>
           ))}
         </div>
