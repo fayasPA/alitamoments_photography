@@ -46,9 +46,10 @@ const FeatureLinks = () => {
 
         <div className="space-y-4 uppercase">
           {homeNavLists.map((item, index) => (
-            <div className="feature-link">
+            <div
+               key={index}
+             className="feature-link">
               <div
-                key={index}
                 className="feature-item text-center flex flex-col items-center"
               >
                 <NavLink to={item.path} className="menu-item text-3xl md:text-7xl font-bold"

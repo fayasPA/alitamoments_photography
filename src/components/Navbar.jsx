@@ -49,9 +49,9 @@ const Navbar = () => {
             className="fix-btn-wrapper font-bold text-xl md:text-3xl uppercase cursor-pointer"
             onClick={toggleMenu} // Toggle rotation on click
           >
-            <div class="flex justify-center items-center text-center w-full h-full"
+            <div className="flex justify-center items-center text-center w-full h-full"
             >
-              <p class="[writing-mode:vertical-lr]">MENU</p>
+              <p className="[writing-mode:vertical-lr]">MENU</p>
             </div>
           </div>
         </div>
@@ -77,9 +77,9 @@ const Navbar = () => {
                 </NavLink>
                 <div className="text-xl md:text-3xl font-bold">
                   <button onClick={toggleMenu} className=" hover:opacity-20 transition-opacity duration-1000">
-                    <div class="flex justify-center items-center text-center w-full h-full"
+                    <div className="flex justify-center items-center text-center w-full h-full"
                     >
-                      <p class="[writing-mode:vertical-lr]">CLOSE</p>
+                      <p className="[writing-mode:vertical-lr]">CLOSE</p>
                     </div>
                   </button>
                 </div>
