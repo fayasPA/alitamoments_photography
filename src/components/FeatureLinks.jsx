@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
+import { homeNavLists, homePageBgImg } from "../utils/Constants";
+import { LuMoveRight } from "react-icons/lu";
+import { NavLink } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
 const FeatureLinks = () => {
+
   useEffect(() => {
     const animation = gsap.timeline({
       scrollTrigger: {
         trigger: ".feature-links",
-        start: "top center",
-        end: "bottom center",
+        start: "top bottom",
+        end: "top top",
         scrub: 1,
       },
     });
@@ -26,80 +29,56 @@ const FeatureLinks = () => {
     };
   }, []);
 
+
+  useEffect(() => {
+    // GSAP Animation for fade-in and slide-up
+    gsap.fromTo(
+      ".feature-item",
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, stagger: 0.2, duration: 1.2, ease: "power2.out" }
+    );
+  }, []);
+
   return (
-    <div className="feature-links bg-gray-100 py-16">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-center">
-          {/* Feature 1 */}
-          <div className="feature-link w-full md:w-1/4 p-4">
-            <a
-              href="/portfolio"
-              className="block relative overflow-hidden group rounded-lg shadow-lg bg-white"
-            >
-              <div className="relative h-96 ">
-                <img
-                  src="/public/assets/images/portfolio.jpeg"
-                  alt="Portfolio"
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-30 transition-all duration-500"></div>
-              </div>
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-bold text-gray-800 group-hover:text-pink-500 transition-colors">
-                  Portfolio
-                </h2>
-                <p className="text-gray-600">See my work</p>
-              </div>
-            </a>
-          </div>
+    <div className="bg-cover bg-center relative text-white feature-links min-h-screen flex justify-center items-center bg-green-200 "
+      style={{ backgroundImage: `url(${homePageBgImg})` }}>
+      <div className="py-20 md:py-28 px-2 md:px-4 bg-black/60 w-full">
 
-          {/* Feature 2 */}
-          <div className="feature-link w-full md:w-1/4 p-4">
-            <a
-              href="/about"
-              className="block relative overflow-hidden group rounded-lg shadow-lg bg-white"
-            >
-              <div className="relative h-96">
-                <img
-                  src="/public/assets/images/about.jpeg"
+        <div className="space-y-4 uppercase">
+          {homeNavLists.map((item, index) => (
+            <div className="feature-link">
+              <div
+                key={index}
+                className="feature-item text-center flex flex-col items-center"
+              >
+                <NavLink to={item.path} className="menu-item text-3xl md:text-7xl font-bold"
+                onMouseEnter={(e) => {
+                  const items = document.querySelectorAll(".menu-item");
+                  items.forEach((item) => {
+                    if (item !== e.target) {
+                      item.classList.add("navitem-opacity-low"); // Add a class for non-hovered items
+                    }
+                  });
+                }}
+                onMouseLeave={() => {
+                  const items = document.querySelectorAll(".menu-item");
+                  items.forEach((item) => {
+                    item.classList.remove("navitem-opacity-low"); // Remove the class on hover out
+                  });
+                }}
+                >{item.name}</NavLink>
 
-                  alt="About Me"
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-30 transition-all duration-500"></div>
               </div>
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-bold text-gray-800 group-hover:text-pink-500 transition-colors">
-                  About Me
-                </h2>
-                <p className="text-gray-600">Get to know me better</p>
+              <div className=" border border-dotted relative flex items-center justify-center mt-4 md:mt-7">
+                <div className="flex space-x-4 absolute">
+                  <button className="px-2 py-1 text-sm rounded-full bg-borderColor hover:bg-gray-600 transition uppercase">
+                    <LuMoveRight />
+                  </button>
+                </div>
               </div>
-            </a>
-          </div>
 
-          {/* Feature 3 */}
-          <div className="feature-link w-full md:w-1/4 p-4">
-            <a
-              href="/blog"
-              className="block relative overflow-hidden group rounded-lg shadow-lg bg-white"
-            >
-              <div className="relative h-96">
-                <img
-                  src="/public/assets/images/blog.jpeg"
-
-                  alt="Blog"
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-30 transition-all duration-500"></div>
-              </div>
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-bold text-gray-800 group-hover:text-pink-500 transition-colors">
-                  Blog
-                </h2>
-                <p className="text-gray-600">Read about our stories</p>
-              </div>
-            </a>
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

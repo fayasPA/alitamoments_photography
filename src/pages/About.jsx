@@ -11,7 +11,6 @@ const About = () => {
       <div> <AboutSecond /> </div>
       <div><EbinSection /></div>
       <div><SocialFollow/></div>
-
     </>
   )
 }

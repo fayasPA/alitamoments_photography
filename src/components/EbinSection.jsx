@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { companyCEO } from "../utils/Constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,7 +103,7 @@ const EbinSection = () => {
         <div className="relative">
           {/* Main Image */}
           <img
-            src="https://images.pixieset.com/85319848/060d37c5521fe0192ce54dfbd30bcd43-xxlarge.jpeg"
+            src={companyCEO}
             alt="Founder"
             className="main-image w-full h-auto rounded-md object-cover"
           />

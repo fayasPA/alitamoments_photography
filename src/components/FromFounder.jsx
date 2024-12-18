@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutSection = () => {
+const FromFounder = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -120,4 +120,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default FromFounder;

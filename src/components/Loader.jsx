@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold } from '../utils/Constants';
+import { companyLogo, companyLogoBlack, companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold } from '../utils/Constants';
 
 const Loader = () => {
   const [percentage, setPercentage] = useState(0);
@@ -16,7 +16,7 @@ const Loader = () => {
     // Initial setup
     if (window.innerWidth <= 768) {
       gsap.set(textContainerRef.current, {
-        y: '300', // Start completely below the screen
+        y: '100%', // Start completely below the screen
         opacity: 1,
       });
 
@@ -39,7 +39,7 @@ const Loader = () => {
       );
     } else {
       gsap.set(textContainerRef.current, {
-        y: '300', // Start completely below the screen
+        y: '120%', // Start completely below the screen
         opacity: 1,
       });
 
@@ -87,7 +87,7 @@ const Loader = () => {
             ref={textContainerRef}
           >
             <img
-              src={companyLogoStraightLineBlack}
+              src={companyLogoBlack}
               alt="Company Logo"
               className="w-64 h-auto lg:w-[40rem] lg:max-h-96"
             />

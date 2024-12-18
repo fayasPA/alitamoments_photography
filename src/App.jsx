@@ -8,6 +8,7 @@ import Faq from './pages/Faq';
 import Search from './pages/Search';
 import PageTransition from './utils/PageTransition';
 import SpecificImage from './pages/SpecificImage';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   const router = createBrowserRouter(
@@ -18,6 +19,22 @@ function App() {
           element={
             <PageTransition>
               <Home />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/portfolio"
+          element={
+            <PageTransition>
+              <Portfolio />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/specific-image/:collectionId/*"
+          element={
+            <PageTransition>
+              <SpecificImage />
             </PageTransition>
           }
         />
@@ -53,15 +70,6 @@ function App() {
             </PageTransition>
           }
         />
-        <Route
-          path="/specific-image/:collectionId/*"
-          element={
-            <PageTransition>
-              <SpecificImage />
-            </PageTransition>
-          }
-        />
-
       </Route>
     )
   );

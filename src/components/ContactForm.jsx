@@ -483,7 +483,7 @@ const ContactForm = () => {
             />
             <label
               htmlFor="consent"
-              className="transition-all text-[#0007] text-[.6rem] md:text-base font-normal peer-valid:text-black"
+              className="transition-all text-formTextColor text-[.6rem] md:text-base font-normal peer-checked:text-black"
             >
               I consent for the information submitted above to be recorded and
               stored for the purposes of providing services relating to my inquiry.

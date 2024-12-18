@@ -3,7 +3,7 @@ import { collections } from '../assets/js/data';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import gsap from 'gsap';
 
-const HomeContent = () => {
+const PortfolioContent = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeImage, setActiveImage] = useState({});
   const [isIdle, setIsIdle] = useState(false); // Track idle state
@@ -78,4 +78,4 @@ const HomeContent = () => {
   );
 };
 
-export default HomeContent;
+export default PortfolioContent;
