@@ -27,7 +27,7 @@ const Testimonials = () => {
   ];
   return (
     <>
-      <div className='flex flex-col justify-center items-center py-10 md:py-20 bg-white'>
+      <div className='flex flex-col justify-center items-start px-2 md:px-5 py-10 md:py-20 bg-white'>
       <div className="h-auto">
         <h1 className="text-6xl md:text-[10rem] font-light pb-10 md:pb-10">
           Testimonials
