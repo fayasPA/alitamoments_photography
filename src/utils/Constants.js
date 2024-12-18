@@ -38,6 +38,6 @@ export const navLists = [
 export const homeNavLists = [
     { name: 'Portfolio', path: '/portfolio', order: 1, pos: 'middle' },
     { name: 'FAQ', path: '/faq', order: 3, pos: 'last' },
-    { name: 'About Us', path: '/about', order: 4,pos: 'middle' },
+    { name: 'Services', path: '/about', order: 4,pos: 'middle' },
     { name: 'Search', path: '/search', order: 5, pos: 'last' },
 ];
