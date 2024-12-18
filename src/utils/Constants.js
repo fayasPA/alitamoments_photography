@@ -21,7 +21,8 @@ export const companyInsta = "https://www.instagram.com/alita_moments/"
 export const companyFb = "https://www.instagram.com/alita_moments/"
 // export const companyWhatsApp = "https://www.instagram.com/__fayas_muthaleef__/"
 export const companyCEO = "https://images.pixieset.com/85319848/060d37c5521fe0192ce54dfbd30bcd43-xxlarge.jpeg"
-export const homePageBgImg = "https://images.pixieset.com/22217127/fb2d30e5e5e925163f2fe911d2e2860a-xxlarge.jpg"
+export const homePageBgImg = "https://images.pixieset.com/85319848/20b3aa138bda6b6bb8fc5c4496fd2029-xxlarge.jpg"
+//s"https://images.pixieset.com/22217127/fb2d30e5e5e925163f2fe911d2e2860a-xxlarge.jpg"
 
 
 
