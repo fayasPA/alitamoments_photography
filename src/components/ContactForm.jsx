@@ -363,7 +363,7 @@ const ContactForm = () => {
             {isOpenBudgets && (
               <div className="absolute left-5 md:left-7 rounded-2xl top-full w-fit pr-3 z-20 bg-white shadow-lg">
                 <ul className="text-formDropdownColor space-y-2 pl-3 pr-5 py-4 text-xs md:text-base">
-                  {["8k-20k", "20k-30k", "more than 30k"].map(
+                  {["Less than 1k","1k-10k", "10k-20k", "more than 20k"].map(
                     (eventType) => (
                       <li
                         key={eventType}
