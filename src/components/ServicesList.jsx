@@ -21,7 +21,7 @@ const ServicesList = () => {
                 >
                   <div className="flex justify-between items-center mb-4 md:gap-3">
                     <h3 className="text-lg md:text-5xl font-bold">{item.title}</h3>
-                    <span className="text-amber-700 text-xl md:text-4xl">{item.price}</span>
+                    <span className="text-[#bca55a] text-xl md:text-4xl">{item.price}</span>
                   </div>
                   <p className="text-gray-300 text-sm md:text-2xl">{item.description}</p>
                 </div>

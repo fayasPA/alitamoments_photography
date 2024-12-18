@@ -157,7 +157,7 @@ const Footer = () => {
         className=" text-black px-8 flex flex-col justify-between md:justify-between min-h-screen"
       >
         <div className="flex flex-col md:flex-row w-full justify-between mt-20 md:mt-0">
-          <div className="order-2 md:order-1 md:pt-28 font-poiret font-bold text-lg md:text-2xl">
+          <div className="order-2 md:order-1 md:pt-28 font-poiret font-bold text-lg md:text-2xl pb-3 md:pb-0">
             <div className="flex justify-center md:justify-start items-center gap-1">
               <IoCallOutline className="text-xs md:text-2xl" />
               {companyPhoneNoInt}
@@ -175,10 +175,7 @@ const Footer = () => {
           <div className="footer-nav-links">
             <nav className="text-4xl md:text-8xl uppercase font-bold flex flex-col">
               {navLists.map((item, index) => (
-                // <a key={item.name} href="#" className="block ">
-                //   {item.name}
-                // </a>
-                <NavLink key={index} to={item.path} className="w-fit footer-nav-item text-5xl md:text-8xl font-bold footer-nav-link"
+                <NavLink key={index} to={item.path} className="w-fit footer-nav-item text-6xl md:text-8xl font-bold footer-nav-link"
                 onMouseEnter={(e) => {
                   const items = document.querySelectorAll(".footer-nav-item");
                   items.forEach((item) => {
