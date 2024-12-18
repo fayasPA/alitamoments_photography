@@ -40,11 +40,11 @@ const FeatureLinks = () => {
   }, []);
 
   return (
-    <div className="bg-cover bg-center relative text-white feature-links min-h-screen flex justify-center items-center bg-green-200 "
+    <div className="bg-cover bg-center relative text-white feature-links h-screen flex justify-center items-center bg-green-200 "
       style={{ backgroundImage: `url(${homePageBgImg})` }}>
-      <div className="py-1 md:py-28 px-2 md:px-4 bg-black/60 w-full">
+      <div className="h-full bg-black/60 w-full flex justify-center items-center ">
 
-        <div className="space-y-4 uppercase">
+        <div className="space-y-4 uppercase  w-full">
           {homeNavLists.map((item, index) => (
             <div
                key={index}
@@ -70,11 +70,11 @@ const FeatureLinks = () => {
                 >{item.name}</NavLink>
 
               </div>
-              <div className=" border border-dotted relative flex items-center justify-center mt-4 md:mt-7">
+              <div className="  relative flex items-center justify-center mt-4 md:mt-7">
                 <div className="flex space-x-4 absolute">
-                  <button className="px-2 py-1 text-sm rounded-full bg-borderColor hover:bg-gray-600 transition uppercase">
+                  {/* <button className="px-2 py-1 text-sm rounded-full bg-borderColor hover:bg-gray-600 transition uppercase">
                     <LuMoveRight />
-                  </button>
+                  </button> */}
                 </div>
               </div>
 

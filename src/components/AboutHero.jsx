@@ -46,7 +46,7 @@ const AboutHero = () => {
   return (
     <div className="w-full uppercase ">
       {/* Background Image */}
-      <div className="relative w-full h-[90vh] md:h-[200vh]" ref={imageRef}>
+      <div className="relative w-full h-[90vh] md:h-[100vh]" ref={imageRef}>
         <img
           src="https://images.pixieset.com/69137547/00cc3efcd7fb9d14b79c4a01b89df4b1-xxlarge.jpg"
           alt="About Hero"
@@ -66,14 +66,14 @@ const AboutHero = () => {
             <div
               className="header-text text-white text-6xl md:text-[10rem] font-bold"
             >
-              About
+              Services
             </div>
           </div>
           <div className="overflow-hidden">
             <div
               className="header-text text-white text-6xl md:text-[10rem] font-bold"
             >
-              Us
+              
             </div>
           </div>
 
