@@ -42,7 +42,7 @@ const FeatureLinks = () => {
   return (
     <div className="bg-cover bg-center relative text-white feature-links min-h-screen flex justify-center items-center bg-green-200 "
       style={{ backgroundImage: `url(${homePageBgImg})` }}>
-      <div className="py-20 md:py-28 px-2 md:px-4 bg-black/60 w-full">
+      <div className="py-1 md:py-28 px-2 md:px-4 bg-black/60 w-full">
 
         <div className="space-y-4 uppercase">
           {homeNavLists.map((item, index) => (

@@ -66,4 +66,4 @@ const Testimonials = () => {
   );
 }
 
-export default TestimonialSlider;
+export default Testimonials;
