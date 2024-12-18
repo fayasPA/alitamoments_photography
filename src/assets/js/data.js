@@ -319,7 +319,7 @@ export const faqData = [
     {
       question: "WHATS A WEDDING LIKE WITH YOU?",
       answer:
-        "At Bottega 53 Studio, we focus on capturing the true essence of your day, meaning we won't just photograph from a distance. We capture candid, unposed moments that reflect the raw emotions and connections of your day.",
+        "At Alita Moments , we focus on capturing the true essence of your day, meaning we won't just photograph from a distance. We capture candid, unposed moments that reflect the raw emotions and connections of your day.",
     },
     {
       question: "DO YOU SHOOT FILIM OR DIGITAL?",
@@ -329,7 +329,7 @@ export const faqData = [
     {
         question: "DO YOU ALSO DELIVER RAW FILES?",
         answer:
-          "Yes, we can provide raw files upon request, though additional charges may apply as raw files are unprocessed versions of your images.",
+          "Yes, we can provide raw files upon request, though additional charges can apply as raw files are unprocessed versions of your images.",
       },
       {
         question: "DO YOU PHOTOSHOP IMAGES?",
