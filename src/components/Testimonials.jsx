@@ -27,9 +27,14 @@ const Testimonials = () => {
   ];
   return (
     <>
-      <div className='flex justify-center items-center'>
+      <div className='flex flex-col justify-center items-center py-10 md:py-20 bg-white'>
+      <div className="h-auto">
+        <h1 className="text-6xl md:text-[10rem] font-light pb-10 md:pb-10">
+          Testimonials
+        </h1>
+      </div>
         <Swiper
-          slidesPerView={4}
+          // slidesPerView={4}
           spaceBetween={30}
           freeMode={true}
           loop={true}
@@ -40,23 +45,32 @@ const Testimonials = () => {
           pagination={{
             clickable: true,
           }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1, // For small screens
+            },
+            768: {
+              slidesPerView: 4, // For medium and larger screens
+            },
+          }}
           modules={[Autoplay, FreeMode, Pagination]}
-          className="mySwiper w-full h-full bg-white gap-6"
+          className="mySwiper w-full h-full bg-white flex justify-center items-center"
         >
           {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index} className='flex content-center border rounded-lg m-10'>
+          <SwiperSlide key={index} className='flex content-center text-black rounded-lg'>
             <div
-              className={`flex ${
-                index % 2 === 0 ? 'justify-start' : 'justify-end'
-              } items-center h-96 w-full`}
+              className={`border flex flex-col rounded-lg py-4 gap-3 md:gap-4  items-center h-auto w-full`}
             >
               <div
                 className={`${
                   index % 2 === 0 ? 'mt-0 mb-auto' : 'mt-auto mb-0'
-                } w-full border p-4 rounded-lg`}
+                } w-full px-4 rounded-lg`}
               >
-                <p className="text-white">{testimonial.text}</p>
+                <p className="">{`"${testimonial.text}"`}</p>
               </div>
+              <span className='font-poiret font-bold'>
+                {`- ${testimonial.name}`}
+              </span>
             </div>
           </SwiperSlide>
           ))}
