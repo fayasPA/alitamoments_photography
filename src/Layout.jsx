@@ -45,7 +45,7 @@ const Layout = () => {
 
         <Footer />
       </div>
-      {!isLoading && <ScrollToTop />}
+      <ScrollToTop />
     </div>
   );
 };

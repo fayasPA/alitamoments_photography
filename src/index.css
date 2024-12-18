@@ -58,6 +58,13 @@ body::-webkit-scrollbar-thumb {
   transition: opacity 0.5s ease-in-out;
 }
 
+.footer-nav-item {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.footer-nav-item-opacity-low{
+  opacity: 0.4;
+}
 
 
 /* FOOTER end */

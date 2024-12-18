@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { homePageBgImg } from "../utils/Constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,13 +47,13 @@ const AboutHero = () => {
   return (
     <div className="w-full uppercase ">
       {/* Background Image */}
-      <div className="relative w-full h-[90vh] md:h-[100vh]" ref={imageRef}>
+      <div className="relative w-full h-[90vh] md:h-[130vh]" ref={imageRef}>
         <img
-          src="https://images.pixieset.com/69137547/00cc3efcd7fb9d14b79c4a01b89df4b1-xxlarge.jpg"
+          src={homePageBgImg}
           alt="About Hero"
           className="w-full h-full object-cover"
         />
-
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2.5px]"></div>
         <div
           className={`${isSticky ? "absolute md:fixed bottom-0 left-0" : "absolute bottom-0 left-0"
             } mix-blend-difference text-white text-4xl md:text-5xl font-bold pl-4 md:pl-8 py-2 w-fit flex flex-col gap-6`}
@@ -62,7 +63,7 @@ const AboutHero = () => {
             <h1 className="">Explore</h1>
             <MdKeyboardDoubleArrowDown className="text-lg md:text-xl" />
           </div>
-          <div className="overflow-hidden -mb-8 md:-mb-14">
+          <div className="overflow-hidden ">
             <div
               className="header-text text-white text-6xl md:text-[10rem] font-bold"
             >
@@ -73,7 +74,7 @@ const AboutHero = () => {
             <div
               className="header-text text-white text-6xl md:text-[10rem] font-bold"
             >
-              
+
             </div>
           </div>
 
