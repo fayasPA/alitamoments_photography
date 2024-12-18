@@ -342,3 +342,71 @@ export const faqData = [
           "Yes, we are fully insured, including liability insurance, for peace of mind during your events.",
       },
   ];
+
+
+
+ export const servicesData = [
+    {
+      category: "Photography Services",
+      items: [
+        {
+          title: "General Event Photography",
+          price: "$150/hour",
+          description:
+            "Capture the essence of your special occasions, from birthday parties and corporate events to family gatherings. Includes high-quality edited images and professional lighting setup.",
+        },
+        {
+          title: "Weddings & Engagements",
+          price: "$200/hour",
+          description:
+            "Dedicated to preserving your once-in-a-lifetime moments with artistic, storytelling photography. Coverage includes ceremonies, reception, and pre-wedding details. Includes expertly edited photos and lighting equipment.",
+        },
+        {
+          title: "Second Shooter (Additional Photographer)",
+          price: "$75/hour",
+          description:
+            "An extra photographer ensures no moment goes unnoticed, capturing candid shots, different angles, and complementary perspectives.",
+        },
+        {
+          title: "Proposal Shoot (2 Hours)",
+          price: "$450",
+          description:
+            "Designed to document the surprise and joy of your proposal. Includes up to two hours of photography and beautifully edited images to cherish forever.",
+        },
+      ],
+    },
+    {
+      category: "Videography Services",
+      items: [
+        {
+          title: "Live Streaming",
+          price: "$450/camera per session (up to 5 hours)",
+          description:
+            "Broadcast your event in real-time to loved ones who can’t attend. Each session includes setup, professional audio, and video quality. Additional charges apply for sessions exceeding 5 hours.",
+        },
+        {
+          title: "Event Videography",
+          price: "$120/hour per camera",
+          description:
+            "Record your event with cinematic quality. Perfect for weddings, celebrations, or promotional events. Pricing includes professional camera operation and high-quality video capture.",
+        },
+      ],
+    },
+    {
+      category: "Editing Services",
+      items: [
+        {
+          title: "Highlight Video",
+          price: "$250–$350",
+          description:
+            "A 3–5 minute professionally edited video summarizing the best moments of your event, set to music for a cinematic feel.",
+        },
+        {
+          title: "Full-Length Video",
+          price: "$250",
+          description:
+            "A complete, unabridged edit of your event, perfect for reliving every moment as it unfolded.",
+        },
+      ],
+    },
+  ];

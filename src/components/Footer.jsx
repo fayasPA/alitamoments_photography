@@ -91,6 +91,8 @@ const Footer = () => {
       }
     };
   }, []);
+
+  
   return (
     <footer ref={footerDivRef}>
       <div className="fixed bottom-3 md:bottom-5 left-2 md:left-5 h-fit w-fit text-white fix-btn mix-blend-difference" style={{ zIndex: 3 }}>
@@ -152,7 +154,7 @@ const Footer = () => {
 
       <div
         ref={footerRef}
-        className=" text-black px-8 flex flex-col justify-around md:justify-between min-h-screen"
+        className=" text-black px-8 flex flex-col justify-between md:justify-between min-h-screen"
       >
         <div className="flex flex-col md:flex-row w-full justify-between mt-20 md:mt-0">
           <div className="order-2 md:order-1 md:pt-28 font-poiret font-bold text-lg md:text-2xl">
@@ -170,12 +172,28 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex w-full flex-col md:flex-row">
-          <div className="">
-            <nav className="text-4xl md:text-8xl uppercase font-bold">
-              {navLists.map((item) => (
-                <a key={item.name} href="#" className="block ">
-                  {item.name}
-                </a>
+          <div className="footer-nav-links">
+            <nav className="text-4xl md:text-8xl uppercase font-bold flex flex-col">
+              {navLists.map((item, index) => (
+                // <a key={item.name} href="#" className="block ">
+                //   {item.name}
+                // </a>
+                <NavLink key={index} to={item.path} className="w-fit footer-nav-item text-5xl md:text-8xl font-bold footer-nav-link"
+                onMouseEnter={(e) => {
+                  const items = document.querySelectorAll(".footer-nav-item");
+                  items.forEach((item) => {
+                    if (item !== e.target) {
+                      item.classList.add("footer-nav-item-opacity-low"); // Add a class for non-hovered items
+                    }
+                  });
+                }}
+                onMouseLeave={() => {
+                  const items = document.querySelectorAll(".footer-nav-item");
+                  items.forEach((item) => {
+                    item.classList.remove("footer-nav-item-opacity-low"); // Remove the class on hover out
+                  });
+                }}
+                >{item.name}</NavLink>
               ))}
             </nav>
             <div className="mt-4 md:mt-8">
@@ -217,7 +235,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className=" pb-1 md:pb-2 text-center text-xs md:text-sm font-poiret">powered by <span className="uppercase font-cyfletech font-bold">cyfletech</span></div>
+        <div className="pb-1 md:pb-2 text-center text-xs md:text-sm font-poiret">powered by <a href="https://www.cyfletech.com" target="blank" className="uppercase font-cyfletech font-bold">cyfletech</a></div>
 
       </div>
     </footer>

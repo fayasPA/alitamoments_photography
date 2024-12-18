@@ -26,7 +26,7 @@ const SocialFollow = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    <div className="flex flex-col items-center justify-center h-96 md:h-auto md:min-h-screen bg-white">
       <p className="text-gray-400 text-sm md:text-lg mb-8 md:mb-14">
         FOLLOW US ON SOCIAL
       </p>

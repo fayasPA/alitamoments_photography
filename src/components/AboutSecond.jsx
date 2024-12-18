@@ -28,8 +28,8 @@ const LoveExchangeComponent = () => {
   }, [isDesktop]);
 
   return (
-    <div className="love-exchange-container bg-white text-center py-52 md:py-32 h-screen mb-16">
-      <div className="text-black mx-auto flex flex-col justify-center items-center  gap-5 md:gap-16">
+    <div className="love-exchange-container bg-white text-center py-52 md:py-32 h-screen">
+      <div className="text-black mx-auto flex flex-col justify-center items-center gap-5 md:gap-16">
         <div className="text-5xl md:text-[9rem] font-bold ">
           <div className="animated-text flex items-baseline justify-center">
             LOVE
