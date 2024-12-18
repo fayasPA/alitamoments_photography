@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaPinterest, FaInstagram, FaFacebook } from "react-icons/fa";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { companyFb, companyInsta } from "../utils/Constants";
 
 const SocialFollow = () => {
   useEffect(() => {
@@ -32,22 +33,22 @@ const SocialFollow = () => {
       </p>
       <div className="flex justify-center space-x-10 md:space-x-44">
         {/* Pinterest */}
-        <div className="social-icon text-center">
+        {/* <div className="social-icon text-center">
           <FaPinterest className="text-black mx-auto text-3xl md:text-5xl cursor-pointer hover:text-red-500 hover:scale-110  transition-all duration-300" />
           <p className="mt-2 text-black text-sm md:text-base">PINTEREST</p>
-        </div>
+        </div> */}
 
         {/* Instagram */}
-        <div className="social-icon text-center">
+        <button onClick={() => window.open(companyInsta, "_blank")} className="social-icon text-center">
           <FaInstagram className="text-black mx-auto text-3xl md:text-5xl cursor-pointer hover:text-pink-500 hover:scale-110 transition-all duration-300" />
           <p className="mt-2 text-black text-sm md:text-base">INSTAGRAM</p>
-        </div>
+        </button>
 
         {/* Facebook */}
-        <div className="social-icon text-center">
+        <button className="social-icon text-center" onClick={() => window.open(companyFb, "_blank")}>
           <FaFacebook className="text-black mx-auto text-3xl md:text-5xl cursor-pointer hover:text-blue-500 hover:scale-110  transition-all duration-300" />
           <p className="mt-2 text-black text-sm md:text-base">FACEBOOK</p>
-        </div>
+        </button>
       </div>
     </div>
   );
