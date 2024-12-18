@@ -49,9 +49,9 @@ const Testimonials = () => {
         className="mySwiper w-full h-full bg-white flex justify-center items-center"
       >
         {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index} className='flex content-center text-black rounded-lg'>
+          <SwiperSlide key={index} className='flex content-center text-black rounded-lg bg-borderColor2'>
             <div className="border flex flex-col rounded-lg py-4 gap-3 md:gap-4 items-center h-auto w-full">
-            <div className="w-full px-4 rounded-lg">
+            <div className="w-full px-4 rounded-lg text-lg md:text-xl">
                 <p>{`"${testimonial.text}"`}</p>
               </div>
               <div className="flex justify-center items-center text-gold">
@@ -61,7 +61,7 @@ const Testimonials = () => {
                     <span key={starIndex} className="text-gold text-lg text-[#D7BF72]">&#9733;</span>
                   ))}
               </div>
-              <span className="font-poiret font-bold">
+              <span className="font-poiret font-bold text-base md:text-lg">
                 {`- ${testimonial.name}`}
               </span>
 

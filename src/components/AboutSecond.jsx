@@ -38,7 +38,7 @@ const LoveExchangeComponent = () => {
               <img
                 src="https://images.pixieset.com/22217127/e0c283f00b5f92d1c23d62b79dd2ce11-xxlarge.jpg"
                 alt="Love"
-                className="mx-auto  shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
+                className="mx-auto rounded-md md:rounded-lg shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
               />
             </div>
           <div className="animated-text flex items-center justify-center">
@@ -50,9 +50,9 @@ const LoveExchangeComponent = () => {
             {/* Image after LOVE */}
             <div className=" block mx-1 md:mx-2">
               <img
-                src="https://images.pixieset.com/22217127/e0c283f00b5f92d1c23d62b79dd2ce11-xxlarge.jpg"
+                src="https://images.pixieset.com/68866048/94ef6e849e555858a4ce44c150f6bc5d-xxlarge.jpeg"
                 alt="Love"
-                className="mx-auto  shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
+                className="mx-auto rounded-md md:rounded-lg shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
               />
             </div>
           </div>
@@ -64,9 +64,9 @@ const LoveExchangeComponent = () => {
             {/* Image after LOVE */}
             <div className=" block mx-1 md:mx-2">
               <img
-                src="https://images.pixieset.com/22217127/e0c283f00b5f92d1c23d62b79dd2ce11-xxlarge.jpg"
+                src="https://images.pixieset.com/56094518/1234b341de2d6e999cdc89dd6a834891-xxlarge.jpeg"
                 alt="Love"
-                className="mx-auto  shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
+                className="mx-auto rounded-md md:rounded-lg shadow-lg w-8 md:w-24 h-9 md:h-24 object-cover hover:rotate-12 transition-all duration-500"
               />
             </div>
             EXCHANGE

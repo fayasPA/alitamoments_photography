@@ -42,10 +42,10 @@ const FeatureLinks = () => {
       className="bg-cover bg-center relative text-white  feature-links h-[100vh] md:h-[130vh] flex justify-center items-center bg-green-200"
       style={{ backgroundImage: `url(${homePageBgImg})` }}
     >
-      <div className="h-full bg-black/60 w-full flex flex-col justify-center items-center text-center px-4 gap-7 md:gap-28">
+      <div className="h-full bg-black/60 w-full flex flex-col justify-center items-center text-center px-4 gap-7 md:gap-24">
         {/* New text added here */}
-        <h1 className="text-6xl md:text-9xl font-bold font-poiret text-selGold  mb-8">
-          "Crafting memories that are richer than Gold"
+        <h1 className="text-5xl md:text-9xl font-bold font-poiret text-selGold ">
+          "Crafting <span className="">memories</span> that are richer than Gold"
         </h1>
         <div className="space-y-4 uppercase w-full">
           {homeNavLists.map((item, index) => (
