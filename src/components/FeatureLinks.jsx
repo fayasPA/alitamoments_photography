@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { homeNavLists, homePageBgImg } from "../utils/Constants";
+import { homeNavLists, homePageBgImg, testimonialBgImg } from "../utils/Constants";
 import { NavLink } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -40,20 +40,20 @@ const FeatureLinks = () => {
   return (
     <div
       className="bg-cover bg-center relative text-white  feature-links h-[100vh] md:min-h-screen flex justify-center items-center bg-green-200"
-      style={{ backgroundImage: `url(${homePageBgImg})` }}
+      style={{ backgroundImage: `url(${testimonialBgImg})` }}
     >
-      <div className="absolute inset-0 backdrop-blur bg-black/70"></div>
-      <div className="absolute inset-0  w-full flex flex-col justify-center items-center text-center px-4 gap-7 md:gap-44">
-        <h1 className="text-5xl md:text-6xl italic font-quoteFont ">
+      <div className="absolute inset-0 backdrop-blur bg-black/30"></div>
+      <div className="absolute inset-0  w-full flex flex-col justify-center items-center text-center px-4 gap-32 md:gap-44">
+        <h1 className="text-2xl md:text-6xl italic font-quoteFont font-extrabold">
           "Crafting <span className="">memories</span> that are richer than Gold"
         </h1>
-        <div className="-space-y-5 uppercase w-full">
+        <div className="-space-y-3 md:-space-y-5 uppercase w-full">
           {homeNavLists.map((item, index) => (
             <div key={index} className="feature-link">
               <div className="feature-item text-center flex flex-col items-center">
                 <NavLink
                   to={item.path}
-                  className="menu-item text-5xl md:text-9xl font-bold"
+                  className="menu-item text-6xl md:text-9xl font-bold"
                   onMouseEnter={(e) => {
                     const items = document.querySelectorAll(".menu-item");
                     items.forEach((item) => {

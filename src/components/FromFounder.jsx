@@ -12,48 +12,50 @@ const FromFounder = () => {
     const section = sectionRef.current;
 
     // Set up animations for the left and right columns
-    gsap.fromTo(
-      section.querySelector(".left-column"),
-      {
-        opacity: 1,
-        y: 250,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: section.querySelector(".left-column"),
-          start: "top 80%", // Trigger animation when the element is 80% into the viewport
-          end: "bottom 60%",
-          scrub: true, // Smoothens the animation
+    if(window.innerWidth > 768){
+      gsap.fromTo(
+        section.querySelector(".left-column"),
+        {
+          opacity: 1,
+          y: 250,
         },
-      }
-    );
-
-    gsap.fromTo(
-      section.querySelector(".right-column"),
-      {
-        opacity: 0,
-        x: 250,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: section.querySelector(".right-column"),
-          start: "top 80%",
-          end: "bottom 60%",
-          scrub: true, // Smoothens the animation
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: section.querySelector(".left-column"),
+            start: "top 80%", // Trigger animation when the element is 80% into the viewport
+            end: "bottom 60%",
+            scrub: true, // Smoothens the animation
+          },
+        }
+      );
+  
+      gsap.fromTo(
+        section.querySelector(".right-column"),
+        {
+          opacity: 0,
+          x: 250,
         },
-      }
-    );
-
-    // Clean up animations when the component unmounts
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: section.querySelector(".right-column"),
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: true, // Smoothens the animation
+          },
+        }
+      );
+  
+      // Clean up animations when the component unmounts
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    }
   }, []);
 
   return (
