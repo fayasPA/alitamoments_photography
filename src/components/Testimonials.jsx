@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 
 // Import required modules
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+import { homePageBgImg, testimonialBgImg } from '../utils/Constants';
 
 const Testimonials = () => {
   const testimonials = [
@@ -20,9 +21,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className='flex flex-col justify-center items-start px-2 md:px-5 py-10 md:py-20 bg-white'>
-      <div className="h-auto">
-        <h1 className="text-6xl md:text-[10rem] font-light pb-10 md:pb-10">
+    <div className='bg-cover flex relative flex-col justify-center items-start px-2 md:px-5 py-10 md:py-20 text-white'
+      style={{ backgroundImage: `url(${homePageBgImg})` }}
+    >
+      <div className='absolute inset-0 backdrop-blur-sm bg-black/60' />
+      <div className="h-auto z-10">
+        <h1 className="text-5xl md:text-[10rem] font-light pb-10 md:pb-10">
           Testimonials
         </h1>
       </div>
@@ -31,7 +35,7 @@ const Testimonials = () => {
         freeMode={true}
         loop={true}
         autoplay={{
-          delay: 2000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -46,14 +50,18 @@ const Testimonials = () => {
           },
         }}
         modules={[Autoplay, FreeMode, Pagination]}
-        className="mySwiper w-full h-full bg-white flex justify-center items-center"
+        className="mySwiper w-full h-full flex justify-center items-center"
       >
         {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index} className='flex content-center text-black rounded-lg bg-borderColor2'>
-            <div className="border flex flex-col rounded-lg py-4 gap-3 md:gap-4 items-center h-auto w-full">
-            <div className="w-full px-4 rounded-lg text-lg md:text-xl">
+          <SwiperSlide key={index} className='flex content-center rounded-lg bg-black/50'>
+            <div className="flex flex-col rounded-lg py-4 gap-3 md:gap-4 items-center h-auto w-full">
+              <div className="w-full px-4 rounded-lg text-lg md:text-xl">
                 <p>{`"${testimonial.text}"`}</p>
               </div>
+              <div>
+              <span className="text-base md:text-lg">
+                {`- ${testimonial.name}`}
+              </span>
               <div className="flex justify-center items-center text-gold">
                 {Array(5)
                   .fill(0)
@@ -61,9 +69,7 @@ const Testimonials = () => {
                     <span key={starIndex} className="text-gold text-lg text-[#D7BF72]">&#9733;</span>
                   ))}
               </div>
-              <span className="font-poiret font-bold text-base md:text-lg">
-                {`- ${testimonial.name}`}
-              </span>
+              </div>
 
             </div>
           </SwiperSlide>

@@ -154,10 +154,10 @@ const Footer = () => {
 
       <div
         ref={footerRef}
-        className=" text-black px-8 flex flex-col justify-between md:justify-between min-h-screen"
+        className=" text-black md:px-8 flex flex-col justify-between md:justify-between h-auto min-h-screen"
       >
         <div className="flex flex-col md:flex-row w-full justify-between mt-20 md:mt-0">
-          <div className="order-2 md:order-1 md:pt-28 font-poiret font-bold text-lg md:text-2xl pb-3 md:pb-0">
+          <div className="order-2 md:order-1 md:pt-28 font-poiret font-bold text-lg md:text-2xl pb-3 md:pb-0 -space-y-2 md:-space-y-0">
             <div className="flex justify-center md:justify-start items-center gap-1">
               <IoCallOutline className="text-xs md:text-2xl" />
               {companyPhoneNoInt}
@@ -167,13 +167,13 @@ const Footer = () => {
               {companyEmail}
             </div>
           </div>
-          <div className="order-1 md:pt-4 whitespace-break-spaces font-poiret font-bold text-lg md:text-2xl text-center md:text-right md:mr-10">
+          <div className="order-1 md:pt-4 whitespace-break-spaces font-poiret font-bold text-lg md:text-2xl text-center md:text-right md:mr-10 leading-none">
             {companyAddressFooter}
           </div>
         </div>
         <div className="flex w-full flex-col md:flex-row">
           <div className="footer-nav-links">
-            <nav className="text-4xl md:text-8xl uppercase font-bold flex flex-col">
+            <nav className="text-4xl md:text-8xl uppercase font-bold flex flex-col -space-y-3 md:-space-y-3">
               {navLists.map((item, index) => (
                 <NavLink key={index} to={item.path} className="w-fit footer-nav-item text-6xl md:text-8xl font-bold footer-nav-link"
                 onMouseEnter={(e) => {
@@ -190,7 +190,9 @@ const Footer = () => {
                     item.classList.remove("footer-nav-item-opacity-low"); // Remove the class on hover out
                   });
                 }}
-                >{item.name}</NavLink>
+                >
+                  {item.name}
+                </NavLink>
               ))}
             </nav>
             <div className="mt-4 md:mt-8">
@@ -217,7 +219,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <p className="mt-2 md:mt-4 text-xs md:text-sm font-poiret">© ALITA MOMENTS 2024. ALL RIGHTS RESERVED.</p>
+            <p className="pl-1 md:pl-0 mt-0 md:mt-4 text-[.7rem] md:text-sm font-poiret">© ALITA MOMENTS 2024. ALL RIGHTS RESERVED.</p>
 
           </div>
 
@@ -232,7 +234,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="pb-1 md:pb-2 text-center text-xs md:text-sm font-poiret">powered by <a href="https://www.cyfletech.com" target="blank" className="uppercase font-cyfletech font-bold">cyfletech</a></div>
+        <div className="pb-1 md:pb-2 text-center text-xs md:text-sm font-poiret">powered by <a href="https://www.cyfletech.com" target="blank" className="uppercase font-cyfletech font-bold text-[.7rem]">cyfletech</a></div>
 
       </div>
     </footer>

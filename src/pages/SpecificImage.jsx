@@ -33,7 +33,7 @@ const SpecificImage = () => {
     if (window.innerWidth > 768 && cards.length != 0) {
       gsap.to(container, {
         x: () => -(container.scrollWidth - document.documentElement.clientWidth) + 'px',
-        xPercent: -5,  // Scroll horizontally
+        xPercent: -0,  // Scroll horizontally
         ease: 'none',
         scrollTrigger: {
           trigger: '.work-container',
@@ -74,47 +74,34 @@ const SpecificImage = () => {
                 boxShadow: 'inset 1vw 1vw 10rem rgba(0, 0, 0, 1)',
               }}
             />
-
-            {/* <div className="relative z-10 text-center">
-              <p className="text-xl md:text-4xl uppercase text-white md:text-black">
-                {cards.name}
-              </p>
-            </div> */}
-
             <div className="block text-xl relative z-10 text-white md:text-black">
               <div>
-              <p className="text-xl md:text-4xl uppercase">
-                {cards.name}
-              </p>
+                <p className="text-xl md:text-7xl uppercase text-center">
+                  {cards.name}
+                </p>
               </div>
               <div className='text-center flex flex-col items-center md:hidden uppercase font-extralight mt-5'>
-              <span className="text-[.6rem] font-extralight font-sans">Scroll for more</span>
-              <MdKeyboardDoubleArrowDown className="text-xs md:text-xl animate-ping" />
+                <span className="text-[.6rem] font-extralight font-sans">Scroll for more</span>
+                <MdKeyboardDoubleArrowDown className="text-xs md:text-xl animate-ping" />
               </div>
             </div>
-
-
           </div>
 
           {/* Right side with images */}
           {cards.image_url?.map((image, index) => (
             <div
               key={index}
-              className={`${index === 0 ? 'w-full md:w-[50vw]' : 'w-full md:w-[40vw]'
-                } ${index > 0 && 'md:pl-[6rem] md:py-[4rem]'} h-screen md:h-full flex justify-center items-center flex-shrink-0`}
+              className={`${index === 0 ? 'w-full md:w-[50vw]' : 'w-full md:w-[50vw]'
+                } ${index > 0 && 'md:pl-[0rem] md:py-[0rem]'} h-screen md:h-full flex justify-center items-center flex-shrink-0`}
             >
               <img
                 src={image}
                 alt={`Card ${index}`}
                 className="w-full h-full object-cover shadow-lg"
               />
-
-
             </div>
-
-
           ))}
-          <RightCard link={cards.collection_link}/>
+          <RightCard link={cards.collection_link} />
         </div>
       </div>
     </section>

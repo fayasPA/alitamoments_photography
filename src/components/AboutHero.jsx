@@ -53,16 +53,11 @@ const AboutHero = () => {
           alt="About Hero"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2.5px]"></div>
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-none"></div>
         <div
           className={`${isSticky ? "absolute md:fixed bottom-0 left-0" : "absolute bottom-0 left-0"
             } mix-blend-difference text-white text-4xl md:text-5xl font-bold pl-4 md:pl-8 py-2 w-fit flex flex-col gap-6`}
         >
-          <div className="hidden md:block text-xl">
-            <span className="">Scroll to</span>
-            <h1 className="">Explore</h1>
-            <MdKeyboardDoubleArrowDown className="text-lg md:text-xl" />
-          </div>
           <div className="overflow-hidden ">
             <div
               className="header-text text-white text-6xl md:text-[10rem] font-bold"
