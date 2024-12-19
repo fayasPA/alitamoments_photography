@@ -9,6 +9,8 @@ export default {
       fontFamily: {
         poiret: ['Poiret One', 'sans-serif'],
         cyfletech: ['Doto', 'sans-serif'],
+        quoteFont: ['Italiana', 'sans-serif'],
+        
       },
       colors: {
         selGray: {

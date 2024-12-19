@@ -154,7 +154,7 @@ const Footer = () => {
 
       <div
         ref={footerRef}
-        className=" text-black px-8 flex flex-col justify-between md:justify-between min-h-screen"
+        className=" text-black md:px-8 flex flex-col justify-between md:justify-between min-h-screen"
       >
         <div className="flex flex-col md:flex-row w-full justify-between mt-20 md:mt-0">
           <div className="order-2 md:order-1 md:pt-28 font-poiret font-bold text-lg md:text-2xl pb-3 md:pb-0">
@@ -173,7 +173,7 @@ const Footer = () => {
         </div>
         <div className="flex w-full flex-col md:flex-row">
           <div className="footer-nav-links">
-            <nav className="text-4xl md:text-8xl uppercase font-bold flex flex-col">
+            <nav className="text-4xl md:text-8xl uppercase font-bold flex flex-col -space-y-3 md:-space-y-3">
               {navLists.map((item, index) => (
                 <NavLink key={index} to={item.path} className="w-fit footer-nav-item text-6xl md:text-8xl font-bold footer-nav-link"
                 onMouseEnter={(e) => {
@@ -190,7 +190,9 @@ const Footer = () => {
                     item.classList.remove("footer-nav-item-opacity-low"); // Remove the class on hover out
                   });
                 }}
-                >{item.name}</NavLink>
+                >
+                  {item.name}
+                </NavLink>
               ))}
             </nav>
             <div className="mt-4 md:mt-8">
@@ -217,7 +219,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <p className="mt-2 md:mt-4 text-xs md:text-sm font-poiret">© ALITA MOMENTS 2024. ALL RIGHTS RESERVED.</p>
+            <p className="pl-1 md:pl-0 mt-0 md:mt-4 text-[.7rem] md:text-sm font-poiret">© ALITA MOMENTS 2024. ALL RIGHTS RESERVED.</p>
 
           </div>
 
