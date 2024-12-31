@@ -33,15 +33,17 @@ export const testimonialBgImg = "https://images.pixieset.com/22217127/272b06aebd
 export const navLists = [
     { name: 'Home', path: '/', order: 1, pos: 'middle' },
     { name: 'Portfolio', path: '/portfolio', order: 1, pos: 'middle' },
-    { name: 'Services', path: '/about', order: 4,pos: 'middle' },
+    { name: 'Services', path: '/services', order: 4,pos: 'middle' },
     { name: 'Contact', path: '/contact', order: 5, pos: 'first' },
     { name: 'FAQ', path: '/faq', order: 3, pos: 'last' },
+    { name: 'About', path: '/about', order: 5, pos: 'last' },
     { name: 'Search', path: '/search', order: 5, pos: 'last' },
 ];
 
 export const homeNavLists = [
     { name: 'Portfolio', path: '/portfolio', order: 1, pos: 'middle' },
-    { name: 'Services', path: '/about', order: 4,pos: 'middle' },
+    { name: 'Services', path: '/services', order: 4,pos: 'middle' },
+    { name: 'About', path: '/about', order: 5, pos: 'last' },
     { name: 'FAQ', path: '/faq', order: 3, pos: 'last' },
     { name: 'Search', path: '/search', order: 5, pos: 'last' },
 ];

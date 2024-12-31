@@ -1,20 +1,13 @@
 import React from 'react'
 import AboutHero from '../components/AboutHero'
-import AboutSecond from '../components/AboutSecond'
-import EbinSection from '../components/EbinSection'
-import SocialFollow from '../components/SocialFollow'
-import ServicesList from '../components/ServicesList'
+import FromFounder from '../components/FromFounder'
 
 const About = () => {
   return (
-    <>
-    <div > <AboutHero /> </div>
-
-      <div><ServicesList /></div>
-
-      <div> <AboutSecond /> </div>
-      {/* <div><EbinSection /></div> */}
-    </>
+    <section className='bg-black'>
+        <div > <AboutHero /> </div>
+        <div><FromFounder /></div>
+    </section>
   )
 }
 

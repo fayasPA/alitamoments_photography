@@ -6,7 +6,7 @@ import { useMediaQuery } from "@react-hooks-library/core";
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const LoveExchangeComponent = () => {
+const ServicesFooter = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
@@ -84,4 +84,4 @@ const LoveExchangeComponent = () => {
   );
 };
 
-export default LoveExchangeComponent;
+export default ServicesFooter;

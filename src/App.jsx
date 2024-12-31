@@ -3,12 +3,13 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, u
 import Layout from './Layout';
 import Home from './pages/Home';
 import Contacts from './pages/Contacts';
-import About from './pages/About';
+import Services from './pages/Services';
 import Faq from './pages/Faq';
 import Search from './pages/Search';
 import PageTransition from './utils/PageTransition';
 import SpecificImage from './pages/SpecificImage';
 import Portfolio from './pages/Portfolio';
+import About from './pages/About';
 
 function App() {
   const router = createBrowserRouter(
@@ -59,6 +60,14 @@ function App() {
           element={
             <PageTransition>
               <Search />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <PageTransition>
+              <Services />
             </PageTransition>
           }
         />
