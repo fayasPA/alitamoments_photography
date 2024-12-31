@@ -5,7 +5,7 @@ import singleLineLogoblack from '/assets/images/logoblack.png'
 import LogoGold from '/assets/images/2-png-gold.png'
 // import LogoGold from '/assets/images/logogold.png'
 
-
+export const loaderImg = "https://images.pixieset.com/85319848/e5ff753186ffa548901c5a21e14163af-xxlarge.png"
 export const companyLogo = Logo;
 export const companyLogoBlack = LogoBlack;
 export const companyLogoGold = LogoGold;

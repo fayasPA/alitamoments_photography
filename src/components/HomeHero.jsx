@@ -8,7 +8,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // Import required modules
-import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode } from 'swiper/modules';
 import { homePageSwiperData } from '../assets/js/data';
 import { useNavigate } from 'react-router-dom';
 
@@ -45,9 +45,6 @@ const HomeHero = () => {
                     disableOnInteraction: false,
                 }}
                 speed={5000}
-                pagination={{
-                    clickable: true,
-                }}
                 breakpoints={{
                     0: {
                         slidesPerView: 1, // For small screens
@@ -56,7 +53,7 @@ const HomeHero = () => {
                         slidesPerView: 4, // For medium and larger screens
                     },
                 }}
-                modules={[Autoplay, FreeMode, Pagination]}
+                modules={[Autoplay, FreeMode]}
                 className="mySwiper w-full h-full flex justify-center items-center"
             >
                 {homePageSwiperData.map((collection, index) => {
@@ -64,7 +61,7 @@ const HomeHero = () => {
                     const currentImage = activeImage[index] ?? 0;
 
                     return (
-                        <SwiperSlide key={index} className='flex content-center h-full bg-selRedDark'>
+                        <SwiperSlide key={index} className='flex content-center h-full'>
                             <div
                                 key={index}
                                 className="group relative h-full" // Add class for GSAP animation
@@ -80,9 +77,9 @@ const HomeHero = () => {
                                         }`}
                                 />
                                 {/* Name */}
-                                <div className="font-bold text-xs md:text-xl uppercase absolute bottom-0 left-0 right-0 text-transparent transition-all duration-300 group-hover:text-white pl-2 text-start ease-in-out">
+                                {/* <div className="font-bold text-xs md:text-xl uppercase absolute bottom-0 left-0 right-0 text-transparent transition-all duration-300 group-hover:text-white pl-2 text-start ease-in-out">
                                     {collection.name}
-                                </div>
+                                </div> */}
                             </div>
                         </SwiperSlide>
                     );
