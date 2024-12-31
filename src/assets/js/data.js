@@ -330,13 +330,13 @@ export const homePageSwiperData = [
         "collection_link": "https://alitamoments.pixieset.com/alexiswedding/"
     },
     {
-        "name": "Shania Grad Pics",
+        "name": "Bhanu & Yasaswi Grad Pics",
         "image_url": [
-            "https://images.pixieset.com/95643847/d00a857cb7a83f0d8e612f5164e8ca19-xxlarge.jpg",
-            "https://images.pixieset.com/95643847/1299795016ba7cdb31d0a2f5824296cd-xxlarge.jpg"
+            "https://images.pixieset.com/46657647/143b5d8393f2c37358d4ada7505c9a66-xxlarge.jpg",
+            "https://images.pixieset.com/46657647/94615f9c3ed12b1490bc5b375a5d6258-xxlarge.jpg"
         ],
-        "id": 4,
-        "collection_link": "https://alitamoments.pixieset.com/shaniagradpics/"
+        "id": 9,
+        "collection_link": "https://alitamoments.pixieset.com/bhanuandyasaswigradpics/"
     },
     {
         "name": "Charly Cigar Shop",
