@@ -44,7 +44,7 @@ const HomeHero = () => {
                     delay: 1,
                     disableOnInteraction: false,
                 }}
-                speed={10000}
+                speed={5000}
                 breakpoints={{
                     0: {
                         slidesPerView: 1, // For small screens
@@ -65,16 +65,15 @@ const HomeHero = () => {
                             <div
                                 key={index}
                                 className="group relative h-full" // Add class for GSAP animation
-                                onMouseEnter={() => handleMouseEnter(index)}
-                                onMouseLeave={() => handleMouseLeave(index)}
+                                // onMouseEnter={() => handleMouseEnter(index)}
+                                // onMouseLeave={() => handleMouseLeave(index)}
                                 onClick={() => handleImageClick(collection.id)} // Handle click
                             >
                                 {/* Image */}
                                 <img
                                     src={collection.image_url[currentImage]}
                                     alt={collection.name}
-                                    className={`w-full h-full object-cover transition-transform duration-[2000ms] ${isHovered ? 'scale-105' : 'scale-100'
-                                        }`}
+                                    className={`w-full h-full object-cover transition-transform duration-[2000ms] `}
                                 />
                                 {/* Name */}
                                 {/* <div className="font-bold text-xs md:text-xl uppercase absolute bottom-0 left-0 right-0 text-transparent transition-all duration-300 group-hover:text-white pl-2 text-start ease-in-out">

@@ -54,7 +54,7 @@ const Testimonials = () => {
               </div>
               <div>
               <span className="text-base md:text-lg">
-                {`- ${testimonial.name}`}
+                {`${testimonial.name}`}
               </span>
               <div className="flex justify-center items-center text-gold">
                 {Array(5)
