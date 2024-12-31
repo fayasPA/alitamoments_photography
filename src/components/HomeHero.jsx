@@ -44,13 +44,13 @@ const HomeHero = () => {
                     delay: 1,
                     disableOnInteraction: false,
                 }}
-                speed={5000}
+                speed={10000}
                 breakpoints={{
                     0: {
                         slidesPerView: 1, // For small screens
                     },
                     768: {
-                        slidesPerView: 4, // For medium and larger screens
+                        slidesPerView: 1, // For medium and larger screens
                     },
                 }}
                 modules={[Autoplay, FreeMode]}
