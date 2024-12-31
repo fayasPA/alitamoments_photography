@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import LocomotiveScroll from 'locomotive-scroll';
 
 const Layout = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading process
