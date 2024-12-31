@@ -300,6 +300,63 @@ export const collections = [
     }
 ]
 
+export const homePageSwiperData = [
+    {
+        "name": "Priyanka Grad Pics",
+        "image_url": [
+            "https://images.pixieset.com/69137547/3758e982f7e3659d513bcf1c516daadf-xxlarge.jpg",
+            "https://images.pixieset.com/69137547/6779177e76f60531d6cce70b1cba5676-xxlarge.jpg"
+        ],
+        "id": 1,
+        "collection_link": "https://alitamoments.pixieset.com/priyankagradpics/"
+    },
+    {
+        "name": "Baptism Initial Preview",
+        "image_url": [
+            "//images.pixieset.com/68866048/adc92942da5985181d9562c69b6d2b2b-large.jpeg",
+            "https://images.pixieset.com/68866048/c0803d23e4e83941379b5598652d3fa3-xxlarge.jpeg",
+            "https://images.pixieset.com/68866048/94ef6e849e555858a4ce44c150f6bc5d-xxlarge.jpeg"
+        ],
+        "id": 2,
+        "collection_link": "https://alitamoments.pixieset.com/baptisminitialpreview/"
+    },
+    {
+        "name": "Alexis Wedding",
+        "image_url": [
+            "https://images.pixieset.com/22217127/1065ce19099611687c2b78572885e6d9-xxlarge.jpg",
+            "https://images.pixieset.com/22217127/5865eae792688e9edbd59eb3cd6ae216-xxlarge.jpg"
+        ],
+        "id": 3,
+        "collection_link": "https://alitamoments.pixieset.com/alexiswedding/"
+    },
+    {
+        "name": "Shania Grad Pics",
+        "image_url": [
+            "https://images.pixieset.com/95643847/d00a857cb7a83f0d8e612f5164e8ca19-xxlarge.jpg",
+            "https://images.pixieset.com/95643847/1299795016ba7cdb31d0a2f5824296cd-xxlarge.jpg"
+        ],
+        "id": 4,
+        "collection_link": "https://alitamoments.pixieset.com/shaniagradpics/"
+    },
+    {
+        "name": "Charly Cigar Shop",
+        "image_url": [
+            "https://images.pixieset.com/58820027/2756cd00fd3d6e838a896a6054e5098b-xxlarge.jpg",
+            "https://images.pixieset.com/58820027/6bdb74927e2897a8168bc6e071abdeaa-xxlarge.jpg"
+        ],
+        "id": 5,
+        "collection_link": "https://alitamoments.pixieset.com/charlycigarshop/"
+    },
+]
+
+export const testimonialsData = [
+    { id: 1, name: "Anitta Francis.", designation: "Founder of XYZ", text: "Amazing photographer and videographer- love how he’s able to capture people from various cultural backgrounds and myriad events. He also super flexible/willing to work around your schedule. Highly recommend!!", image: "https://via.placeholder.com/150" },
+    { id: 2, name: "Aksa Merin Santhosh.", designation: "Founder of XYZ", text: "Loved working with Ebin for my grad shoot. He was super patient and resourceful and we loved the how everything came out. Would def recommend!!", image: "https://via.placeholder.com/150" },
+    { id: 3, name: "Swathy Philip", designation: "Founder of XYZ", text: "I had the opportunity to closely work with Alita moments couple of times. First was for my wedding, they were jus awesome and also recently for our Boutique shoot.", image: "https://via.placeholder.com/150" },
+    { id: 4, name: "Emil Abraham", designation: "Founder of XYZ", text: "Their ability to capture candid moments with such natural elegance was truly remarkable. The photos and videos turned out absolutely stunning, with every detail beautifully preserved. It’s clear they use top-notch equipment and have a real passion for storytelling through their work. If you’re looking for someone who will go above and beyond to make your special moments unforgettable, I highly recommend Alita Moments. They are a joy to work with and deliver exceptional quality every time!", image: "https://via.placeholder.com/150" },
+    { id: 5, name: "Melvin Biju", designation: "Founder of XYZ", text: "Ebin took my grad pics in dec ‘23 and those were some of the best pics of me ever taken. He was so considerate of my wishes and also helped me pose and be more comfortable. He tried different shots and different angles, and in the end I had a variety of edited finished pics. I’m so so happy with the result and I’d 100% recommend him!!", image: "https://via.placeholder.com/150" },
+  ];
+
 export const faqData = [
     {
       question: "WHAT IS THE BOOKING PROCESS?",

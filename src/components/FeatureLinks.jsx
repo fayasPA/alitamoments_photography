@@ -43,7 +43,7 @@ const FeatureLinks = () => {
       style={{ backgroundImage: `url(${testimonialBgImg})` }}
     >
       <div className="absolute inset-0 backdrop-blur bg-black/30"></div>
-      <div className="absolute inset-0  w-full flex flex-col justify-center items-center text-center px-4 gap-32 md:gap-44">
+      <div className="absolute inset-0  w-full flex flex-col justify-center items-center text-center px-4 gap-32 md:gap-36">
         <h1 className="text-2xl md:text-6xl italic font-quoteFont font-extrabold">
           "Crafting <span className="">memories</span> that are richer than Gold"
         </h1>

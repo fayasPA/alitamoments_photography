@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { companyLogo, companyLogoBlack, companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold } from '../utils/Constants';
+import { companyLogo, companyLogoBlack, companyLogoGold, companyLogoStraightLineBlack, companyLogoStraightLineGold, loaderImg } from '../utils/Constants';
 
 const Loader = () => {
   const [percentage, setPercentage] = useState(0);
@@ -83,11 +83,11 @@ const Loader = () => {
       >
         {/* Large Screen Text */}
         <div className='overflow-hidden'>
-          <div className="[writing-mode:vertical-lr] md:writing-mode-normal"
+          <div className=""
             ref={textContainerRef}
           >
             <img
-              src={companyLogoBlack}
+              src={loaderImg ?? companyLogoBlack}
               alt="Company Logo"
               className="w-64 h-auto lg:w-[40rem] lg:max-h-96"
             />
